@@ -11593,7 +11593,8 @@ body.modal-open {
 }
 
 /* 2. Main H2 Title & Gradient Bar */
-.city-about-card .city-main-title {
+.city-about-card .city-main-title,
+.city-intro-box h2 {
   color: #0b224d;
   font-size: clamp(1.4rem, 2.3vw, 1.95rem);
   font-weight: 800;
@@ -11602,12 +11603,14 @@ body.modal-open {
   margin-bottom: 0.5rem;
 }
 
-.city-about-card .city-title-highlight {
+.city-about-card .city-title-highlight,
+.city-intro-box h2 span {
   color: #d31018;
   font-weight: 800;
 }
 
-.city-about-card .city-main-title::after {
+.city-about-card .city-main-title::after,
+.city-intro-box h2::after {
   content: '';
   display: block;
   width: 72px;
@@ -11619,7 +11622,11 @@ body.modal-open {
 }
 
 /* 3. Section Titles (H3) */
-.city-about-card .city-section-title {
+.city-about-card .city-section-title,
+.city-why-box h2,
+.city-why-box h3,
+.city-process-box h2,
+.city-process-box h3 {
   color: #0b224d;
   font-size: clamp(1.2rem, 1.7vw, 1.45rem);
   font-weight: 800;
@@ -11634,7 +11641,8 @@ body.modal-open {
 }
 
 /* 4. Overview & Lead Rates Card (Paragraph 1) */
-.city-about-card .city-lead-text {
+.city-about-card .city-lead-text,
+.city-intro-box p:first-of-type {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border: 1px solid #e2e8f0;
   border-left: 5px solid #0b224d;
@@ -11649,7 +11657,8 @@ body.modal-open {
 }
 
 /* 5. Infrastructure & Packing Card (Paragraph 2) */
-.city-about-card .city-infra-text {
+.city-about-card .city-infra-text,
+.city-intro-box p:nth-of-type(2) {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 14px;
@@ -11663,13 +11672,15 @@ body.modal-open {
   transition: all 0.25s ease;
 }
 
-.city-about-card .city-infra-text:hover {
+.city-about-card .city-infra-text:hover,
+.city-intro-box p:nth-of-type(2):hover {
   border-color: #cbd5e1;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(11, 34, 77, 0.06);
 }
 
-.city-about-card .city-infra-text::before {
+.city-about-card .city-infra-text::before,
+.city-intro-box p:nth-of-type(2)::before {
   content: '\F1DE';
   font-family: 'bootstrap-icons' !important;
   position: absolute;
@@ -11688,7 +11699,8 @@ body.modal-open {
 }
 
 /* 6. Why Choose Us Feature Items */
-.city-about-card .city-feature-item {
+.city-about-card .city-feature-item,
+.city-why-box p:not(:last-child) {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-left: 4px solid #ff7a16;
@@ -11702,7 +11714,8 @@ body.modal-open {
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.city-about-card .city-feature-item:hover {
+.city-about-card .city-feature-item:hover,
+.city-why-box p:not(:last-child):hover {
   transform: translateX(5px);
   background: #fffafa;
   border-color: #fca5a5;
@@ -11710,7 +11723,8 @@ body.modal-open {
   box-shadow: 0 8px 24px -4px rgba(211, 16, 24, 0.12);
 }
 
-.city-about-card .city-feature-item strong {
+.city-about-card .city-feature-item strong,
+.city-why-box p:not(:last-child) strong {
   color: #0b224d;
   font-weight: 700;
   font-size: 15.5px;
@@ -11719,7 +11733,8 @@ body.modal-open {
 }
 
 /* 7. Trust / Credential Banner */
-.city-about-card .city-trust-text {
+.city-about-card .city-trust-text,
+.city-why-box p:last-child {
   background: linear-gradient(135deg, #f0fdf4 0%, #f8fafc 100%);
   border: 1px solid #bbf7d0;
   border-left: 5px solid #16a34a;
@@ -11734,7 +11749,8 @@ body.modal-open {
 }
 
 /* 8. Relocation Process Items */
-.city-about-card .city-process-item {
+.city-about-card .city-process-item,
+.city-process-box p:not(:last-child) {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -11750,14 +11766,16 @@ body.modal-open {
   gap: 12px;
 }
 
-.city-about-card .city-process-item:hover {
+.city-about-card .city-process-item:hover,
+.city-process-box p:not(:last-child):hover {
   border-color: #93c5fd;
   background: #fbfdff;
   transform: translateY(-2px);
   box-shadow: 0 8px 22px -4px rgba(11, 34, 77, 0.08);
 }
 
-.city-about-card .city-process-item strong {
+.city-about-card .city-process-item strong,
+.city-process-box p:not(:last-child) strong {
   background: linear-gradient(135deg, #0b224d 0%, #1e3a8a 100%);
   color: #ffffff;
   font-size: 12px;
@@ -11772,7 +11790,8 @@ body.modal-open {
 }
 
 /* 9. Plan Your Shift Callout Card */
-.city-about-card .city-cta-text {
+.city-about-card .city-cta-text,
+.city-process-box p:last-child {
   background: linear-gradient(135deg, #0b224d 0%, #16366f 60%, #0d2757 100%);
   border-radius: 16px;
   padding: 24px 28px;
@@ -11786,13 +11805,16 @@ body.modal-open {
   margin-bottom: 0;
 }
 
-.city-about-card .city-cta-text a {
+.city-about-card .city-cta-text a,
+.city-process-box p:last-child a {
   color: #ffedd5;
   text-decoration: underline;
+  font-weight: 700;
   transition: color 0.2s ease;
 }
 
-.city-about-card .city-cta-text a:hover {
+.city-about-card .city-cta-text a:hover,
+.city-process-box p:last-child a:hover {
   color: #ffffff;
 }
 
@@ -11831,13 +11853,16 @@ body.modal-open {
   .city-about-card {
     padding: 1.5rem 1.15rem;
   }
-  .city-about-card .city-infra-text {
+  .city-about-card .city-infra-text,
+  .city-intro-box p:nth-of-type(2) {
     padding: 18px;
   }
-  .city-about-card .city-infra-text::before {
+  .city-about-card .city-infra-text::before,
+  .city-intro-box p:nth-of-type(2)::before {
     display: none;
   }
-  .city-about-card .city-process-item {
+  .city-about-card .city-process-item,
+  .city-process-box p:not(:last-child) {
     flex-direction: column;
     gap: 8px;
   }
