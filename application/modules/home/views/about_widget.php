@@ -11,7 +11,7 @@
         <div class="about-frame-wrapper position-relative mx-auto">
           
           <div class="about-img-box position-relative overflow-hidden">
-           <img src="<?= base_url('assets/img/about-packers-movers.jpeg') ?>" alt="Elite Logistics Packers and Movers operations team" width="800" height="600" loading="lazy" class="img-fluid about-single-img w-100 object-fit-cover">
+           <img src="<?= base_url('assets/img/service/elite-logistic-packers.webp') ?>" alt="Elite Logistics Packers and Movers operations team" width="800" height="600" loading="lazy" class="img-fluid about-single-img w-100 object-fit-cover">
            <div class="about-exp-label position-absolute">
              <span class="exp-num fw-bold d-block text-white"><?= $experience ?></span>
              <span class="exp-text d-block text-white">Years of experience</span>

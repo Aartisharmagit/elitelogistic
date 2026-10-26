@@ -22,7 +22,7 @@
       <!-- Left Column: Featured Photo -->
       <div class="col-12 col-lg-5">
         <div class="about-image-wrapper position-relative">
-          <img src="<?= base_url('assets/img/bike_transportation.jpg') ?>" alt="Reliable Bike Transportation Services - <?= htmlspecialchars($company3) ?>" class="about-main-img" width="1080" height="720" loading="lazy">
+          <img src="<?= base_url('assets/img/service/bike-transportation.webp') ?>" alt="Reliable Bike Transportation Services - <?= htmlspecialchars($company3) ?>" class="about-main-img" width="1080" height="720" loading="lazy">
         </div>
       </div>
 

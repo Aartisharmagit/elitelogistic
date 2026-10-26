@@ -19,7 +19,7 @@ if (file_exists($data_file)) {
     <div class="row g-4 g-lg-5">
       
       <!-- Main Content Column -->
-      <div class="col-lg-8">
+      <div class="col-lg-12">
         <?php include 'city_page_design/city_about.php'; ?>
         <?php include 'city_page_design/city_service.php'; ?>
         <?php include 'city_page_design/city_content.php'; ?>
@@ -28,10 +28,7 @@ if (file_exists($data_file)) {
         <?php include 'city_page_design/city_map.php'; ?>
       </div>
 
-      <!-- Sticky Sidebar Column -->
-      <div class="col-lg-4">
-        <?php include 'city_page_design/city_siderbar.php'; ?>
-      </div>
+      
 
     </div>
   </div>

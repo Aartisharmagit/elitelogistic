@@ -17,7 +17,7 @@
             <!-- Left Column: Featured Image with Trust Experience Badge -->
             <div class="col-12 col-lg-5">
                 <div class="about-image-wrapper position-relative">
-                    <img src="<?= base_url('assets/img/packers-movers-hero.webp') ?>" alt="Reasons to choose <?= htmlspecialchars($company3) ?>" class="about-main-img" loading="lazy">
+                    <img src="<?= base_url('assets/img/service/truck-loaded.webp') ?>" alt="Reasons to choose <?= htmlspecialchars($company3) ?>" class="about-main-img" loading="lazy">
                     
                     <!-- Floating Orange Experience Badge -->
                     <div class="about-exp-badge d-flex align-items-center gap-3">
@@ -256,7 +256,7 @@
             Are you planning relocations? Choose Elite Logistics Packers and Movers for written pricing, good packing and planned transportation.
           </h3>
           <p class="cta-band-subtitle mb-0">
-            Contact us now at +91 XXXXXXXXXXX for the quotation according to your requirements.
+            Contact us now at <a href="<?= $phonehtml ?>" class="text-white text-decoration"><?= $phone ?> </a> for the quotation according to your requirements.
           </p>
         </div>
 

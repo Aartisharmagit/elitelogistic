@@ -16,7 +16,7 @@
             
             <div class="col-12 col-lg-5">
                 <div class="about-image-wrapper position-relative">
-                    <img src="<?= base_url('assets/img/packers-movers-hero.webp') ?>" alt="<?= htmlspecialchars($company3) ?> Relocation Operations" class="about-main-img" loading="lazy">
+                    <img src="<?= base_url('assets/img/service/teams-are-working.webp') ?>" alt="<?= htmlspecialchars($company3) ?> Relocation Operations" class="about-main-img" loading="lazy">
                     
                     <!-- Orange Experience Badge Tucked in Corner -->
                     <div class="about-exp-badge d-flex align-items-center gap-3">
@@ -368,8 +368,7 @@
           <h3 class="cta-band-title text-white fw-bold mb-2">
             Plan your next relocation with Elite Logistics Packers and Movers.
           </h3>
-          <p class="cta-band-subtitle mb-0">
-            Receive a written quotation. Contact us at +91 XXXXXXXXX.
+          <p class="cta-band-subtitle mb-0">Receive a written quotation. Contact us at <a href="<?= $phonehtml ?>" class="text-white text-decoration"><?= $phone ?> </a>.
           </p>
         </div>
 

@@ -1,9 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title><?= $title ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php
@@ -19,38 +18,35 @@
   $url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   $url = ($url == site_url('home')) ? site_url() : strtolower($url);
   ?>
-  <meta name="description" content="<?= @$description ?>" />
-  <meta name="keywords" content="<?= @$keywords ?>" />
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-  <link rel="canonical" href="<?= @$url ?>" />
-  <meta name="author" content="<?= $company3 ?>" />
-  <meta name="copyright" content="<?= $company3 ?>" />
-  <meta name="reply-to" content="<?= $replyToMail ?>" />
-  <meta name="og_title" property="og:title" content="<?= @$title ?>">
+  <meta name="description" content="<?= @$description ?>"/>
+  <link rel="canonical" href="<?= @$url ?>"/>
+  <meta name="author" content="<?= $company3 ?>"/>
+  <meta name="copyright" content="<?= $company3 ?>"/>
+  <meta name="reply-to" content="<?= $replyToMail ?>"/>
+  <meta property="og:title" content="<?= @$title ?>">
   <meta property="og:type" content="website">
-  <meta name="og_site_name" property="og:site_name" content="<?= $company3 ?>" />
-  <meta property="og:image" content="<?= $img ?>" />
-  <meta name="og_url" property="og:url" content="<?= @$url ?>" />
-  <meta property="og:description" content="<?= @$description ?>" />
-  <meta name="robots" content="index, follow" />
+  <meta property="og:site_name" content="<?= $company3 ?>"/>
+  <meta property="og:image" content="<?= $img ?>"/>
+  <meta property="og:url" content="<?= @$url ?>"/>
+  <meta property="og:description" content="<?= @$description ?>"/>
+  <meta name="robots" content="index, follow"/>
   <meta name="theme-color" content="<?= $themeColor ?>">
   <link rel="apple-touch-icon" href="<?= base_url('assets/img/logo/favicon.png') ?>">
   <link rel="shortcut icon" href="<?= base_url('assets/img/logo/favicon.png') ?>">
   <meta name="apple-mobile-web-app-status-bar-style" content="<?= $themeColor ?>">
-  <meta name="allow-search" content="yes" />
+  <meta name="allow-search" content="yes"/>
   <?php $stateCodes = ['Andhra Pradesh' => 'AP', 'Arunachal Pradesh' => 'AR', 'Assam' => 'AS', 'Bihar' => 'BR', 'Chhattisgarh' => 'CG', 'Goa' => 'GA', 'Gujarat' => 'GJ', 'Haryana' => 'HR', 'Himachal Pradesh' => 'HP', 'Jharkhand' => 'JH', 'Karnataka' => 'KA', 'Kerala' => 'KL', 'Madhya Pradesh' => 'MP', 'Maharashtra' => 'MH', 'Manipur' => 'MN', 'Meghalaya' => 'ML', 'Mizoram' => 'MZ', 'Nagaland' => 'NL', 'Odisha' => 'OR', 'Punjab' => 'PB', 'Rajasthan' => 'RJ', 'Sikkim' => 'SK', 'Tamil Nadu' => 'TN', 'Telangana' => 'TG', 'Tripura' => 'TR', 'Uttar Pradesh' => 'UP', 'Uttarakhand' => 'UK', 'West Bengal' => 'WB', 'Delhi' => 'DL', 'Jammu and Kashmir' => 'JK', 'Ladakh' => 'LA', 'Puducherry' => 'PY', 'Chandigarh' => 'CH', 'Andaman and Nicobar Islands' => 'AN', 'Lakshadweep' => 'LD', 'Dadra and Nagar Haveli and Daman and Diu' => 'DN',];
   $stateName = "$state";
   $stateShortCode = $stateCodes[$stateName] ?? $companystate;
   ?>
   <meta name="geo.region" content="IN-<?= $stateShortCode ?>">
   <meta name="geo.placename" content="<?= @$city ?>">
-  <meta name="revisit-after" content="weekly" />
-  <meta name="distribution" content="global" />
-  <meta name="language" content="en" />
+  <meta name="revisit-after" content="weekly"/>
+  <meta name="distribution" content="global"/>
 
   <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "Organization",
       "name": "<?= $company3 ?>",
       "url": "<?= site_url() ?>",
@@ -59,7 +55,7 @@
   </script>
   <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "<?= $company3 ?>",
       "url": "<?= site_url() ?>",
@@ -97,7 +93,7 @@
   </script>
   <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "Product",
       "sku": "<?= $sku ?>",
       "mpn": "<?= $mpn ?>",

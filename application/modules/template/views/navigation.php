@@ -123,15 +123,9 @@
           </div>
         </div>
       </header>
-
-      <!-- MAIN AREA: 4 COLUMNS ON DESKTOP / COLLAPSIBLE ACCORDIONS ON MOBILE -->
       <main class="mega-menu-main">
         <div class="container mega-grid-layout">
-          
-          <!-- DESKTOP VIEW (992px+): 3 Link Columns + 1 Contact Sidebar Card -->
           <div class="mega-desktop-grid d-none d-lg-grid">
-            
-            <!-- Column 1: About Us -->
             <div class="mega-col mega-col-about">
               <div class="mega-col-header">
                 <p class="mega-col-heading">
@@ -297,8 +291,8 @@
                   </div>
 
                   <div class="mega-featured-heading-wrap">
-                    <p class="mega-featured-state-name">Bihar</p>
-                    <p class="mega-featured-state-sub">Our branch network in Bihar</p>
+                    <p class="mega-featured-state-name">Hyderabad</p>
+                    <p class="mega-featured-state-sub">Our branch network in Hyderabad</p>
                   </div>
 
                   <div class="mega-featured-facts">
@@ -311,29 +305,29 @@
                   <div class="mega-featured-cities-wrap">
                     <span class="mega-cities-label">Major Hubs:</span>
                     <div class="mega-city-chips">
-                      <a href="<?= site_url('patna-packers-movers-bihar') ?>" class="mega-city-chip" title="Packers and Movers in Patna">
+                      <a href="<?= site_url('gachibowli-packers-movers-hyderabad') ?>" class="mega-city-chip" title="Packers and Movers in Patna">
                         <i class="bi bi-geo-alt" aria-hidden="true"></i>
-                        <span>Patna</span>
+                        <span>Gachibowli</span>
                       </a>
-                      <a href="<?= site_url('gaya-packers-movers-bihar') ?>" class="mega-city-chip" title="Packers and Movers in Gaya">
+                      <a href="<?= site_url('kondapur-packers-movers-hyderabad') ?>" class="mega-city-chip" title="Packers and Movers in Gaya">
                         <i class="bi bi-geo-alt" aria-hidden="true"></i>
-                        <span>Gaya</span>
+                        <span>Kondapur</span>
                       </a>
-                      <a href="<?= site_url('bhagalpur-packers-movers-bihar') ?>" class="mega-city-chip" title="Packers and Movers in Bhagalpur">
+                      <a href="<?= site_url('manikonda-packers-movers-hyderabad') ?>" class="mega-city-chip" title="Packers and Movers in Bhagalpur">
                         <i class="bi bi-geo-alt" aria-hidden="true"></i>
-                        <span>Bhagalpur</span>
+                        <span>Manikonda</span>
                       </a>
-                      <a href="<?= site_url('muzaffarpur-packers-movers-bihar') ?>" class="mega-city-chip" title="Packers and Movers in Muzaffarpur">
+                      <a href="<?= site_url('miyapur-packers-movers-hyderabad') ?>" class="mega-city-chip" title="Packers and Movers in Muzaffarpur">
                         <i class="bi bi-geo-alt" aria-hidden="true"></i>
-                        <span>Muzaffarpur</span>
+                        <span>Miyapur</span>
                       </a>
                     </div>
                   </div>
                 </div>
 
                 <div class="mega-featured-bottom">
-                  <a href="<?= site_url('bihar') ?>" class="btn-featured-state" title="Explore Bihar Network">
-                    <span>Explore Bihar</span>
+                  <a href="<?= site_url('hyderabad') ?>" class="btn-featured-state" title="Explore Bihar Network">
+                    <span>Explore Hyderabad</span>
                     <i class="bi bi-arrow-right" aria-hidden="true"></i>
                   </a>
 
