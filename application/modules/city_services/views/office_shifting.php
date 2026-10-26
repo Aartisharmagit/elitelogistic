@@ -1,691 +1,451 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
-<!-- ======================================================================= -->
-<!-- SECTION 1: INNER PAGE HERO & DYNAMIC BREADCRUMBS (H1)                   -->
-<!-- ======================================================================= -->
+<?php
+  $city_name = !empty($city) ? htmlspecialchars($city) : 'Your City';
+  $curr_ctlink = !empty($ctlink) ? $ctlink : strtolower(str_replace(' ', '-', $city_name));
+?>
+
+<!-- 1. DYNAMIC BREADCRUMBS (H1) -->
 <?php $this->load->view('about/dynamic_breadcrumbs', [
-    'bc_h1' => 'Reliable Office Shifting Solutions',
-    'bc_desc' => 'When shifting an office, it is essential that furniture, computers, important documents, and office equipment are shifted efficiently without causing business delay.',
+    'bc_h1' => 'Professional Office Relocation Services in ' . $city_name,
+    'bc_desc' => 'Smooth, secure corporate and commercial office shifting in ' . $city_name . '. Zero business downtime, specialized IT asset handling, and complete transit insurance.',
     'breadcrumbs' => [
-        ['name' => 'Office Relocation']
+        ['name' => 'Services', 'url' => site_url('services')],
+        ['name' => 'Office Relocation in ' . $city_name]
     ]
 ]); ?>
 
-<!-- ======================================================================= -->
-<!-- SECTION 2: CORPORATE INTRO & FRAMED PHOTO SHOWCASE (H2 #1)              -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-overview" aria-label="Reliable Office Shifting Solutions">
+<!-- 2. TWO-COLUMN MAIN CONTENT & SIDEBAR SECTION -->
+<section class="city-main-section py-4 py-lg-5 bg-light-subtle">
   <div class="container">
-    <div class="row align-items-center g-4 g-lg-5">
+
+    <!-- Quick Trust Badges Strip -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-warning">
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">4.9 / 5 Rating</div>
+            <div class="city-trust-subtitle">850+ Moves in <?= $city_name ?></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-success">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">Zero Downtime</div>
+            <div class="city-trust-subtitle">Weekend &amp; Night Shifts</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-primary">
+            <i class="bi bi-patch-check-fill"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">IBA Approved</div>
+            <div class="city-trust-subtitle">Code: EL-8709</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-danger">
+            <i class="bi bi-lock-fill"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">Written Price Lock</div>
+            <div class="city-trust-subtitle">Zero Hidden Fees</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 g-lg-5">
       
-      <!-- Left Column: Featured Photo -->
-      <div class="col-12 col-lg-5">
-        <div class="about-image-wrapper position-relative">
-          <img src="<?= base_url('assets/img/office_shifting.jpg') ?>" alt="Reliable Office Shifting Solutions - <?= htmlspecialchars($company3) ?>" class="about-main-img" width="1080" height="720" loading="lazy">
-        </div>
-      </div>
+      <!-- ======================================================== -->
+      <!-- LEFT / MAIN CONTENT COLUMN (col-12 col-lg-8)             -->
+      <!-- ======================================================== -->
+      <div class="col-12 col-lg-8">
 
-      <!-- Right Column: Narrative Content -->
-      <div class="col-12 col-lg-7">
-        <div class="inner-section-tag">
-          <span class="inner-section-bar"></span>
-          <span>Commercial Relocation &bull; Business Continuity</span>
-        </div>
-        
-        <h2 class="inner-section-title mb-3">
-          Reliable Office Shifting Solutions
-        </h2>
-
-        <p class="service-desc-text text-secondary mb-3">
-          When shifting an office, it is essential that furniture, computers, important documents, and other office equipment are shifted efficiently without causing any delay to the business. It requires proper planning, especially in case of employees resuming work immediately after office shifting.
-        </p>
-
-        <p class="service-desc-text text-secondary mb-4">
-          <strong><?= htmlspecialchars($company3) ?></strong> provides quality office shifting services for businesses that are thinking of shifting their office place.
-        </p>
-
-        <!-- Action Buttons -->
-        <div class="d-flex flex-wrap align-items-center gap-3">
-          <button type="button" class="btn-inner-primary" data-bs-toggle="modal" data-bs-target="#qteModal">
-            <span>Get Free Quote</span>
-            <i class="bi bi-arrow-right"></i>
-          </button>
-          <?php if (!empty($phone)): ?>
-            <a href="<?= $phonehtml ?>" class="btn-inner-secondary">
-              <i class="bi bi-telephone-fill"></i>
-              <span>Call <?= $phone ?></span>
-            </a>
-          <?php endif; ?>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 3: SERVICES IN RELATION TO YOUR OFFICE RELOCATION REQUIREMENTS (H2 #2) -->
-<!-- ======================================================================= -->
-<section class="inner-section-soft py-5" id="service-included" aria-label="Services in Relation to Your Office Relocation Requirements">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Comprehensive Scope</span>
-      </div>
-      <h2 class="inner-section-title">Services in Relation to Your Office Relocation Requirements</h2>
-      <p class="inner-section-subtitle text-secondary mx-auto mt-2" class="inner-section-subtitle text-secondary mx-auto mt-2 max-w-780">
-        Office shifting services provided by us include complete end-to-end commercial moving support:
-      </p>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Service 1 -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-lamp-fill"></i>
+        <!-- Card 1: Local Office Relocation Overview -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold">Commercial Relocation &bull; Business Continuity</span>
           </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Packing of office furniture</h3>
-            <p class="inclusion-text mb-0 small">
-              Workstations, executive desks, conference tables, and ergonomic chairs with protective wrapping.
-            </p>
-          </div>
-        </div>
-      </div>
+          <h2 class="fw-bold text-navy fs-3 mb-3">
+            Corporate &amp; Commercial Office Shifting in <?= $city_name ?>
+          </h2>
 
-      <!-- Service 2 -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-laptop-fill"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Packing of electronic devices</h3>
-            <p class="inclusion-text mb-0 small">
-              Antistatic bubble wraps and cushioned casing for computers, monitors, printers, and servers.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 3 -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-folder-fill"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Packing &amp; organizing documents</h3>
-            <p class="inclusion-text mb-0 small">
-              Systematic indexing of company files, contracts, and archives to prevent loss or misplacement.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 4 -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-box-arrow-in-up"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Loading of goods</h3>
-            <p class="inclusion-text mb-0 small">
-              Careful handling and strategic staging using commercial dollies and hydraulic tail-lifts.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 5 -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-truck"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Transportation</h3>
-            <p class="inclusion-text mb-0 small">
-              Dedicated covered container trucks with GPS tracking for local and interstate business moves.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 6 -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-box-arrow-down"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Unloading at destination</h3>
-            <p class="inclusion-text mb-0 small">
-              Smooth placement into designated office bays, server rooms, and meeting zones.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 7 -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-shield-shaded"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Fragile packing materials</h3>
-            <p class="inclusion-text mb-0 small">
-              Multi-layer corrugated sheets, foam rolls, and edge guards appropriate for fragile items.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 8 -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-tag-fill"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Department &amp; employee labeling</h3>
-            <p class="inclusion-text mb-0 small">
-              Clear labeling on cartons with names of departments or employees for immediate setup.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 4: OUR OFFICE RELOCATION PROCESS (H2 #3)                        -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-process" aria-label="Our Office Relocation Process">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Step-by-Step Procedure</span>
-      </div>
-      <h3 class="inner-section-title">Our Office Relocation Process</h3>
-      <p class="inner-section-subtitle text-secondary mx-auto mt-2" class="inner-section-subtitle text-secondary mx-auto mt-2 max-w-780">
-        The office relocation process begins with understanding of your requirements. These requirements include the quantity of goods that will be shifted, distance, floor access, lift facility available and date of shifting office.
-      </p>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Step 01 Card -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">1</span>
-              <span class="process-step-label">Step 1</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-clipboard2-check-fill"></i>
+          <!-- Featured Service Photo with Overlay -->
+          <div class="position-relative mb-4 overflow-hidden rounded-3 border border-light-subtle">
+            <img src="<?= base_url('assets/img/office_shifting.jpg') ?>" alt="Office Relocation in <?= $city_name ?> - <?= htmlspecialchars($company3) ?>" class="img-fluid w-100 city-featured-img" loading="lazy">
+            <div class="position-absolute bottom-0 start-0 m-3 p-2.5 px-3 bg-white bg-opacity-95 rounded-pill shadow-sm border border-light-subtle d-inline-flex align-items-center gap-2">
+              <i class="bi bi-geo-alt-fill text-danger small"></i>
+              <span class="fw-semibold text-navy small">Serving commercial hubs &amp; tech parks across <?= $city_name ?></span>
             </div>
           </div>
-          
-          <div class="process-step-line"></div>
 
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Requirements Assessment</h4>
-            <p class="process-step-paragraph mb-0">
-              Assessing quantity of goods, moving distance, origin &amp; destination floor access, lift facilities, and preferred dates for relocation.
-            </p>
-          </div>
-        </div>
-      </div>
+          <p class="text-secondary mb-3 leading-relaxed">
+            Relocating a workplace or branch in <strong><?= $city_name ?></strong> requires precision planning, rapid turnaround, and strict asset protection. At <?= htmlspecialchars($company3) ?>, we understand that business continuity is paramount. Our commercial relocation team coordinates every phase of your move—from tagging desktop peripherals and anti-static wrapping of servers to systematically cataloging confidential records.
+          </p>
+          <p class="text-secondary mb-4 leading-relaxed">
+            Whether shifting a compact co-working branch or an entire multi-floor headquarters in <?= $city_name ?>, our trained carpenters and logistics crew dismantle modular workstations, pack conference audio-visual systems, and execute night or weekend transitions so your staff can resume business on Monday morning without interruption.
+          </p>
 
-      <!-- Step 02 Card -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">2</span>
-              <span class="process-step-label">Step 2</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-people-fill"></i>
-            </div>
-          </div>
-          
-          <div class="process-step-line"></div>
-
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Resource Planning</h4>
-            <p class="process-step-paragraph mb-0">
-              Based on this information, the manpower, packing material and transportation requirement is determined and confirmed with you.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 03 Card -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">3</span>
-              <span class="process-step-label">Step 3</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-box-seam-fill"></i>
-            </div>
-          </div>
-          
-          <div class="process-step-line"></div>
-
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Specialized Packing</h4>
-            <p class="process-step-paragraph mb-0">
-              Once everything is finalized, furniture and equipment are packed in accordance with their specific packing requirements.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 04 Card -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">4</span>
-              <span class="process-step-label">Step 4</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-building-check"></i>
-            </div>
-          </div>
-          
-          <div class="process-step-line"></div>
-
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Loading, Transit &amp; Unloading</h4>
-            <p class="process-step-paragraph mb-0">
-              Goods are loaded securely, transported, and unloaded at the new office place ready for prompt team setup.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Data Backup & Document Tip -->
-    <div class="text-center mt-4 pt-2">
-      <span class="badge bg-white text-secondary border px-3 py-2 fw-semibold rounded-pill">
-        <i class="bi bi-shield-check text-success me-1"></i> <strong>Pro Tip:</strong> It is advisable to back up the data from your computer and separate out important documents before office shifting.
-      </span>
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 5: WHY DO YOU NEED PROFESSIONAL OFFICE RELOCATION? (H2 #4)      -->
-<!-- ======================================================================= -->
-<section class="inner-section-soft py-5" id="service-why-choose" aria-label="Why Do You Need Professional Office Relocation Services">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Key Advantages</span>
-      </div>
-      <h3 class="inner-section-title">Why Do You Need Professional Office Relocation Services?</h3>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Advantage Card 1 (Red Accent) -->
-      <div class="col-12 col-lg-6">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-shield-fill-check"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-5 text-dark mb-2">Well-Planned Moving Without Loss of Man-Hours</h4>
-              <p class="advantage-card-text mb-0">
-                Office shifting is not just a transportation process but a complete process of packaging, loading, transporting and unloading of goods in a well-planned manner. In case of poor coordination, there may be issues such as misplaced files, damaged furniture and loss of man-hours due to the inefficiency of the process.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Advantage Card 2 (Navy Accent) -->
-      <div class="col-12 col-lg-6">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-navy"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-navy flex-shrink-0">
-              <i class="bi bi-calendar-week-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-5 text-dark mb-2">Weekend &amp; After-Hours Execution for Employees</h4>
-              <p class="advantage-card-text mb-0">
-                For office shifting, it is better to make the process less troublesome for the employees. To achieve this, it would be better to consider moving of the office after office hours or at weekends, where available, ensuring business continuity with zero disruption.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 6: FACTORS THAT IMPACT OFFICE RELOCATION CHARGES (H2 #5)        -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-cost-factors" aria-label="Factors that Impact Office Relocation Charges">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Pricing Transparency</span>
-      </div>
-      <h3 class="inner-section-title">Factors that Impact Office Relocation Charges</h3>
-      <p class="inner-section-subtitle text-secondary mx-auto mt-2" class="inner-section-subtitle text-secondary mx-auto mt-2 max-w-760">
-        Costs involved in office relocation depend upon the following factors:
-      </p>
-    </div>
-
-    <!-- 6 Factors Grid -->
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Factor 1 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-building"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Size of the office</h4>
-              <p class="advantage-card-text mb-0 small">
-                Overall carpet area and layout determining the scale of planning.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Factor 2 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-navy"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-navy flex-shrink-0">
-              <i class="bi bi-boxes"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Quantity of goods</h4>
-              <p class="advantage-card-text mb-0 small">
-                Total count of workstations, electronics, chairs, and filing units.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Factor 3 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-geo-alt-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Distance involved</h4>
-              <p class="advantage-card-text mb-0 small">
-                Total road kilometers between old office and new commercial premises.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Factor 4 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-navy"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-navy flex-shrink-0">
-              <i class="bi bi-box-seam-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Packaging materials</h4>
-              <p class="advantage-card-text mb-0 small">
-                Grade of antistatic wrapping, crates, and specialized protective layers.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Factor 5 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-people-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Manpower</h4>
-              <p class="advantage-card-text mb-0 small">
-                Number of certified packers, handlers, and supervisors allocated.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Factor 6 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-navy"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-navy flex-shrink-0">
-              <i class="bi bi-wrench-adjustable"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Dismantling requirement</h4>
-              <p class="advantage-card-text mb-0 small">
-                Modular workstation breakdown, server unmounting, and reassembly.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 7: FAQS WITH SCHEMA.ORG JSON-LD (H2 #6)                         -->
-<!-- ======================================================================= -->
-<section class="inner-section-soft py-5" id="service-faqs" aria-label="FAQs about Office Relocation Services">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Clear Answers &bull; Transparent Guidance</span>
-      </div>
-      <h3 class="inner-section-title">FAQs about Office Relocation Services</h3>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-9">
-        <div class="faq-accordion-wrapper" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion d-flex flex-column gap-3" id="officeFaqAccordion">
-
-            <!-- FAQ 1 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="officeFaqHeading0">
-                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#officeFaqCollapse0" aria-expanded="true" aria-controls="officeFaqCollapse0">
-                  <span class="home-faq-num me-3">01</span>
-                  <span itemprop="name">What is the cost of office relocation services?</span>
-                </button>
-              </h4>
-              <div id="officeFaqCollapse0" class="accordion-collapse collapse show" aria-labelledby="officeFaqHeading0" data-bs-parent="#officeFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      Cost will depend upon the number of goods, distance, packaging material and labor requirement. Get your quotation based on your requirements.
-                    </p>
-                  </div>
+          <!-- 4 Core Moving Pillars Grid -->
+          <div class="row g-3">
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-clock-history"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Zero Downtime Schedules</h4>
+                  <p class="text-muted small mb-0">Night and weekend shifts planned around your business hours to maintain full productivity.</p>
                 </div>
               </div>
             </div>
-
-            <!-- FAQ 2 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="officeFaqHeading1">
-                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#officeFaqCollapse1" aria-expanded="false" aria-controls="officeFaqCollapse1">
-                  <span class="home-faq-num me-3">02</span>
-                  <span itemprop="name">How do we minimize the downtime in office shifting?</span>
-                </button>
-              </h4>
-              <div id="officeFaqCollapse1" class="accordion-collapse collapse" aria-labelledby="officeFaqHeading1" data-bs-parent="#officeFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      Proper planning, labeling of cartons, backing up important data and scheduling outside the working hours can reduce the downtime in office relocation.
-                    </p>
-                  </div>
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-laptop"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">IT &amp; Server Protection</h4>
+                  <p class="text-muted small mb-0">Anti-static bubble wraps, labeled wiring harnesses, and cushioned server containers.</p>
                 </div>
               </div>
             </div>
-
-            <!-- FAQ 3 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="officeFaqHeading2">
-                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#officeFaqCollapse2" aria-expanded="false" aria-controls="officeFaqCollapse2">
-                  <span class="home-faq-num me-3">03</span>
-                  <span itemprop="name">Are packing and transportation included in the office relocation services?</span>
-                </button>
-              </h4>
-              <div id="officeFaqCollapse2" class="accordion-collapse collapse" aria-labelledby="officeFaqHeading2" data-bs-parent="#officeFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      Packing and transportation could be included in office relocation services. Clarify your requirements before booking the services.
-                    </p>
-                  </div>
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-wrench-adjustable"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Modular Cubicle Assembly</h4>
+                  <p class="text-muted small mb-0">Trained carpenters for fast disassembly and reassembly of partitions, desks, and cabins.</p>
                 </div>
               </div>
             </div>
-
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-shield-lock-fill"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Confidential File Security</h4>
+                  <p class="text-muted small mb-0">Tamper-evident numbered seal crates for financial documents, legal records, and contracts.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-  </div>
-</section>
+        <!-- Card 2: Estimated Shifting Charges / Pricing Guide in City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+            <div>
+              <span class="badge bg-success-subtle text-success px-2.5 py-1 rounded-pill small fw-bold mb-1 d-inline-block">Transparent Pricing</span>
+              <h3 class="fw-bold text-navy fs-3 mb-1">Estimated Office Relocation Charges in <?= $city_name ?></h3>
+              <p class="text-muted small mb-0">Indicative commercial rates based on employee workstation volume and IT infrastructure.</p>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3 py-1.5" data-bs-toggle="modal" data-bs-target="#qteModal">
+              Request Corporate Quote
+            </button>
+          </div>
 
-<!-- ======================================================================= -->
-<!-- SECTION 8: READY TO PLAN YOUR OFFICE RELOCATION? (HOMEPAGE RED CTA)     -->
-<!-- ======================================================================= -->
-<section class="site-section section-bg-white cta-band-section" id="book-now" aria-label="Ready to Plan Your Office Relocation">
-  <div class="container">
-    <div class="cta-band-box position-relative overflow-hidden">
-      
-      <!-- Ambient Background Soft Corner Circles -->
-      <div class="cta-deco-circle cta-deco-circle-1 position-absolute" aria-hidden="true"></div>
-      <div class="cta-deco-circle cta-deco-circle-2 position-absolute" aria-hidden="true"></div>
-
-      <!-- Faint Dotted Route Line & Travelling Truck Icon -->
-      <div class="cta-route-layer position-absolute d-none d-sm-block" aria-hidden="true">
-        <svg class="cta-route-svg" viewBox="0 0 1000 36" preserveAspectRatio="none" fill="none">
-          <path id="ctaRoutePath" class="cta-route-path" d="M -20,24 Q 250,6 500,24 T 1020,20" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2" stroke-dasharray="6 6" />
-        </svg>
-        <div class="cta-truck-badge">
-          <i class="bi bi-truck" aria-hidden="true"></i>
-        </div>
-      </div>
-
-      <!-- 2-Column Content Grid (60/40) -->
-      <div class="row align-items-center g-3 g-lg-4 position-relative z-2">
-        
-        <!-- Left Column: Headline & Subtext with Office Content -->
-        <div class="col-12 col-lg-7 text-center text-lg-start">
-          <h3 class="cta-band-title text-white fw-bold mb-2">
-            Ready to Plan Your Office Relocation?
-          </h3>
-          <p class="cta-band-subtitle mb-0">
-            Get your office relocation quotation from <?= htmlspecialchars($company3) ?>. Call Now: <a href="<?= $phonehtml ?>" class="text-white text-decoration-underline fw-bold"><?= $phone ?></a>.
+          <div class="table-responsive">
+            <table class="table table-hover align-middle border border-light-subtle rounded-3 overflow-hidden mb-3">
+              <thead class="table-light">
+                <tr class="text-navy small">
+                  <th scope="col" class="py-3 px-3">Office Scale</th>
+                  <th scope="col" class="py-3 px-3">Packaging &amp; Handling</th>
+                  <th scope="col" class="py-3 px-3">Transport Logistics</th>
+                  <th scope="col" class="py-3 px-3">Est. Local Price</th>
+                  <th scope="col" class="py-3 px-3">Execution Time</th>
+                </tr>
+              </thead>
+              <tbody class="small text-secondary">
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-briefcase text-danger me-1"></i> Small Office (1 – 10 Desks)</td>
+                  <td class="px-3">Standard Commercial Bubble</td>
+                  <td class="px-3">14ft Closed Container</td>
+                  <td class="px-3 fw-bold text-success">₹8,000 – ₹14,000</td>
+                  <td class="px-3">4 – 6 Hours</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-building text-danger me-1"></i> Mid-Sized Office (10 – 25 Desks)</td>
+                  <td class="px-3">Anti-Static + Foam Padding</td>
+                  <td class="px-3">17ft Dedicated Fleet</td>
+                  <td class="px-3 fw-bold text-success">₹14,000 – ₹24,000</td>
+                  <td class="px-3">6 – 9 Hours</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-buildings text-danger me-1"></i> Corporate Floor (25 – 50 Desks)</td>
+                  <td class="px-3">5-Layer Protective + IT Crating</td>
+                  <td class="px-3">Dual 19ft Closed Trucks</td>
+                  <td class="px-3 fw-bold text-success">₹24,000 – ₹42,000</td>
+                  <td class="px-3">1 Weekend Shift</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-award text-danger me-1"></i> Large HQ (50 – 100+ Desks)</td>
+                  <td class="px-3">Comprehensive Turnkey Packing</td>
+                  <td class="px-3">Multi-Truck Fleet Logistics</td>
+                  <td class="px-3 fw-bold text-success">₹42,000 – ₹75,000+</td>
+                  <td class="px-3">1 – 2 Days</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-cpu text-danger me-1"></i> Server Room / Data Center</td>
+                  <td class="px-3">Anti-Shock Air Cushioned Bins</td>
+                  <td class="px-3">Padded Shock-Absorber Fleet</td>
+                  <td class="px-3 fw-bold text-success">Custom Quote</td>
+                  <td class="px-3">Dedicated Slot</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-muted small fst-italic mb-0">
+            * Note: Exact office relocation costs depend on floor elevations, lift access, server rack configurations, and specialized assembly needs. Written GST invoice and formal agreement provided beforehand.
           </p>
         </div>
 
-        <!-- Right Column: Compact White Contact Card -->
-        <div class="col-12 col-lg-5">
-          <div class="cta-contact-card bg-white">
-            
-            <!-- Card Header: Phone icon, 24x7 Label & Navy Number in One Compact Row -->
-            <div class="cta-card-header d-flex align-items-center gap-2 mb-2 pb-1">
-              <div class="cta-card-phone-wrap position-relative flex-shrink-0" aria-hidden="true">
-                <span class="cta-card-pulse-ring"></span>
-                <span class="cta-card-phone-icon d-flex align-items-center justify-content-center">
-                  <i class="bi bi-telephone-fill"></i>
-                </span>
-              </div>
-              <div class="cta-card-header-meta d-flex align-items-baseline gap-2 flex-wrap">
-                <span class="cta-card-label">Call us, 24x7:</span>
-                <?php if (!empty($phone)): ?>
-                  <a href="<?= $phonehtml ?>" class="cta-card-phone-num" title="Call us directly: <?= $phone ?>" aria-label="Call us directly: <?= $phone ?>">
-                    <?= $phone ?>
-                  </a>
-                <?php endif; ?>
+        <!-- Card 3: 4-Step Moving Workflow in City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="text-center mx-auto mb-4 city-process-header">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold mb-1 d-inline-block">Commercial Methodology</span>
+            <h3 class="fw-bold text-navy fs-3 mb-2">Our Office Moving Process in <?= $city_name ?></h3>
+            <p class="text-muted small mb-0">A military-grade transition workflow designed to protect corporate assets and eliminate operational downtime.</p>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">01</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">On-Site Audit &amp; Blueprint</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  Our project coordinator inspects your premises, catalogs IT systems and furniture, and creates a floor-by-floor relocation plan with a locked quote.
+                </p>
               </div>
             </div>
 
-            <!-- Action Buttons: Side-by-Side Row -->
-            <div class="cta-card-btn-row d-grid gap-2">
-              
-              <!-- Quote Button -->
-              <button type="button" class="btn btn-cta-card-quote d-flex align-items-center justify-content-center gap-2" data-bs-toggle="modal" data-bs-target="#qteModal" title="Get Free Moving Quote" aria-label="Get Free Moving Quote">
-                <span>Get Free Quote</span>
-                <i class="bi bi-arrow-right cta-btn-arrow" aria-hidden="true"></i>
-              </button>
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">02</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">IT Tagging &amp; Safe Packing</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  Desktops, cables, and servers are packed in anti-static materials and color-tagged by department so each workstation is easily matched at the new venue.
+                </p>
+              </div>
+            </div>
 
-              <!-- WhatsApp Button -->
-              <?php if (!empty($whatsapphtml)): ?>
-                <a href="<?= $whatsapphtml ?>" target="_blank" rel="noopener noreferrer" class="btn btn-cta-card-whatsapp d-flex align-items-center justify-content-center gap-2" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
-                  <i class="bi bi-whatsapp" aria-hidden="true"></i>
-                  <span>WhatsApp</span>
-                </a>
-              <?php endif; ?>
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">03</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">GPS-Tracked Safe Transit</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  All commercial equipment travels inside closed container vehicles equipped with hydraulic tailgates and real-time live GPS monitoring.
+                </p>
+              </div>
+            </div>
 
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">04</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">Fast Layout Setup &amp; Assembly</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  We place desks, modular cabins, and IT equipment according to your new office floor diagram, assisting your staff for immediate resumption.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Localized FAQs for City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold">FAQ Guide</span>
+          </div>
+          <h3 class="fw-bold text-navy fs-3 mb-3">Frequently Asked Questions in <?= $city_name ?></h3>
+          
+          <div class="accordion d-flex flex-column gap-2.5" id="cityOfficeFaqAccordion">
+            
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead1">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol1" aria-expanded="false" aria-controls="faqCol1">
+                  Can you execute our office shift over the weekend or at night in <?= $city_name ?>?
+                </button>
+              </h4>
+              <div id="faqCol1" class="accordion-collapse collapse" aria-labelledby="faqHead1" data-bs-parent="#cityOfficeFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  Yes, absolutely. We regularly schedule corporate relocations across <?= $city_name ?> during Friday night, Saturday, and Sunday. This guarantees zero downtime so your employees can step into an operational office on Monday morning.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead2">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol2" aria-expanded="false" aria-controls="faqCol2">
+                  How do you safeguard sensitive computers, monitors, and servers?
+                </button>
+              </h4>
+              <div id="faqCol2" class="accordion-collapse collapse" aria-labelledby="faqHead2" data-bs-parent="#cityOfficeFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  All IT equipment is wrapped in electrostatic-discharge (ESD) safe bubble films, packed into reinforced corrugated cartons with custom foam inserts, and color-coded with departmental tags to match cables with individual systems.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead3">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol3" aria-expanded="false" aria-controls="faqCol3">
+                  Do you provide GST invoicing and IBA-approved documentation for corporate claims?
+                </button>
+              </h4>
+              <div id="faqCol3" class="accordion-collapse collapse" aria-labelledby="faqHead3" data-bs-parent="#cityOfficeFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  Yes, <?= htmlspecialchars($company3) ?> is fully IBA-approved (Code: EL-8709) and issues official GST-compliant tax invoices, itemized inventory packing lists, and consignment notes required for corporate accounting audits.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead4">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol4" aria-expanded="false" aria-controls="faqCol4">
+                  Will your team dismantle and reassemble modular workstations and cubicles?
+                </button>
+              </h4>
+              <div id="faqCol4" class="accordion-collapse collapse" aria-labelledby="faqHead4" data-bs-parent="#cityOfficeFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  Yes, our moving crew includes seasoned modular furniture technicians who expertly disassemble, pack, transport, and re-erect workstation clusters, partitions, conference tables, and manager credenzas.
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
 
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- RIGHT / STICKY SIDEBAR COLUMN (col-12 col-lg-4)          -->
+      <!-- ======================================================== -->
+      <div class="col-12 col-lg-4">
+        <aside class="position-sticky city-sidebar-sticky">
+
+          <!-- Widget 1: Other Services in City (Refined Proportions Matching Screenshot) -->
+          <div class="city-sidebar-card mb-4">
+            <div class="city-sidebar-title">
+              <i class="bi bi-grid-fill text-danger"></i>
+              <span>Other Services in <?= $city_name ?></span>
+            </div>
+            <div class="city-sidebar-list">
+              <a href="<?= site_url('home-shifting-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-house-door-fill text-danger pill-icon"></i>
+                  <span class="pill-text">Home Shifting in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('car-transport-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-car-front-fill text-success pill-icon"></i>
+                  <span class="pill-text">Car Transport in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('bike-transport-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-bicycle text-info pill-icon"></i>
+                  <span class="pill-text">Bike Transport in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('packing-moving-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-box-seam-fill text-warning pill-icon"></i>
+                  <span class="pill-text">Packing &amp; Moving in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('loading-unloading-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-truck text-danger pill-icon"></i>
+                  <span class="pill-text">Loading &amp; Unloading in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Widget 2: 24x7 Fast Assistance Call Card (Snug Height & Proportions) -->
+          <div class="p-3.5 p-md-4 rounded-4 bg-danger text-white shadow-sm mb-4 position-relative overflow-hidden">
+            <div class="position-relative z-1">
+              <span class="badge bg-white text-danger px-2.5 py-1 rounded-pill small fw-bold mb-2 d-inline-block">24x7 Move Desk</span>
+              <h4 class="fw-bold fs-5 mb-1.5 text-white">Need Quick Advice in <?= $city_name ?>?</h4>
+              <p class="text-white-50 small mb-3">Speak directly with our local coordinator for accurate move schedules and free written estimates.</p>
+              
+              <div class="d-flex flex-column gap-2">
+                <?php if (!empty($phone)): ?>
+                  <a href="<?= $phonehtml ?>" class="btn btn-white text-danger fw-bold rounded-pill py-2 shadow-sm d-flex align-items-center justify-content-center gap-2 text-decoration-none">
+                    <i class="bi bi-telephone-fill"></i>
+                    <span>Call Move Desk: <?= $phone ?></span>
+                  </a>
+                <?php endif; ?>
+
+                <?php if (!empty($whatsapphtml)): ?>
+                  <a href="<?= $whatsapphtml ?>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-pill py-2 d-flex align-items-center justify-content-center gap-2 text-decoration-none">
+                    <i class="bi bi-whatsapp"></i>
+                    <span>WhatsApp Consultation</span>
+                  </a>
+                <?php endif; ?>
+
+                <button type="button" class="btn btn-dark text-white rounded-pill py-2 fw-semibold d-flex align-items-center justify-content-center gap-2" data-bs-toggle="modal" data-bs-target="#qteModal">
+                  <i class="bi bi-calculator"></i>
+                  <span>Get Written Quotation</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 3: Trust & Assurance Guarantees -->
+          <div class="p-3.5 p-md-4 rounded-4 bg-white shadow-sm border border-light-subtle">
+            <p class="fw-bold text-navy fs-6 mb-3 pb-2 border-bottom border-light-subtle d-flex align-items-center gap-2">
+              <i class="bi bi-shield-fill-check text-success"></i>
+              <span>Why Choose Us in <?= $city_name ?></span>
+            </p>
+            <ul class="list-unstyled mb-0 d-flex flex-column gap-2.5 small text-secondary">
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-patch-check-fill text-danger fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">Written Price Guarantee</strong>
+                  <span>Transparent itemized quotation before the move. No hidden fees or last-minute surcharges.</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-file-earmark-check-fill text-success fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">IBA Approved Invoicing</strong>
+                  <span>Official bills compliant with government, public sector, and corporate claim standards (EL-8709).</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-clock-history text-primary fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">Punctual Safe Delivery</strong>
+                  <span>Timely pickup and prompt placement across all business complexes in <?= $city_name ?>.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </aside>
       </div>
 
     </div>

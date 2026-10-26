@@ -21,11 +21,11 @@ if (file_exists($data_file)) {
       <!-- Main Content Column -->
       <div class="col-lg-12">
         <?php include 'city_page_design/city_about.php'; ?>
-        <?php include 'city_page_design/city_service.php'; ?>
         <?php include 'city_page_design/city_content.php'; ?>
         <?php include 'city_page_design/city_reviews.php'; ?>
         <?php include 'city_page_design/city_faq.php'; ?>
         <?php include 'city_page_design/city_map.php'; ?>
+        <?php include 'city_page_design/city_service.php'; ?>
       </div>
 
       

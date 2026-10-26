@@ -1,569 +1,452 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
-<!-- ======================================================================= -->
-<!-- SECTION 1: INNER PAGE HERO & DYNAMIC BREADCRUMBS (H1)                   -->
-<!-- ======================================================================= -->
+<?php
+  $city_name = !empty($city) ? htmlspecialchars($city) : 'Your City';
+  $curr_ctlink = !empty($ctlink) ? $ctlink : strtolower(str_replace(' ', '-', $city_name));
+?>
+
+<!-- 1. DYNAMIC BREADCRUMBS (H1) -->
 <?php $this->load->view('about/dynamic_breadcrumbs', [
-    'bc_h1' => 'Top Household Shifting Services',
-    'bc_desc' => 'A household move is not just about packing items into boxes. Furniture has to be protected, electronic appliances handled carefully, and household items organized efficiently.',
+    'bc_h1' => 'Best Home Shifting Services in ' . $city_name,
+    'bc_desc' => 'Trusted, verified, and IBA-approved household relocation in ' . $city_name . '. Multi-layer protective packing, punctual door-to-door delivery, and zero hidden charges.',
     'breadcrumbs' => [
-        ['name' => 'Household Relocation']
+        ['name' => 'Services', 'url' => site_url('services')],
+        ['name' => 'Home Shifting in ' . $city_name]
     ]
 ]); ?>
 
-<!-- ======================================================================= -->
-<!-- SECTION 2: CORPORATE INTRO & FRAMED PHOTO SHOWCASE (H2 #1)              -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-overview" aria-label="Top Household Shifting Services">
+<!-- 2. TWO-COLUMN MAIN CONTENT & SIDEBAR SECTION -->
+<section class="city-main-section py-4 py-lg-5 bg-light-subtle">
   <div class="container">
-    <div class="row align-items-center g-4 g-lg-5">
+
+    <!-- Quick Trust Badges Strip -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-warning">
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">4.9 / 5 Rating</div>
+            <div class="city-trust-subtitle">1,400+ Moves in <?= $city_name ?></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-success">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">100% Transit Safe</div>
+            <div class="city-trust-subtitle">All Goods Insured</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-primary">
+            <i class="bi bi-patch-check-fill"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">IBA Approved</div>
+            <div class="city-trust-subtitle">Code: EL-8709</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-danger">
+            <i class="bi bi-lock-fill"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">Written Price Lock</div>
+            <div class="city-trust-subtitle">Zero Hidden Fees</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 g-lg-5">
       
-      <!-- Left Column: Featured Photo -->
-      <div class="col-12 col-lg-5">
-        <div class="about-image-wrapper position-relative">
-          <img src="<?= base_url('assets/img/household_shifting.jpg') ?>" alt="Top Household Shifting Services - <?= htmlspecialchars($company3) ?>" class="about-main-img" width="1080" height="720" loading="lazy">
-        </div>
-      </div>
+      <!-- ======================================================== -->
+      <!-- LEFT / MAIN CONTENT COLUMN (col-12 col-lg-8)             -->
+      <!-- ======================================================== -->
+      <div class="col-12 col-lg-8">
 
-      <!-- Right Column: Narrative Content -->
-      <div class="col-12 col-lg-7">
-        <div class="inner-section-tag">
-          <span class="inner-section-bar"></span>
-          <span>Household Relocation &bull; Safe &amp; Organized</span>
-        </div>
-        
-        <h2 class="inner-section-title mb-3">
-          Top Household Shifting Services
-        </h2>
-
-        <p class="service-desc-text text-secondary mb-3">
-          A household move is not just about packing items into boxes. Furniture has to be protected, electronic appliances have to be handled carefully, and household items have to be packed in such a manner that makes them easy to locate upon arrival at the new address. With poor planning, even a short-distance move can take more time than expected.
-        </p>
-
-        <p class="service-desc-text text-secondary mb-4">
-          <strong><?= htmlspecialchars($company3) ?></strong> provides household shifting services for individuals, families and professional persons. No matter whether you have plans to move to another place in the same city or to another city entirely, the household shifting arrangements can be made as per the household size, distance and specifications.
-        </p>
-
-        <!-- Action Buttons -->
-        <div class="d-flex flex-wrap align-items-center gap-3">
-          <button type="button" class="btn-inner-primary" data-bs-toggle="modal" data-bs-target="#qteModal">
-            <span>Get Free Quote</span>
-            <i class="bi bi-arrow-right"></i>
-          </button>
-          <?php if (!empty($phone)): ?>
-            <a href="<?= $phonehtml ?>" class="btn-inner-secondary">
-              <i class="bi bi-telephone-fill"></i>
-              <span>Call <?= $phone ?></span>
-            </a>
-          <?php endif; ?>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 3: HOUSEHOLD PACKING & MOVING SERVICES (H2 #2)                  -->
-<!-- ======================================================================= -->
-<section class="inner-section-soft py-5" id="service-included" aria-label="Household Packing and Moving Services for Every Household">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Every Household Covered</span>
-      </div>
-      <h2 class="inner-section-title">Household Packing &amp; Moving Services for Every Household</h2>
-      <p class="inner-section-subtitle text-secondary mx-auto mt-2" class="inner-section-subtitle text-secondary mx-auto mt-2 max-w-780">
-        Every household item requires a different method of packaging. It is essential that glass items, kitchen utensils, electronic appliances and furniture be handled carefully during transport. Household shifting services may include the following:
-      </p>
-    </div>
-
-    <!-- 5 Services Grid -->
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Service 1: Packing Household Goods -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-box-seam-fill"></i>
+        <!-- Card 1: Local Household Relocation Overview -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold">Local Household Relocation</span>
           </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Packing Household Goods</h3>
-            <p class="inclusion-text mb-0 small">
-              Packing clothes, books, kitchen items, toys, and personal items in suitable cartons.
-            </p>
-          </div>
-        </div>
-      </div>
+          <h2 class="fw-bold text-navy fs-3 mb-3">
+            Professional House Shifting Services in <?= $city_name ?>
+          </h2>
 
-      <!-- Service 2: Furniture Shifting -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-lamp-fill"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Furniture Shifting</h3>
-            <p class="inclusion-text mb-0 small">
-              Shifting beds, sofa, wardrobe, table and chairs, along with dismantling, if agreed.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 3: Transportation of Appliances -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-tv-fill"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Transportation of Appliances</h3>
-            <p class="inclusion-text mb-0 small">
-              Packaging of televisions, refrigerator and washing machine as per their handling requirement.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 4: Protection of Fragile Items -->
-      <div class="col-12 col-md-6 col-lg-6">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-shield-shaded"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Protection of Fragile Items</h3>
-            <p class="inclusion-text mb-0 small">
-              Suitable cushioning of crockery, mirror, glass items, and decoration items.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service 5: Loading, Transporting and Unloading -->
-      <div class="col-12 col-md-6 col-lg-6">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-truck"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Loading, Transporting and Unloading</h3>
-            <p class="inclusion-text mb-0 small">
-              Loading of packed items in the vehicle, transporting of packed items to the destination and unloading of packed items at the new location.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 4: HOW WE PREPARE YOUR HOUSEHOLD SHIFTING (H3 #1)               -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-process" aria-label="How We Prepare Your Household Shifting">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Step-by-Step Procedure</span>
-      </div>
-      <h3 class="inner-section-title">How We Prepare Your Household Shifting</h3>
-      <p class="inner-section-subtitle text-secondary mx-auto mt-2" class="inner-section-subtitle text-secondary mx-auto mt-2 max-w-780">
-        The first step will be to understand your moving requirements. The number of rooms, volume of the items, distance, floor, availability of lifts, and vehicle accessibility will help determine the packing arrangement and mode of transport.
-      </p>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Step 01 Card -->
-      <div class="col-12 col-md-4">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">1</span>
-              <span class="process-step-label">Step 1</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-clipboard2-check-fill"></i>
+          <!-- Featured Service Photo with Overlay -->
+          <div class="position-relative mb-4 overflow-hidden rounded-3 border border-light-subtle">
+            <img src="<?= base_url('assets/img/household_shifting.jpg') ?>" alt="Home Shifting in <?= $city_name ?> - <?= htmlspecialchars($company3) ?>" class="img-fluid w-100 city-featured-img" loading="lazy">
+            <div class="position-absolute bottom-0 start-0 m-3 p-2.5 px-3 bg-white bg-opacity-95 rounded-pill shadow-sm border border-light-subtle d-inline-flex align-items-center gap-2">
+              <i class="bi bi-geo-alt-fill text-danger small"></i>
+              <span class="fw-semibold text-navy small">Door-to-door shifting across <?= $city_name ?></span>
             </div>
           </div>
-          
-          <div class="process-step-line"></div>
 
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Understand Moving Requirements</h4>
-            <p class="process-step-paragraph mb-0">
-              Evaluating number of rooms, inventory volume, travel distance, origin &amp; destination floors, lift facilities, and truck accessibility.
-            </p>
-          </div>
-        </div>
-      </div>
+          <p class="text-secondary mb-3 leading-relaxed">
+            Relocating your home in <strong><?= $city_name ?></strong> requires meticulous planning, trained packing hands, and dependable logistics. Whether shifting within the same neighborhood or moving to a different sector, our dedicated crew manages everything from dismantling bulky wardrobes and electronic appliances to multi-layer bubble wrapping and reassembly at your new address.
+          </p>
+          <p class="text-secondary mb-4 leading-relaxed">
+            Our local <strong><?= $city_name ?></strong> relocation fleet is fully equipped with clean closed containers, hydraulic tail lifts, and padded interiors to ensure your glassware, furniture, kitchenware, and sensitive gadgets remain scratch-free throughout transit.
+          </p>
 
-      <!-- Step 02 Card -->
-      <div class="col-12 col-md-4">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">2</span>
-              <span class="process-step-label">Step 2</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-tags-fill"></i>
-            </div>
-          </div>
-          
-          <div class="process-step-line"></div>
 
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Category Packing &amp; Labeling</h4>
-            <p class="process-step-paragraph mb-0">
-              Each item will be packed in accordance to its category and cartons may be labeled as per the room for effortless identification.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 03 Card -->
-      <div class="col-12 col-md-4">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">3</span>
-              <span class="process-step-label">Step 3</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-truck-front-fill"></i>
-            </div>
-          </div>
-          
-          <div class="process-step-line"></div>
-
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Transport &amp; Unloading</h4>
-            <p class="process-step-paragraph mb-0">
-              Following the loading process, the items will be transported to the destination and unloaded as per the service arrangements.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Essential Pre-Move Checklist Advisory -->
-    <div class="row justify-content-center mt-4 pt-2">
-      <div class="col-12 col-lg-10">
-        <div class="p-3 p-md-4 rounded-4 bg-light border border-danger-subtle shadow-sm d-flex align-items-start gap-3">
-          <div class="flex-shrink-0 text-danger fs-3 mt-1">
-            <i class="bi bi-info-circle-fill"></i>
-          </div>
-          <div>
-            <div class="service-feature-title fw-bold text-dark mb-1">Important Checklist Before Your Moving Date</div>
-            <p class="service-feature-desc text-secondary mb-0 small">
-              Before your moving date, please keep medicines, important documents, jewelry, chargers and other daily necessities separately. Additionally, make sure that there are no permission issues at the societies and parking issues at both locations.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 5: FACTORS THAT DETERMINE CHARGES (H3 #2)                       -->
-<!-- ======================================================================= -->
-<section class="inner-section-soft py-5" id="service-cost-factors" aria-label="Factors that Determine Household Shifting Charges">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Pricing Transparency</span>
-      </div>
-      <h3 class="inner-section-title">Factors that Determine Household Shifting Charges</h3>
-      <p class="inner-section-subtitle text-secondary mx-auto mt-2" class="inner-section-subtitle text-secondary mx-auto mt-2 max-w-760">
-        The charges will depend on the number of items being shifted, distance, packing material requirement, labor requirement, floor level accessibility and any furniture dismantling requirement or other specific handling requirement. Providing details regarding your moving plan will help you get a more suitable quotation.
-      </p>
-    </div>
-
-    <!-- 6 Factors Grid -->
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Factor 1 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-boxes"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Number of items</h4>
-              <p class="advantage-card-text mb-0 small">
-                Total inventory count and volume of furniture, boxes, and household effects.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Factor 2 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-navy"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-navy flex-shrink-0">
-              <i class="bi bi-geo-alt-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Moving distance</h4>
-              <p class="advantage-card-text mb-0 small">
-                Total road kilometers between your current home and your new destination address.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Factor 3 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-box-seam-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Packing material</h4>
-              <p class="advantage-card-text mb-0 small">
-                Required volume of specialized cartons, bubble wrap, foam, and protective sheets.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Factor 4 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-navy"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-navy flex-shrink-0">
-              <i class="bi bi-people-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Labor requirement</h4>
-              <p class="advantage-card-text mb-0 small">
-                Crew size required for systematic packing, careful lifting, and truck loading.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Factor 5 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-building"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Floor accessibility</h4>
-              <p class="advantage-card-text mb-0 small">
-                Floor level accessibility, presence of functional service lifts, and carry distance.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Factor 6 -->
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-navy"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-navy flex-shrink-0">
-              <i class="bi bi-wrench-adjustable"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Dismantling &amp; handling</h4>
-              <p class="advantage-card-text mb-0 small">
-                Furniture dismantling (beds, wardrobes) or fragile specialty handling requirements.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 6: FAQS WITH SCHEMA.ORG JSON-LD (H3 #3)                         -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-faqs" aria-label="Frequently Asked Questions about Household Shifting">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Clear Answers &bull; Transparent Guidance</span>
-      </div>
-      <h3 class="inner-section-title">Frequently Asked Questions</h3>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-9">
-        <div class="faq-accordion-wrapper" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion d-flex flex-column gap-3" id="homeFaqAccordion">
-
-            <!-- FAQ 1 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="homeFaqHeading0">
-                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#homeFaqCollapse0" aria-expanded="true" aria-controls="homeFaqCollapse0">
-                  <span class="home-faq-num me-3">01</span>
-                  <span itemprop="name">When should I book household shifting services?</span>
-                </button>
-              </h4>
-              <div id="homeFaqCollapse0" class="accordion-collapse collapse show" aria-labelledby="homeFaqHeading0" data-bs-parent="#homeFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      It is suggested that a minimum of one week and preferably two weeks be kept aside for bookings of your moving service.
-                    </p>
-                  </div>
+          <!-- 4 Core Moving Pillars Grid -->
+          <div class="row g-3">
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-box-seam-fill"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">5-Layer Bubble Packing</h4>
+                  <p class="text-muted small mb-0">High-gauge bubble wraps, corrugated sheets &amp; stretch film for maximum protection.</p>
                 </div>
               </div>
             </div>
-
-            <!-- FAQ 2 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="homeFaqHeading1">
-                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#homeFaqCollapse1" aria-expanded="false" aria-controls="homeFaqCollapse1">
-                  <span class="home-faq-num me-3">02</span>
-                  <span itemprop="name">Does it include packing and transport?</span>
-                </button>
-              </h4>
-              <div id="homeFaqCollapse1" class="accordion-collapse collapse" aria-labelledby="homeFaqHeading1" data-bs-parent="#homeFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      Packing and loading, transportation and unloading of household items may be included depending on the household shifting services.
-                    </p>
-                  </div>
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-tools"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Furniture Dismantling</h4>
+                  <p class="text-muted small mb-0">Expert disassembly and doorstep re-assembly of beds, sofas, and dining sets.</p>
                 </div>
               </div>
             </div>
-
-            <!-- FAQ 3 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="homeFaqHeading2">
-                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#homeFaqCollapse2" aria-expanded="false" aria-controls="homeFaqCollapse2">
-                  <span class="home-faq-num me-3">03</span>
-                  <span itemprop="name">How to pack fragile household items?</span>
-                </button>
-              </h4>
-              <div id="homeFaqCollapse2" class="accordion-collapse collapse" aria-labelledby="homeFaqHeading2" data-bs-parent="#homeFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      Individual items need to be wrapped suitably, cushioned and marked as fragile.
-                    </p>
-                  </div>
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-truck"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Dedicated Closed Fleet</h4>
+                  <p class="text-muted small mb-0">Weather-proof GPS container trucks to shield household goods from dust and rain.</p>
                 </div>
               </div>
             </div>
-
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-shield-check"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Transit Risk Cover</h4>
+                  <p class="text-muted small mb-0">Comprehensive moving insurance to guarantee complete peace of mind.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-  </div>
-</section>
+        <!-- Card 2: Estimated Shifting Charges / Pricing Guide in City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+            <div>
+              <span class="badge bg-success-subtle text-success px-2.5 py-1 rounded-pill small fw-bold mb-1 d-inline-block">Transparent Pricing</span>
+              <h3 class="fw-bold text-navy fs-3 mb-1">Estimated Home Shifting Charges in <?= $city_name ?></h3>
+              <p class="text-muted small mb-0">Standard local relocation rates based on house size and packaging layers.</p>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3 py-1.5" data-bs-toggle="modal" data-bs-target="#qteModal">
+              Request Custom Quote
+            </button>
+          </div>
 
-<!-- ======================================================================= -->
-<!-- SECTION 7: THINKING OF HOUSE SHIFTING? (HOMEPAGE RED CTA BAND) (H3 #4)  -->
-<!-- ======================================================================= -->
-<section class="site-section section-bg-white cta-band-section" id="book-now" aria-label="Thinking of House Shifting">
-  <div class="container">
-    <div class="cta-band-box position-relative overflow-hidden">
-      
-      <!-- Ambient Background Soft Corner Circles -->
-      <div class="cta-deco-circle cta-deco-circle-1 position-absolute" aria-hidden="true"></div>
-      <div class="cta-deco-circle cta-deco-circle-2 position-absolute" aria-hidden="true"></div>
-
-      <!-- Faint Dotted Route Line & Travelling Truck Icon -->
-      <div class="cta-route-layer position-absolute d-none d-sm-block" aria-hidden="true">
-        <svg class="cta-route-svg" viewBox="0 0 1000 36" preserveAspectRatio="none" fill="none">
-          <path id="ctaRoutePath" class="cta-route-path" d="M -20,24 Q 250,6 500,24 T 1020,20" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2" stroke-dasharray="6 6" />
-        </svg>
-        <div class="cta-truck-badge">
-          <i class="bi bi-truck" aria-hidden="true"></i>
-        </div>
-      </div>
-
-      <!-- 2-Column Content Grid (60/40) -->
-      <div class="row align-items-center g-3 g-lg-4 position-relative z-2">
-        
-        <!-- Left Column: Headline & Subtext with Household Content -->
-        <div class="col-12 col-lg-7 text-center text-lg-start">
-          <h3 class="cta-band-title text-white fw-bold mb-2">
-            Thinking of House Shifting?
-          </h3>
-          <p class="cta-band-subtitle mb-0">
-            Get a quotation from <?= htmlspecialchars($company3) ?> for your household shifting services. Call Now: <a href="<?= $phonehtml ?>" class="text-white text-decoration-underline fw-bold"><?= $phone ?></a>.
+          <div class="table-responsive">
+            <table class="table table-hover align-middle border border-light-subtle rounded-3 overflow-hidden mb-3">
+              <thead class="table-light">
+                <tr class="text-navy small">
+                  <th scope="col" class="py-3 px-3">House Type</th>
+                  <th scope="col" class="py-3 px-3">Packaging Type</th>
+                  <th scope="col" class="py-3 px-3">Vehicle</th>
+                  <th scope="col" class="py-3 px-3">Est. Local Price</th>
+                  <th scope="col" class="py-3 px-3">Duration</th>
+                </tr>
+              </thead>
+              <tbody class="small text-secondary">
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-house-door text-danger me-1"></i> 1 RK Move</td>
+                  <td class="px-3">Standard 3-Layer</td>
+                  <td class="px-3">Tata Ace / Mini Truck</td>
+                  <td class="px-3 fw-bold text-success">₹3,500 – ₹5,500</td>
+                  <td class="px-3">3 – 4 Hours</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-house text-danger me-1"></i> 1 BHK Apartment</td>
+                  <td class="px-3">4-Layer Protective</td>
+                  <td class="px-3">14ft Covered Container</td>
+                  <td class="px-3 fw-bold text-success">₹5,000 – ₹8,500</td>
+                  <td class="px-3">4 – 5 Hours</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-building text-danger me-1"></i> 2 BHK Home</td>
+                  <td class="px-3">5-Layer Premium Bubble</td>
+                  <td class="px-3">17ft Container Fleet</td>
+                  <td class="px-3 fw-bold text-success">₹8,500 – ₹13,500</td>
+                  <td class="px-3">5 – 7 Hours</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-buildings text-danger me-1"></i> 3 BHK Home</td>
+                  <td class="px-3">5-Layer Bubble + Wooden Crating</td>
+                  <td class="px-3">19ft Heavy Container</td>
+                  <td class="px-3 fw-bold text-success">₹13,500 – ₹19,500</td>
+                  <td class="px-3">6 – 8 Hours</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-gem text-danger me-1"></i> 4+ BHK / Villa</td>
+                  <td class="px-3">Custom Export Grade Crating</td>
+                  <td class="px-3">Dual Dedicated Fleet</td>
+                  <td class="px-3 fw-bold text-success">₹19,500 – ₹28,000+</td>
+                  <td class="px-3">Full Day Move</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-muted small fst-italic mb-0">
+            * Note: Actual prices may vary depending on shifting distance, floor accessibility, elevator availability, and optional fragile item crating. Written quotation locked before shifting starts.
           </p>
         </div>
 
-        <!-- Right Column: Compact White Contact Card -->
-        <div class="col-12 col-lg-5">
-          <div class="cta-contact-card bg-white">
-            
-            <!-- Card Header: Phone icon, 24x7 Label & Navy Number in One Compact Row -->
-            <div class="cta-card-header d-flex align-items-center gap-2 mb-2 pb-1">
-              <div class="cta-card-phone-wrap position-relative flex-shrink-0" aria-hidden="true">
-                <span class="cta-card-pulse-ring"></span>
-                <span class="cta-card-phone-icon d-flex align-items-center justify-content-center">
-                  <i class="bi bi-telephone-fill"></i>
-                </span>
+        <!-- Card 3: 4-Step Moving Workflow in City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="text-center mx-auto mb-4 city-process-header">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold mb-1 d-inline-block">Step-by-Step</span>
+            <h3 class="fw-bold text-navy fs-3 mb-2">Our House Shifting Process in <?= $city_name ?></h3>
+            <p class="text-muted small mb-0">We follow a proven 4-stage moving system designed for speed, safety, and accountability.</p>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">01</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">Pre-Move Survey &amp; Price Lock</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  We review your item list via phone or doorstep visit, verify elevator access, and issue a clear, written quotation with guaranteed price lock.
+                </p>
               </div>
-              <div>
-                <span class="cta-card-badge text-uppercase fw-bold text-success d-inline-block">Verified Move Desk</span>
-                <div class="cta-card-phone-num fw-bold text-dark lh-1 mt-0.5">
-                  <?php if (!empty($phone)): ?>
-                    <a href="<?= $phonehtml ?>" class="text-dark text-decoration-none"><?= $phone ?></a>
-                  <?php endif; ?>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">02</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">Export-Grade Multi-Layer Packing</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  Our trained crew arrives on time with corrugated cartons, bubble wraps, foam pads, and color-coded labels for each room.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">03</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">Safe Loading &amp; Punctual Transit</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  Goods are loaded systematically using hydraulic ramps, secured with heavy-duty safety belts, and tracked continuously via GPS.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">04</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">Doorstep Unloading &amp; Placement</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  We place boxes in their respective rooms, reassemble beds and dining furniture, and inspect every item together with you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Localized FAQs for City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold">FAQ Guide</span>
+          </div>
+          <h3 class="fw-bold text-navy fs-3 mb-3">Frequently Asked Questions in <?= $city_name ?></h3>
+          
+          <div class="accordion d-flex flex-column gap-2.5" id="cityHomeFaqAccordion">
+            
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead1">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol1" aria-expanded="false" aria-controls="faqCol1">
+                  How much does local household shifting cost in <?= $city_name ?>?
+                </button>
+              </h4>
+              <div id="faqCol1" class="accordion-collapse collapse" aria-labelledby="faqHead1" data-bs-parent="#cityHomeFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  Local house shifting in <?= $city_name ?> typically starts from ₹3,500 for a 1 RK, ₹5,000 – ₹8,500 for a 1 BHK, and ₹8,500 – ₹13,500 for a 2 BHK. The exact estimate depends on the total volume of goods, packaging layers, and floor access. We provide free written quotations beforehand.
                 </div>
               </div>
             </div>
 
-            <!-- Card Bottom: Micro features & High-Contrast Red Book Button -->
-            <div class="d-flex align-items-center justify-content-between pt-2 border-top border-light-subtle">
-              <div class="cta-card-feature d-inline-flex align-items-center gap-1.5 text-secondary small">
-                <i class="bi bi-patch-check-fill text-success" aria-hidden="true"></i>
-                <span>Zero Hidden Fees</span>
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead2">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol2" aria-expanded="false" aria-controls="faqCol2">
+                  How early should I book household movers in <?= $city_name ?>?
+                </button>
+              </h4>
+              <div id="faqCol2" class="accordion-collapse collapse" aria-labelledby="faqHead2" data-bs-parent="#cityHomeFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  It is recommended to book 2 to 4 days in advance, especially for weekend and month-end dates when moving demand across <?= $city_name ?> is high. For emergency or same-day local shifting, contact our 24x7 move desk directly.
+                </div>
               </div>
-              <button type="button" class="btn btn-sm btn-danger fw-bold rounded-pill px-3 py-1.5 shadow-sm" data-bs-toggle="modal" data-bs-target="#qteModal">
-                <span>Book Now</span>
-                <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
-              </button>
+            </div>
+
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead3">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol3" aria-expanded="false" aria-controls="faqCol3">
+                  Do you dismantle and re-assemble ACs, beds, and modular wardrobes?
+                </button>
+              </h4>
+              <div id="faqCol3" class="accordion-collapse collapse" aria-labelledby="faqHead3" data-bs-parent="#cityHomeFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  Yes, standard furniture dismantling and reassembly (such as beds, dining tables, and modular storage) is handled by our skilled moving team. For specialized electrical uninstallations like split AC unmounting, our technicians assist with nominal charges.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead4">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol4" aria-expanded="false" aria-controls="faqCol4">
+                  Are my household items insured during transit in <?= $city_name ?>?
+                </button>
+              </h4>
+              <div id="faqCol4" class="accordion-collapse collapse" aria-labelledby="faqHead4" data-bs-parent="#cityHomeFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  Yes, <?= htmlspecialchars($company3) ?> provides comprehensive transit insurance coverage for household shifting. In addition, our 5-layer export grade packaging significantly minimizes any risk of transit damage.
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
 
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- RIGHT / STICKY SIDEBAR COLUMN (col-12 col-lg-4)          -->
+      <!-- ======================================================== -->
+      <div class="col-12 col-lg-4">
+        <aside class="position-sticky city-sidebar-sticky">
+
+          <!-- Widget 1: Other Services in City (Refined Proportions Matching Screenshot) -->
+          <div class="city-sidebar-card mb-4">
+            <div class="city-sidebar-title">
+              <i class="bi bi-grid-fill text-danger"></i>
+              <span>Other Services in <?= $city_name ?></span>
+            </div>
+            <div class="city-sidebar-list">
+              <a href="<?= site_url('office-shifting-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-building text-primary pill-icon"></i>
+                  <span class="pill-text">Office Relocation in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('car-transport-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-car-front-fill text-success pill-icon"></i>
+                  <span class="pill-text">Car Transport in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('bike-transport-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-bicycle text-info pill-icon"></i>
+                  <span class="pill-text">Bike Transport in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('packing-moving-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-box-seam-fill text-warning pill-icon"></i>
+                  <span class="pill-text">Packing &amp; Moving in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('loading-unloading-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-truck text-danger pill-icon"></i>
+                  <span class="pill-text">Loading &amp; Unloading in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Widget 2: 24x7 Fast Assistance Call Card (Snug Height & Proportions) -->
+          <div class="p-3.5 p-md-4 rounded-4 bg-danger text-white shadow-sm mb-4 position-relative overflow-hidden">
+            <div class="position-relative z-1">
+              <span class="badge bg-white text-danger px-2.5 py-1 rounded-pill small fw-bold mb-2 d-inline-block">24x7 Move Desk</span>
+              <h4 class="fw-bold fs-5 mb-1.5 text-white">Need Quick Advice in <?= $city_name ?>?</h4>
+              <p class="text-white-50 small mb-3">Speak directly with our local coordinator for accurate move schedules and free written estimates.</p>
+              
+              <div class="d-flex flex-column gap-2">
+                <?php if (!empty($phone)): ?>
+                  <a href="<?= $phonehtml ?>" class="btn btn-white text-danger fw-bold rounded-pill py-2 shadow-sm d-flex align-items-center justify-content-center gap-2 text-decoration-none">
+                    <i class="bi bi-telephone-fill"></i>
+                    <span>Call Move Desk: <?= $phone ?></span>
+                  </a>
+                <?php endif; ?>
+
+                <?php if (!empty($whatsapphtml)): ?>
+                  <a href="<?= $whatsapphtml ?>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-pill py-2 d-flex align-items-center justify-content-center gap-2 text-decoration-none">
+                    <i class="bi bi-whatsapp"></i>
+                    <span>WhatsApp Consultation</span>
+                  </a>
+                <?php endif; ?>
+
+                <button type="button" class="btn btn-dark text-white rounded-pill py-2 fw-semibold d-flex align-items-center justify-content-center gap-2" data-bs-toggle="modal" data-bs-target="#qteModal">
+                  <i class="bi bi-calculator"></i>
+                  <span>Get Written Quotation</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 3: Trust & Assurance Guarantees -->
+          <div class="p-3.5 p-md-4 rounded-4 bg-white shadow-sm border border-light-subtle">
+            <p class="fw-bold text-navy fs-6 mb-3 pb-2 border-bottom border-light-subtle d-flex align-items-center gap-2">
+              <i class="bi bi-shield-fill-check text-success"></i>
+              <span>Why Choose Us in <?= $city_name ?></span>
+            </p>
+            <ul class="list-unstyled mb-0 d-flex flex-column gap-2.5 small text-secondary">
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-patch-check-fill text-danger fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">Written Price Guarantee</strong>
+                  <span>Transparent itemized quotation before the move. No hidden fees or last-minute surcharges.</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-file-earmark-check-fill text-success fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">IBA Approved Invoicing</strong>
+                  <span>Official bills compliant with government, public sector, and corporate claim standards (EL-8709).</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-clock-history text-primary fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">Punctual Same-Day Delivery</strong>
+                  <span>Timely pickup and prompt placement across all residential societies in <?= $city_name ?>.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </aside>
       </div>
 
     </div>

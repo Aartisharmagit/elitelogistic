@@ -1,542 +1,451 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
-<!-- ======================================================================= -->
-<!-- SECTION 1: INNER PAGE HERO & DYNAMIC BREADCRUMBS (H1)                   -->
-<!-- ======================================================================= -->
+<?php
+  $city_name = !empty($city) ? htmlspecialchars($city) : 'Your City';
+  $curr_ctlink = !empty($ctlink) ? $ctlink : strtolower(str_replace(' ', '-', $city_name));
+?>
+
+<!-- 1. DYNAMIC BREADCRUMBS (H1) -->
 <?php $this->load->view('about/dynamic_breadcrumbs', [
-    'bc_h1' => 'Professional Car Transportation Services',
-    'bc_desc' => 'Planning your relocation and need your car moved safely? We help customers transport their vehicles from city to city or state with complete care.',
+    'bc_h1' => 'Safe Car Transportation Services in ' . $city_name,
+    'bc_desc' => 'Reliable, IBA-approved car transport and carrier solutions in ' . $city_name . '. Enclosed covered containers, 4-point wheel locking, GPS tracking, and doorstep pickup & delivery.',
     'breadcrumbs' => [
-        ['name' => 'Car Transportation']
+        ['name' => 'Services', 'url' => site_url('services')],
+        ['name' => 'Car Transport in ' . $city_name]
     ]
 ]); ?>
 
-<!-- ======================================================================= -->
-<!-- SECTION 2: PROFESSIONAL CAR TRANSPORTATION SERVICES (H2 #1)             -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-overview" aria-label="Professional Car Transportation Services">
+<!-- 2. TWO-COLUMN MAIN CONTENT & SIDEBAR SECTION -->
+<section class="city-main-section py-4 py-lg-5 bg-light-subtle">
   <div class="container">
-    <div class="row align-items-center g-4 g-lg-5">
+
+    <!-- Quick Trust Badges Strip -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-warning">
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">4.9 / 5 Rating</div>
+            <div class="city-trust-subtitle">1,200+ Cars Moved in <?= $city_name ?></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-success">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">100% Transit Safe</div>
+            <div class="city-trust-subtitle">Zero Accidental Risk</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-primary">
+            <i class="bi bi-patch-check-fill"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">IBA Approved</div>
+            <div class="city-trust-subtitle">Code: EL-8709</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-danger">
+            <i class="bi bi-lock-fill"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">Written Price Lock</div>
+            <div class="city-trust-subtitle">Zero Hidden Surcharges</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 g-lg-5">
       
-      <!-- Left Column: Featured Photo -->
-      <div class="col-12 col-lg-5">
-        <div class="about-image-wrapper position-relative">
-          <img src="<?= base_url('assets/img/car_transportation.jpg') ?>" alt="Professional Car Transportation Services - <?= htmlspecialchars($company3) ?>" class="about-main-img" width="1080" height="720" loading="lazy">
-        </div>
-      </div>
+      <!-- ======================================================== -->
+      <!-- LEFT / MAIN CONTENT COLUMN (col-12 col-lg-8)             -->
+      <!-- ======================================================== -->
+      <div class="col-12 col-lg-8">
 
-      <!-- Right Column: Narrative Content -->
-      <div class="col-12 col-lg-7">
-        <div class="inner-section-tag">
-          <span class="inner-section-bar"></span>
-          <span>Car Relocation &bull; Door-to-Door</span>
-        </div>
-        
-        <h2 class="inner-section-title mb-3">
-          Professional Car Transportation Services
-        </h2>
-
-        <p class="service-desc-text text-secondary mb-3">
-          Let’s say you got a job offer in another city. You are planning your relocation, bought tickets to a new location and need to do one more thing, move your car there. This could be done either by driving yourself or booking a separate car transporting service.
-        </p>
-
-        <p class="service-desc-text text-secondary mb-3">
-          Self-driving is not the only option. This process consumes time, adds mileage to your car and leaves you tired after all the relocation stuff.
-        </p>
-
-        <p class="service-desc-text text-secondary mb-4">
-          <strong><?= htmlspecialchars($company3) ?></strong> can help with this problem. Our company helps those customers who want to transport their cars from city to city or even state, providing all the information about available methods of doing it, picking up and cost estimation.
-        </p>
-
-        <!-- Action Buttons -->
-        <div class="d-flex flex-wrap align-items-center gap-3">
-          <button type="button" class="btn-inner-primary" data-bs-toggle="modal" data-bs-target="#qteModal">
-            <span>Get Free Quote</span>
-            <i class="bi bi-arrow-right"></i>
-          </button>
-          <?php if (!empty($phone)): ?>
-            <a href="<?= $phonehtml ?>" class="btn-inner-secondary">
-              <i class="bi bi-telephone-fill"></i>
-              <span>Call <?= $phone ?></span>
-            </a>
-          <?php endif; ?>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 3: WHAT HAPPENS WHEN YOU ARRANGE CAR TRANSPORTATION? (H2 #2)    -->
-<!-- ======================================================================= -->
-<section class="inner-section-soft py-5" id="service-included" aria-label="What Happens When You Arrange Car Transportation">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Vehicle Protocol</span>
-      </div>
-      <h2 class="inner-section-title">What Happens When You Arrange Car Transportation?</h2>
-      <p class="inner-section-subtitle text-secondary mx-auto mt-2" class="inner-section-subtitle text-secondary mx-auto mt-2 max-w-780">
-        Transportation of a car is not limited with just loading and delivering a vehicle. Its condition should be noted prior to pickup, it should be prepared for transport, appropriate pickup and delivery arrangements should be made.
-      </p>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Inclusion Box 1 -->
-      <div class="col-12 col-md-4">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-clipboard-check-fill"></i>
+        <!-- Card 1: Local Car Transportation Overview -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold">Vehicle Logistics &bull; Enclosed Carriers</span>
           </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-5 text-dark mb-2">Inspecting the car before pickup</h3>
-            <p class="inclusion-text mb-0">
-              Noting condition prior to handover, documenting existing odometer reading, scratches, and fuel level with joint inspection sign-off.
-            </p>
-          </div>
-        </div>
-      </div>
+          <h2 class="fw-bold text-navy fs-3 mb-3">
+            Secure Car Carrier &amp; Transportation in <?= $city_name ?>
+          </h2>
 
-      <!-- Inclusion Box 2 -->
-      <div class="col-12 col-md-4">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-truck-flatbed"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-5 text-dark mb-2">Choosing a suitable car transport service</h3>
-            <p class="inclusion-text mb-0">
-              Selecting appropriate carrier arrangements tailored to vehicle size, clearance, and distance for safe highway transit.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Inclusion Box 3 -->
-      <div class="col-12 col-md-4">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-geo-alt-fill"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-5 text-dark mb-2">Organizing the pickup and delivery of your car</h3>
-            <p class="inclusion-text mb-0">
-              Scheduling doorstep collection and destination delivery with verified documentation and clear handover protocols.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 4: HOW THE CAR TRANSPORTING PROCESS WORKS? (H2 #3)              -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-process" aria-label="How the Car Transporting Process Works">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Step-by-Step Procedure</span>
-      </div>
-      <h3 class="inner-section-title">How the Car Transporting Process Works?</h3>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Step 01 Card -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">1</span>
-              <span class="process-step-label">Step 1</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-chat-left-text-fill"></i>
+          <!-- Featured Service Photo with Overlay -->
+          <div class="position-relative mb-4 overflow-hidden rounded-3 border border-light-subtle">
+            <img src="<?= base_url('assets/img/car_transportation.jpg') ?>" alt="Car Transport in <?= $city_name ?> - <?= htmlspecialchars($company3) ?>" class="img-fluid w-100 city-featured-img" loading="lazy">
+            <div class="position-absolute bottom-0 start-0 m-3 p-2.5 px-3 bg-white bg-opacity-95 rounded-pill shadow-sm border border-light-subtle d-inline-flex align-items-center gap-2">
+              <i class="bi bi-geo-alt-fill text-danger small"></i>
+              <span class="fw-semibold text-navy small">Doorstep car pickup &amp; delivery across <?= $city_name ?></span>
             </div>
           </div>
-          
-          <div class="process-step-line"></div>
 
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Tell Us About Your Route</h4>
-            <p class="process-step-paragraph mb-0">
-              Tell us your pickup and delivery points, provide information about the make and model of the car. Mention your planned moving date if you have it.
-            </p>
-          </div>
-        </div>
-      </div>
+          <p class="text-secondary mb-3 leading-relaxed">
+            Relocating your vehicle in <strong><?= $city_name ?></strong> requires dedicated carrier logistics that guarantee zero wear and tear, zero road driving mileage, and complete environmental protection. At <?= htmlspecialchars($company3) ?>, we operate custom-built enclosed car trailers and specialized open carriers equipped with hydraulic lift ramps to handle everything from compact hatchbacks to premium luxury SUVs.
+          </p>
+          <p class="text-secondary mb-4 leading-relaxed">
+            Prior to loading in <?= $city_name ?>, our certified vehicle inspector conducts a meticulous 18-point condition audit including photographic odometer recording. Your car is securely fastened inside our container using heavy-duty wheel chocks and nylon safety tie-downs, ensuring complete suspension stability and zero movement throughout the journey.
+          </p>
 
-      <!-- Step 02 Card -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">2</span>
-              <span class="process-step-label">Step 2</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-file-earmark-text-fill"></i>
-            </div>
-          </div>
-          
-          <div class="process-step-line"></div>
-
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Review the Quotation</h4>
-            <p class="process-step-paragraph mb-0">
-              Quotation is based on many factors such as the distance, the size of the vehicle, carrier availability and accessibility of the pickup and delivery points. Check the information provided in quotation and additional charges before agreeing to the transport booking.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 03 Card -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">3</span>
-              <span class="process-step-label">Step 3</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-tools"></i>
-            </div>
-          </div>
-          
-          <div class="process-step-line"></div>
-
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Preparing the Vehicle</h4>
-            <p class="process-step-paragraph mb-0">
-              Clean your vehicle of all the items. Leave the registration certificate and other required documents in the car and prepare it according to the instructions of the transport team.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 04 Card -->
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">4</span>
-              <span class="process-step-label">Step 4</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-patch-check-fill"></i>
-            </div>
-          </div>
-          
-          <div class="process-step-line"></div>
-
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Transport and Handover</h4>
-            <p class="process-step-paragraph mb-0">
-              After all the arrangements are made, the vehicle is prepared for transportation. Upon arrival at the destination, you can compare the car condition with the initial photo report and notify about any issues.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 5: WHAT CHECKS YOU SHOULD MAKE BEFORE BOOKING? (H2 #4)           -->
-<!-- ======================================================================= -->
-<section class="inner-section-soft py-5" id="service-checks" aria-label="What Checks You Should Make Before Booking">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Pre-Booking Checklist</span>
-      </div>
-      <h3 class="inner-section-title">What Checks You Should Make Before Booking?</h3>
-      <p class="inner-section-subtitle text-secondary mx-auto mt-2" class="inner-section-subtitle text-secondary mx-auto mt-2 max-w-760">
-        Several checks prior to the booking can help you in avoiding the problems with handover of the car:
-      </p>
-    </div>
-
-    <!-- 5 Checks Grid: 3 on top row, 2 on bottom row -->
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Check 1 -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-camera-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Vehicle's condition</h4>
-              <p class="advantage-card-text mb-0">
-                Take photos and note all the existing scratches and damages.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Check 2 -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-navy"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-navy flex-shrink-0">
-              <i class="bi bi-box-seam-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Personal belongings</h4>
-              <p class="advantage-card-text mb-0">
-                Clean the vehicle of any valuable items.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Check 3 -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-file-earmark-check-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Documents</h4>
-              <p class="advantage-card-text mb-0">
-                Have the registration certificate and other required documents ready.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Check 4 -->
-      <div class="col-12 col-md-6">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-navy"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-navy flex-shrink-0">
-              <i class="bi bi-shield-check"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Insurance</h4>
-              <p class="advantage-card-text mb-0">
-                Check the available transit insurance coverage, its exclusions and claims process.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Check 5 -->
-      <div class="col-12 col-md-6">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-clock-history"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Delivery schedule</h4>
-              <p class="advantage-card-text mb-0">
-                Know the estimated timeframe and how the information will be provided.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Summary Footnote -->
-    <div class="text-center mt-4 pt-2">
-      <span class="badge bg-white text-secondary border px-3 py-2 fw-semibold rounded-pill">
-        <i class="bi bi-check-circle-fill text-success me-1"></i> Making all of this before booking makes the process of vehicle handover easier.
-      </span>
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 6: FAQS WITH SCHEMA.ORG JSON-LD (H2 #5)                         -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-faqs" aria-label="Frequently Asked Questions about Car Transportation">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Clear Answers &bull; Transparent Guidance</span>
-      </div>
-      <h3 class="inner-section-title">Frequently Asked Questions about Car Transportation</h3>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-9">
-        <div class="faq-accordion-wrapper" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion d-flex flex-column gap-3" id="carFaqAccordion">
-
-            <!-- FAQ 1 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="carFaqHeading0">
-                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#carFaqCollapse0" aria-expanded="true" aria-controls="carFaqCollapse0">
-                  <span class="home-faq-num me-3">01</span>
-                  <span itemprop="name">How much does car transportation cost?</span>
-                </button>
-              </h4>
-              <div id="carFaqCollapse0" class="accordion-collapse collapse show" aria-labelledby="carFaqHeading0" data-bs-parent="#carFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      The price of car transportation depends on the distance, vehicle's model, route, availability of carriers and other requirements of the service. Ask for quotation based on your pickup and delivery points.
-                    </p>
-                  </div>
+          <!-- 4 Core Moving Pillars Grid -->
+          <div class="row g-3">
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-shield-check"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Enclosed Covered Trailers</h4>
+                  <p class="text-muted small mb-0">Full protection against highway debris, dust, inclement weather, and scratches.</p>
                 </div>
               </div>
             </div>
-
-            <!-- FAQ 2 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="carFaqHeading1">
-                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#carFaqCollapse1" aria-expanded="false" aria-controls="carFaqCollapse1">
-                  <span class="home-faq-num me-3">02</span>
-                  <span itemprop="name">How long will my car be transported?</span>
-                </button>
-              </h4>
-              <div id="carFaqCollapse1" class="accordion-collapse collapse" aria-labelledby="carFaqHeading1" data-bs-parent="#carFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      It depends on the route and the schedule of the transport. Ask for the estimated delivery timeframe before booking, especially when you need the car by a certain date.
-                    </p>
-                  </div>
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-link-45deg"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">4-Wheel Safety Lashings</h4>
+                  <p class="text-muted small mb-0">High-tension tire chocks and nylon safety straps to keep suspension fully strain-free.</p>
                 </div>
               </div>
             </div>
-
-            <!-- FAQ 3 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="carFaqHeading2">
-                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#carFaqCollapse2" aria-expanded="false" aria-controls="carFaqCollapse2">
-                  <span class="home-faq-num me-3">03</span>
-                  <span itemprop="name">Can I transport an SUV or premium car?</span>
-                </button>
-              </h4>
-              <div id="carFaqCollapse2" class="accordion-collapse collapse" aria-labelledby="carFaqHeading2" data-bs-parent="#carFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      Ask about the availability of the transport arrangements for your SUV or premium vehicle. The options for transportation depend on the vehicle's size and the available carriers.
-                    </p>
-                  </div>
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-clipboard2-check"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Written Condition Report</h4>
+                  <p class="text-muted small mb-0">Transparent pre-pickup vehicle audit with photographically documented odometer reading.</p>
                 </div>
               </div>
             </div>
-
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-geo-alt-fill"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Live Satellite GPS Tracking</h4>
+                  <p class="text-muted small mb-0">Real-time status updates on carrier location with direct coordinator assistance.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-  </div>
-</section>
+        <!-- Card 2: Estimated Shifting Charges / Pricing Guide in City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+            <div>
+              <span class="badge bg-success-subtle text-success px-2.5 py-1 rounded-pill small fw-bold mb-1 d-inline-block">Transparent Pricing</span>
+              <h3 class="fw-bold text-navy fs-3 mb-1">Estimated Car Transport Rates in <?= $city_name ?></h3>
+              <p class="text-muted small mb-0">Standard car shifting rates according to vehicle dimensions and carrier category.</p>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3 py-1.5" data-bs-toggle="modal" data-bs-target="#qteModal">
+              Get Instant Car Quote
+            </button>
+          </div>
 
-<!-- ======================================================================= -->
-<!-- SECTION 7: LET'S PLAN YOUR CAR'S MOVING (HOMEPAGE RED CTA DESIGN)       -->
-<!-- ======================================================================= -->
-<section class="site-section section-bg-white cta-band-section" id="book-now" aria-label="Let's Plan Your Car's Moving">
-  <div class="container">
-    <div class="cta-band-box position-relative overflow-hidden">
-      
-      <!-- Ambient Background Soft Corner Circles -->
-      <div class="cta-deco-circle cta-deco-circle-1 position-absolute" aria-hidden="true"></div>
-      <div class="cta-deco-circle cta-deco-circle-2 position-absolute" aria-hidden="true"></div>
-
-      <!-- Faint Dotted Route Line & Travelling Truck Icon -->
-      <div class="cta-route-layer position-absolute d-none d-sm-block" aria-hidden="true">
-        <svg class="cta-route-svg" viewBox="0 0 1000 36" preserveAspectRatio="none" fill="none">
-          <path id="ctaRoutePath" class="cta-route-path" d="M -20,24 Q 250,6 500,24 T 1020,20" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2" stroke-dasharray="6 6" />
-        </svg>
-        <div class="cta-truck-badge">
-          <i class="bi bi-truck" aria-hidden="true"></i>
-        </div>
-      </div>
-
-      <!-- 2-Column Content Grid (60/40) -->
-      <div class="row align-items-center g-3 g-lg-4 position-relative z-2">
-        
-        <!-- Left Column: Headline & Subtext with Car Content -->
-        <div class="col-12 col-lg-7 text-center text-lg-start">
-          <h3 class="cta-band-title text-white fw-bold mb-2">
-            Let's Plan Your Car's Moving
-          </h3>
-          <p class="cta-band-subtitle mb-0">
-            Call us at <a href="<?= $phonehtml ?>" class="text-white text-decoration-underline fw-bold"><?= $phone ?></a> to get information about the car transport services and to receive quotations.
+          <div class="table-responsive">
+            <table class="table table-hover align-middle border border-light-subtle rounded-3 overflow-hidden mb-3">
+              <thead class="table-light">
+                <tr class="text-navy small">
+                  <th scope="col" class="py-3 px-3">Vehicle Type</th>
+                  <th scope="col" class="py-3 px-3">Securing Method</th>
+                  <th scope="col" class="py-3 px-3">Carrier Logistics</th>
+                  <th scope="col" class="py-3 px-3">Est. Price Range</th>
+                  <th scope="col" class="py-3 px-3">Delivery Window</th>
+                </tr>
+              </thead>
+              <tbody class="small text-secondary">
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-car-front text-danger me-1"></i> Hatchback (Swift, i10, Tiago)</td>
+                  <td class="px-3">4-Wheel Chock Lashing</td>
+                  <td class="px-3">Enclosed Multi-Car Container</td>
+                  <td class="px-3 fw-bold text-success">₹6,500 – ₹11,000</td>
+                  <td class="px-3">2 – 4 Days</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-car-front-fill text-danger me-1"></i> Sedan (City, Verna, Dzire, Ciaz)</td>
+                  <td class="px-3">Safety Straps &amp; Bumper Guard</td>
+                  <td class="px-3">Covered Carrier Fleet</td>
+                  <td class="px-3 fw-bold text-success">₹8,500 – ₹14,500</td>
+                  <td class="px-3">2 – 4 Days</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-truck-front text-danger me-1"></i> Compact SUV (Creta, Nexon, Brezza)</td>
+                  <td class="px-3">Heavy Tension Chocks</td>
+                  <td class="px-3">Hydraulic Ramp Container</td>
+                  <td class="px-3 fw-bold text-success">₹9,500 – ₹16,500</td>
+                  <td class="px-3">3 – 5 Days</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-truck-front-fill text-danger me-1"></i> Full SUV (Innova, XUV700, Fortuner)</td>
+                  <td class="px-3">Heavy-Duty 4-Point Lashing</td>
+                  <td class="px-3">Dedicated Carrier Bay</td>
+                  <td class="px-3 fw-bold text-success">₹12,000 – ₹21,000</td>
+                  <td class="px-3">3 – 5 Days</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-gem text-danger me-1"></i> Luxury / Electric (BMW, Audi, EV)</td>
+                  <td class="px-3">Air-Suspension Zero-Touch Bay</td>
+                  <td class="px-3">Single-Car Enclosed Special</td>
+                  <td class="px-3 fw-bold text-success">₹18,000 – ₹32,000+</td>
+                  <td class="px-3">Priority Express</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-muted small fst-italic mb-0">
+            * Note: Vehicle relocation tariffs include doorstep inspection, loading, transit insurance, and doorstep delivery. Toll taxes, GST, and transit documentation are transparently covered in our written quote.
           </p>
         </div>
 
-        <!-- Right Column: Compact White Contact Card -->
-        <div class="col-12 col-lg-5">
-          <div class="cta-contact-card bg-white">
-            
-            <!-- Card Header: Phone icon, 24x7 Label & Navy Number in One Compact Row -->
-            <div class="cta-card-header d-flex align-items-center gap-2 mb-2 pb-1">
-              <div class="cta-card-phone-wrap position-relative flex-shrink-0" aria-hidden="true">
-                <span class="cta-card-pulse-ring"></span>
-                <span class="cta-card-phone-icon d-flex align-items-center justify-content-center">
-                  <i class="bi bi-telephone-fill"></i>
-                </span>
-              </div>
-              <div class="cta-card-header-meta d-flex align-items-baseline gap-2 flex-wrap">
-                <span class="cta-card-label">Call us, 24x7:</span>
-                <?php if (!empty($phone)): ?>
-                  <a href="<?= $phonehtml ?>" class="cta-card-phone-num" title="Call us directly: <?= $phone ?>" aria-label="Call us directly: <?= $phone ?>">
-                    <?= $phone ?>
-                  </a>
-                <?php endif; ?>
+        <!-- Card 3: 4-Step Moving Workflow in City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="text-center mx-auto mb-4 city-process-header">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold mb-1 d-inline-block">Carrier Protocol</span>
+            <h3 class="fw-bold text-navy fs-3 mb-2">Our Car Transport Workflow in <?= $city_name ?></h3>
+            <p class="text-muted small mb-0">A certified 4-stage vehicle transit framework designed for total security and punctual doorstep delivery.</p>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">01</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">Doorstep Car Audit</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  Our inspector audits your vehicle at your doorstep in <?= $city_name ?>, notes existing scratches, records odometer numbers, and issues a signed report.
+                </p>
               </div>
             </div>
 
-            <!-- Action Buttons: Side-by-Side Row -->
-            <div class="cta-card-btn-row d-grid gap-2">
-              
-              <!-- Quote Button -->
-              <button type="button" class="btn btn-cta-card-quote d-flex align-items-center justify-content-center gap-2" data-bs-toggle="modal" data-bs-target="#qteModal" title="Get Free Moving Quote" aria-label="Get Free Moving Quote">
-                <span>Get Free Quote</span>
-                <i class="bi bi-arrow-right cta-btn-arrow" aria-hidden="true"></i>
-              </button>
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">02</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">Hydraulic Loading &amp; Lashing</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  Your car is driven up a smooth hydraulic incline into the enclosed container and locked on all 4 tires with heavy-duty safety chocks.
+                </p>
+              </div>
+            </div>
 
-              <!-- WhatsApp Button -->
-              <?php if (!empty($whatsapphtml)): ?>
-                <a href="<?= $whatsapphtml ?>" target="_blank" rel="noopener noreferrer" class="btn btn-cta-card-whatsapp d-flex align-items-center justify-content-center gap-2" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
-                  <i class="bi bi-whatsapp" aria-hidden="true"></i>
-                  <span>WhatsApp</span>
-                </a>
-              <?php endif; ?>
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">03</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">GPS Monitored Highway Transit</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  The container travels with real-time GPS tracking. Our customer care desk provides live progress milestones until arrival.
+                </p>
+              </div>
+            </div>
 
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">04</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">Doorstep Handover &amp; Verification</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  We unload your car safely at the destination address, conduct a joint inspection against the original report, and hand over the keys.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Localized FAQs for City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold">FAQ Guide</span>
+          </div>
+          <h3 class="fw-bold text-navy fs-3 mb-3">Frequently Asked Questions in <?= $city_name ?></h3>
+          
+          <div class="accordion d-flex flex-column gap-2.5" id="cityCarFaqAccordion">
+            
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead1">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol1" aria-expanded="false" aria-controls="faqCol1">
+                  How is my car protected from stone chips and rain during transit from <?= $city_name ?>?
+                </button>
+              </h4>
+              <div id="faqCol1" class="accordion-collapse collapse" aria-labelledby="faqHead1" data-bs-parent="#cityCarFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  We use fully enclosed, covered car carrier containers. Unlike open-car trailers, our sealed fleets shield your vehicle completely from gravel chips, dirt, rainwater, and road debris throughout the highway journey.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead2">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol2" aria-expanded="false" aria-controls="faqCol2">
+                  What documents are needed to book car transportation in <?= $city_name ?>?
+                </button>
+              </h4>
+              <div id="faqCol2" class="accordion-collapse collapse" aria-labelledby="faqHead2" data-bs-parent="#cityCarFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  You only need to provide copies of the vehicle Registration Certificate (RC), valid motor insurance policy, Pollution Under Control (PUC) certificate, and government photo ID of the owner. We handle the carrier consignment note and transit permits.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead3">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol3" aria-expanded="false" aria-controls="faqCol3">
+                  Can I leave luggage or personal items in the car trunk?
+                </button>
+              </h4>
+              <div id="faqCol3" class="accordion-collapse collapse" aria-labelledby="faqHead3" data-bs-parent="#cityCarFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  You may place personal luggage (up to 40-50 kg) inside the car trunk, provided it is packed in standard suitcases. Highly valuable items like jewelry, cash, laptops, or flammable materials must not be left inside the vehicle.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead4">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol4" aria-expanded="false" aria-controls="faqCol4">
+                  How can I track my vehicle while it is on the highway?
+                </button>
+              </h4>
+              <div id="faqCol4" class="accordion-collapse collapse" aria-labelledby="faqHead4" data-bs-parent="#cityCarFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  Our carrier trucks are equipped with live GPS tracking hardware. You receive regular SMS/WhatsApp location updates, and our 24x7 move desk coordinator is always available to give you exact transit checkpoints.
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
 
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- RIGHT / STICKY SIDEBAR COLUMN (col-12 col-lg-4)          -->
+      <!-- ======================================================== -->
+      <div class="col-12 col-lg-4">
+        <aside class="position-sticky city-sidebar-sticky">
+
+          <!-- Widget 1: Other Services in City (Refined Proportions Matching Screenshot) -->
+          <div class="city-sidebar-card mb-4">
+            <div class="city-sidebar-title">
+              <i class="bi bi-grid-fill text-danger"></i>
+              <span>Other Services in <?= $city_name ?></span>
+            </div>
+            <div class="city-sidebar-list">
+              <a href="<?= site_url('home-shifting-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-house-door-fill text-danger pill-icon"></i>
+                  <span class="pill-text">Home Shifting in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('office-shifting-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-building text-primary pill-icon"></i>
+                  <span class="pill-text">Office Relocation in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('bike-transport-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-bicycle text-info pill-icon"></i>
+                  <span class="pill-text">Bike Transport in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('packing-moving-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-box-seam-fill text-warning pill-icon"></i>
+                  <span class="pill-text">Packing &amp; Moving in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('loading-unloading-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-truck text-danger pill-icon"></i>
+                  <span class="pill-text">Loading &amp; Unloading in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Widget 2: 24x7 Fast Assistance Call Card (Snug Height & Proportions) -->
+          <div class="p-3.5 p-md-4 rounded-4 bg-danger text-white shadow-sm mb-4 position-relative overflow-hidden">
+            <div class="position-relative z-1">
+              <span class="badge bg-white text-danger px-2.5 py-1 rounded-pill small fw-bold mb-2 d-inline-block">24x7 Move Desk</span>
+              <h4 class="fw-bold fs-5 mb-1.5 text-white">Need Quick Advice in <?= $city_name ?>?</h4>
+              <p class="text-white-50 small mb-3">Speak directly with our vehicle move coordinator for transparent slot bookings and carrier rates.</p>
+              
+              <div class="d-flex flex-column gap-2">
+                <?php if (!empty($phone)): ?>
+                  <a href="<?= $phonehtml ?>" class="btn btn-white text-danger fw-bold rounded-pill py-2 shadow-sm d-flex align-items-center justify-content-center gap-2 text-decoration-none">
+                    <i class="bi bi-telephone-fill"></i>
+                    <span>Call Move Desk: <?= $phone ?></span>
+                  </a>
+                <?php endif; ?>
+
+                <?php if (!empty($whatsapphtml)): ?>
+                  <a href="<?= $whatsapphtml ?>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-pill py-2 d-flex align-items-center justify-content-center gap-2 text-decoration-none">
+                    <i class="bi bi-whatsapp"></i>
+                    <span>WhatsApp Consultation</span>
+                  </a>
+                <?php endif; ?>
+
+                <button type="button" class="btn btn-dark text-white rounded-pill py-2 fw-semibold d-flex align-items-center justify-content-center gap-2" data-bs-toggle="modal" data-bs-target="#qteModal">
+                  <i class="bi bi-calculator"></i>
+                  <span>Get Written Quotation</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 3: Trust & Assurance Guarantees -->
+          <div class="p-3.5 p-md-4 rounded-4 bg-white shadow-sm border border-light-subtle">
+            <p class="fw-bold text-navy fs-6 mb-3 pb-2 border-bottom border-light-subtle d-flex align-items-center gap-2">
+              <i class="bi bi-shield-fill-check text-success"></i>
+              <span>Why Choose Us in <?= $city_name ?></span>
+            </p>
+            <ul class="list-unstyled mb-0 d-flex flex-column gap-2.5 small text-secondary">
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-patch-check-fill text-danger fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">Written Price Guarantee</strong>
+                  <span>Transparent itemized quotation before the move. No hidden fees or last-minute surcharges.</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-file-earmark-check-fill text-success fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">IBA Approved Invoicing</strong>
+                  <span>Official bills compliant with government, public sector, and corporate claim standards (EL-8709).</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-clock-history text-primary fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">Punctual Safe Delivery</strong>
+                  <span>Timely vehicle pickup and scratch-free delivery across all locations in <?= $city_name ?>.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </aside>
       </div>
 
     </div>

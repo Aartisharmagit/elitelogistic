@@ -1,555 +1,451 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
-<!-- ======================================================================= -->
-<!-- SECTION 1: INNER PAGE HERO & DYNAMIC BREADCRUMBS (H1)                   -->
-<!-- ======================================================================= -->
+<?php
+  $city_name = !empty($city) ? htmlspecialchars($city) : 'Your City';
+  $curr_ctlink = !empty($ctlink) ? $ctlink : strtolower(str_replace(' ', '-', $city_name));
+?>
+
+<!-- 1. DYNAMIC BREADCRUMBS (H1) -->
 <?php $this->load->view('about/dynamic_breadcrumbs', [
-    'bc_h1' => 'Trusted Packing & Unpacking Services' . (!empty($city) ? " in $city" : ''),
-    'bc_desc' => 'Packing up your home or office tailored to your items. ' . htmlspecialchars($company3) . ' provides complete domestic, office, fragile, and furniture packing & unpacking assistance.',
+    'bc_h1' => 'Expert Packing and Moving in ' . $city_name,
+    'bc_desc' => 'Premium, export-grade packaging and professional moving solutions in ' . $city_name . '. 5-layer bubble protection, specialized crockery bins, and eco-friendly unpacking.',
     'breadcrumbs' => [
-        ['name' => 'Packing & Moving']
+        ['name' => 'Services', 'url' => site_url('services')],
+        ['name' => 'Packing & Moving in ' . $city_name]
     ]
 ]); ?>
 
-<!-- ======================================================================= -->
-<!-- SECTION 2: CORPORATE INTRO & FRAMED PHOTO SHOWCASE (H2 #1)              -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-overview" aria-label="Trusted Packing and Unpacking Services">
+<!-- 2. TWO-COLUMN MAIN CONTENT & SIDEBAR SECTION -->
+<section class="city-main-section py-4 py-lg-5 bg-light-subtle">
   <div class="container">
-    <div class="row align-items-center g-4 g-lg-5">
-      
-      <!-- Left Column: Featured Photo -->
-      <div class="col-12 col-lg-5">
-        <div class="about-image-wrapper position-relative">
-          <img src="<?= base_url('assets/img/packing_moving.jpg') ?>" alt="Trusted Packing &amp; Unpacking Services - <?= htmlspecialchars($company3) ?>" class="about-main-img" width="1080" height="720" loading="lazy">
-        </div>
-      </div>
 
-      <!-- Right Column: Narrative Content -->
-      <div class="col-12 col-lg-7">
-        <div class="inner-section-tag">
-          <span class="inner-section-bar"></span>
-          <span>Packing &amp; Unpacking Services &bull; Safe &amp; Tailored</span>
-        </div>
-        
-        <h2 class="inner-section-title mb-3">
-          Trusted Packing &amp; Unpacking Services
-        </h2>
-
-        <p class="service-desc-text text-secondary mb-3">
-          Packing up your home or office is not something you think will take that long. You start packing one cupboard and there you have another, with fragile items needing special treatment. Boxes appear everywhere and finally you have to unpack, where all you want is to have your kitchen stuff and workspace sorted out.
-        </p>
-
-        <p class="service-desc-text text-secondary mb-4">
-          Whether you plan a domestic or office relocation, our packing services can be tailored to your items and required assistance. Our company <strong><?= htmlspecialchars($company3) ?></strong> is ready to assist you with packing &amp; unpacking service.
-        </p>
-
-        <!-- Action Buttons -->
-        <div class="d-flex flex-wrap align-items-center gap-3">
-          <button type="button" class="btn-inner-primary" data-bs-toggle="modal" data-bs-target="#qteModal">
-            <span>Get Free Quote</span>
-            <i class="bi bi-arrow-right"></i>
-          </button>
-          <?php if (!empty($phone)): ?>
-            <a href="<?= $phonehtml ?>" class="btn-inner-secondary">
-              <i class="bi bi-telephone-fill"></i>
-              <span>Call <?= $phone ?></span>
-            </a>
-          <?php endif; ?>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 3: PACKING SERVICE FOR FURNITURE, APPLIANCES & MISC (H2 #2)     -->
-<!-- ======================================================================= -->
-<section class="inner-section-soft py-5" id="service-included" aria-label="Packing Service for Furniture, Appliances and Miscellaneous Items">
-  <div class="container">
-    
-    <div class="text-center inner-section-header mb-4">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Comprehensive Protection</span>
-      </div>
-      <h2 class="inner-section-title">Packing Service for Furniture, Appliances and Miscellaneous Items</h2>
-      <p class="inner-section-subtitle text-secondary mx-auto mt-2" class="inner-section-subtitle text-secondary mx-auto mt-2 max-w-820">
-        Not everything can be packed in a similar way. For example, some items may require additional cushioning, others could get damaged in case of mishandling, while some would require special protection. Selection of appropriate packing materials is important, especially if the goods are shipped long distance away.
-      </p>
-      <p class="service-feature-title fw-bold text-dark mt-2 mb-0">
-        Our packing services can include:
-      </p>
-    </div>
-
-    <!-- 5 Inclusions Grid -->
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Inclusion 1: Domestic Packing -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-box-seam-fill"></i>
+    <!-- Quick Trust Badges Strip -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-warning">
+            <i class="bi bi-star-fill"></i>
           </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Domestic Packing</h3>
-            <p class="inclusion-text mb-0 small">
-              Clothing, books, kitchen utensils, toys and other personal items packed into appropriate cartons.
-            </p>
+          <div class="city-trust-content">
+            <div class="city-trust-title">4.9 / 5 Rating</div>
+            <div class="city-trust-subtitle">2,100+ Homes in <?= $city_name ?></div>
           </div>
         </div>
       </div>
-
-      <!-- Inclusion 2: Furniture Packing -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-lamp-fill"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Furniture Packing</h3>
-            <p class="inclusion-text mb-0 small">
-              Wrapping beds, sofas, dining table, chairs and wardrobes with heavy protective blankets and wrap.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Inclusion 3: Fragile Items Packing -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-cup-hot-fill"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Fragile Items Packing</h3>
-            <p class="inclusion-text mb-0 small">
-              Extra cushioning of crockery, mirrors, glassware and other fragile items to absorb transit shocks.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Inclusion 4: Appliances Packing -->
-      <div class="col-12 col-md-6 col-lg-6">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-tv-fill"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Appliances Packing</h3>
-            <p class="inclusion-text mb-0 small">
-              Preparation of TVs, computers and other electronic items for shipment with antistatic padding and secure boxing.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Inclusion 5: Office Packing -->
-      <div class="col-12 col-md-6 col-lg-6">
-        <div class="service-inclusion-box h-100 flex-column align-items-start">
-          <div class="inclusion-icon-wrap mb-3">
-            <i class="bi bi-building"></i>
-          </div>
-          <div class="inclusion-text-wrap">
-            <h3 class="fw-bold fs-6 text-dark mb-1">Office Packing</h3>
-            <p class="inclusion-text mb-0 small">
-              Organisation of files, stationery, computers and other workplace equipment for minimal downtime.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Packing Material Guidance Callout -->
-    <div class="row justify-content-center mt-4 pt-2">
-      <div class="col-12 col-lg-10">
-        <div class="p-3 p-md-4 rounded-4 bg-white border border-danger-subtle shadow-sm d-flex align-items-start gap-3">
-          <div class="flex-shrink-0 text-danger fs-3 mt-1">
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-success">
             <i class="bi bi-shield-check"></i>
           </div>
-          <div>
-            <div class="service-feature-title fw-bold text-dark mb-1">Appropriate Protective Materials</div>
-            <p class="service-feature-desc text-secondary mb-0 small">
-              Corrugated cartons, bubble wrap, stretch film and protective sheets could be used depending on the items. The aim is to limit movement inside cartons and prevent scratching or damage during handling.
-            </p>
+          <div class="city-trust-content">
+            <div class="city-trust-title">5-Layer Protection</div>
+            <div class="city-trust-subtitle">Zero Damage Guarantee</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-primary">
+            <i class="bi bi-patch-check-fill"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">IBA Approved</div>
+            <div class="city-trust-subtitle">Code: EL-8709</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="city-trust-card">
+          <div class="city-trust-icon is-danger">
+            <i class="bi bi-lock-fill"></i>
+          </div>
+          <div class="city-trust-content">
+            <div class="city-trust-title">Written Price Lock</div>
+            <div class="city-trust-subtitle">Zero Hidden Fees</div>
           </div>
         </div>
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 4: OUR PACKING & UNPACKING SERVICE PROCESS (H3 #1)              -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-process" aria-label="Our Packing and Unpacking Service Process">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Step-by-Step Procedure</span>
-      </div>
-      <h3 class="inner-section-title">Our Packing &amp; Unpacking Service Process</h3>
-      <p class="inner-section-subtitle text-secondary mx-auto mt-2" class="inner-section-subtitle text-secondary mx-auto mt-2 max-w-780">
-        A methodical, orderly packing and unpacking sequence ensures your possessions stay safe and can be settled without stress.
-      </p>
-    </div>
-
-    <div class="row g-4 justify-content-center">
+    <div class="row g-4 g-lg-5">
       
-      <!-- Step 01 Card -->
-      <div class="col-12 col-md-4">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">1</span>
-              <span class="process-step-label">Step 1</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-clipboard2-check-fill"></i>
+      <!-- ======================================================== -->
+      <!-- LEFT / MAIN CONTENT COLUMN (col-12 col-lg-8)             -->
+      <!-- ======================================================== -->
+      <div class="col-12 col-lg-8">
+
+        <!-- Card 1: Local Packing & Moving Overview -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold">Export Grade Packaging &bull; Certified Handlers</span>
+          </div>
+          <h2 class="fw-bold text-navy fs-3 mb-3">
+            Professional Packing &amp; Moving Services in <?= $city_name ?>
+          </h2>
+
+          <!-- Featured Service Photo with Overlay -->
+          <div class="position-relative mb-4 overflow-hidden rounded-3 border border-light-subtle">
+            <img src="<?= base_url('assets/img/packing_moving.jpg') ?>" alt="Packing & Moving in <?= $city_name ?> - <?= htmlspecialchars($company3) ?>" class="img-fluid w-100 city-featured-img" loading="lazy">
+            <div class="position-absolute bottom-0 start-0 m-3 p-2.5 px-3 bg-white bg-opacity-95 rounded-pill shadow-sm border border-light-subtle d-inline-flex align-items-center gap-2">
+              <i class="bi bi-geo-alt-fill text-danger small"></i>
+              <span class="fw-semibold text-navy small">Doorstep packing crew across all neighborhoods in <?= $city_name ?></span>
             </div>
           </div>
-          
-          <div class="process-step-line"></div>
 
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Identification &amp; Particular Attention</h4>
-            <p class="process-step-paragraph mb-0">
-              First, identification of items to be packed and their particular attention is made. Fragile goods, electronics, and heavy furniture are noted for custom wrapping.
-            </p>
-          </div>
-        </div>
-      </div>
+          <p class="text-secondary mb-3 leading-relaxed">
+            The foundation of a zero-damage relocation in <strong><?= $city_name ?></strong> lies in the quality of packing materials and the technique of the packing crew. At <?= htmlspecialchars($company3) ?>, we deploy certified packaging specialists armed with high-gauge bubble wraps, corrugated rolls, honeycomb wrapping papers, foam corner guards, and heavy-duty double-walled cardboard cartons.
+          </p>
+          <p class="text-secondary mb-4 leading-relaxed">
+            Whether packing delicate glassware, bone china crockery, expensive OLED televisions, modular wardrobes, or luxury sofas in <?= $city_name ?>, each item is treated with its own dedicated multi-stage protection protocol. Boxes are categorized with room-by-room color-coded stickers to ensure seamless, systematic unpacking at your destination.
+          </p>
 
-      <!-- Step 02 Card -->
-      <div class="col-12 col-md-4">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">2</span>
-              <span class="process-step-label">Step 2</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-box-seam-fill"></i>
-            </div>
-          </div>
-          
-          <div class="process-step-line"></div>
-
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Organised Packing &amp; Room Labelling</h4>
-            <p class="process-step-paragraph mb-0">
-              The items are then organised, packed and placed in appropriate cartons. Labelling of cartons by rooms will make things much easier, as no one wants to unpack six cartons in order to look for his kettle.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 03 Card -->
-      <div class="col-12 col-md-4">
-        <div class="process-timeline-card h-100">
-          <div class="process-timeline-head">
-            <div class="process-step-pill">
-              <span class="process-step-circle">3</span>
-              <span class="process-step-label">Step 3</span>
-            </div>
-            <div class="process-step-icon">
-              <i class="bi bi-house-check-fill"></i>
-            </div>
-          </div>
-          
-          <div class="process-step-line"></div>
-
-          <div class="process-timeline-body">
-            <h4 class="fw-bold fs-6 text-dark mb-2">Destination Unpacking &amp; Placement</h4>
-            <p class="process-step-paragraph mb-0">
-              At destination, unpacking may consist of opening cartons, unpacking and placing of items in particular areas depending on the agreed-upon service.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 5: WHY DO YOU NEED PROFESSIONAL PACKING HELP? (H3 #2)           -->
-<!-- ======================================================================= -->
-<section class="inner-section-soft py-5" id="service-why-need" aria-label="Why Do You Need Professional Packing Help?">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Expert Assistance</span>
-      </div>
-      <h3 class="inner-section-title">Why Do You Need Professional Packing Help?</h3>
-      <p class="inner-section-subtitle text-secondary mx-auto mt-2" class="inner-section-subtitle text-secondary mx-auto mt-2 max-w-760">
-        Packing all by yourself is always possible. But you will need time, packing materials and much patience. Professional help could be useful if you have a big household, bulky furniture, fragile items or an office with items requiring organised handling.
-      </p>
-    </div>
-
-    <!-- 4 Reasons Grid -->
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Reason 1: Big Household -->
-      <div class="col-12 col-sm-6 col-lg-6">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-houses-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Big Household Moves</h4>
-              <p class="advantage-card-text mb-0 small">
-                Packing multiple bedrooms, cupboards, and personal items takes significant time and energy without professional hands.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Reason 2: Bulky Furniture -->
-      <div class="col-12 col-sm-6 col-lg-6">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-navy"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-navy flex-shrink-0">
-              <i class="bi bi-box-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Bulky Furniture Wrapping</h4>
-              <p class="advantage-card-text mb-0 small">
-                Disassembling and safely wrapping beds, wardrobes, and dining tables requires specialized padding and heavy lifting.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Reason 3: Fragile Items -->
-      <div class="col-12 col-sm-6 col-lg-6">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-red"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-red flex-shrink-0">
-              <i class="bi bi-shield-shaded"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Fragile Items Protection</h4>
-              <p class="advantage-card-text mb-0 small">
-                Delicate glassware, mirrors, and crockery require multi-layered cushioning and shock-absorbent packing techniques.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Reason 4: Office Relocation -->
-      <div class="col-12 col-sm-6 col-lg-6">
-        <div class="service-advantage-card h-100">
-          <div class="advantage-card-accent advantage-accent-navy"></div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="advantage-card-icon advantage-icon-navy flex-shrink-0">
-              <i class="bi bi-briefcase-fill"></i>
-            </div>
-            <div class="advantage-card-content">
-              <h4 class="fw-bold fs-6 text-dark mb-1">Organised Office Handling</h4>
-              <p class="advantage-card-text mb-0 small">
-                Files, desktop computers, and office equipment must be packed systematically to resume operations quickly.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================= -->
-<!-- SECTION 6: FAQS WITH SCHEMA.ORG JSON-LD (H3 #3)                         -->
-<!-- ======================================================================= -->
-<section class="inner-section-white py-5" id="service-faqs" aria-label="Frequently Asked Questions about Packing and Unpacking">
-  <div class="container">
-    
-    <div class="text-center inner-section-header">
-      <div class="inner-section-tag">
-        <span class="inner-section-bar"></span>
-        <span>Clear Answers &bull; Transparent Guidance</span>
-      </div>
-      <h3 class="inner-section-title">Frequently Asked Questions</h3>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-9">
-        <div class="faq-accordion-wrapper" itemscope itemtype="https://schema.org/FAQPage">
-          <div class="accordion d-flex flex-column gap-3" id="packFaqAccordion">
-
-            <!-- FAQ 1 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="packFaqHeading0">
-                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#packFaqCollapse0" aria-expanded="true" aria-controls="packFaqCollapse0">
-                  <span class="home-faq-num me-3">01</span>
-                  <span itemprop="name">Will packing materials be provided in your service?</span>
-                </button>
-              </h4>
-              <div id="packFaqCollapse0" class="accordion-collapse collapse show" aria-labelledby="packFaqHeading0" data-bs-parent="#packFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      It depends on the selected package. Clarify what packing materials will be provided and whether any extra cost applies. When discussing your quotation with <?= htmlspecialchars($company3) ?>, all required corrugated cartons, bubble wraps, and protective sheets can be tailored to your moving needs.
-                    </p>
-                  </div>
+          <!-- 4 Core Moving Pillars Grid -->
+          <div class="row g-3">
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-shield-shaded"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">5-Layer Protection System</h4>
+                  <p class="text-muted small mb-0">High-micron bubble rolls, thermocol edge guards, corrugated boards, and stretch wraps.</p>
                 </div>
               </div>
             </div>
-
-            <!-- FAQ 2 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="packFaqHeading1">
-                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#packFaqCollapse1" aria-expanded="false" aria-controls="packFaqCollapse1">
-                  <span class="home-faq-num me-3">02</span>
-                  <span itemprop="name">Is it possible to book only the unpacking service?</span>
-                </button>
-              </h4>
-              <div id="packFaqCollapse1" class="accordion-collapse collapse" aria-labelledby="packFaqHeading1" data-bs-parent="#packFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      It depends on the availability. Just mention your requirements when asking for a quotation, and our team will arrange dedicated unpacking assistance for your destination where feasible.
-                    </p>
-                  </div>
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-tags-fill"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Room-Wise Inventory Labels</h4>
+                  <p class="text-muted small mb-0">Color-coded numbering for kitchen, bedrooms, living hall, and fragile boxes.</p>
                 </div>
               </div>
             </div>
-
-            <!-- FAQ 3 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="packFaqHeading2">
-                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#packFaqCollapse2" aria-expanded="false" aria-controls="packFaqCollapse2">
-                  <span class="home-faq-num me-3">03</span>
-                  <span itemprop="name">What packing materials are commonly used for relocation?</span>
-                </button>
-              </h4>
-              <div id="packFaqCollapse2" class="accordion-collapse collapse" aria-labelledby="packFaqHeading2" data-bs-parent="#packFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      Corrugated cartons, bubble wrap, stretch film and protective sheets are used depending on the items. The aim is to limit movement inside cartons and prevent scratching or damage during handling.
-                    </p>
-                  </div>
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-cup-hot-fill"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Specialized Crockery Bins</h4>
+                  <p class="text-muted small mb-0">Segmented honeycomb separators for glassware, porcelain sets, and kitchen decor.</p>
                 </div>
               </div>
             </div>
-
-            <!-- FAQ 4 -->
-            <div class="accordion-item home-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <h4 class="accordion-header" id="packFaqHeading3">
-                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#packFaqCollapse3" aria-expanded="false" aria-controls="packFaqCollapse3">
-                  <span class="home-faq-num me-3">04</span>
-                  <span itemprop="name">How does room-wise carton labelling help during unpacking?</span>
-                </button>
-              </h4>
-              <div id="packFaqCollapse3" class="accordion-collapse collapse" aria-labelledby="packFaqHeading3" data-bs-parent="#packFaqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <div class="accordion-body">
-                  <div class="home-faq-answer-inner" itemprop="text">
-                    <p class="home-faq-answer-text mb-0">
-                      Labelling of cartons by rooms will make things much easier, as no one wants to unpack six cartons in order to look for his kettle. Cartons are placed directly in the right room at destination.
-                    </p>
-                  </div>
+            <div class="col-12 col-sm-6">
+              <div class="p-3 rounded-3 border border-light-subtle bg-light-subtle d-flex align-items-start gap-3 h-100">
+                <div class="text-danger fs-4 flex-shrink-0"><i class="bi bi-recycle"></i></div>
+                <div>
+                  <h4 class="fw-bold text-navy fs-6 mb-1">Unpacking &amp; Debris Cleanup</h4>
+                  <p class="text-muted small mb-0">Doorstep box unsealing, furniture setup, and complete disposal of packing trash.</p>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
-      </div>
-    </div>
 
-  </div>
-</section>
+        <!-- Card 2: Estimated Shifting Charges / Pricing Guide in City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+            <div>
+              <span class="badge bg-success-subtle text-success px-2.5 py-1 rounded-pill small fw-bold mb-1 d-inline-block">Transparent Pricing</span>
+              <h3 class="fw-bold text-navy fs-3 mb-1">Estimated Packing Rates in <?= $city_name ?></h3>
+              <p class="text-muted small mb-0">Clear packaging estimates based on home size and protective layer specifications.</p>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3 py-1.5" data-bs-toggle="modal" data-bs-target="#qteModal">
+              Get Packing Estimate
+            </button>
+          </div>
 
-<!-- ======================================================================= -->
-<!-- SECTION 7: NEED HELP WITH PACKING? (CTA BAND) (H3 #4)                   -->
-<!-- ======================================================================= -->
-<section class="site-section section-bg-white cta-band-section" id="book-now" aria-label="Need Help With Packing">
-  <div class="container">
-    <div class="cta-band-box position-relative overflow-hidden">
-      
-      <!-- Ambient Background Soft Corner Circles -->
-      <div class="cta-deco-circle cta-deco-circle-1 position-absolute" aria-hidden="true"></div>
-      <div class="cta-deco-circle cta-deco-circle-2 position-absolute" aria-hidden="true"></div>
-
-      <!-- Faint Dotted Route Line & Travelling Truck Icon -->
-      <div class="cta-route-layer position-absolute d-none d-sm-block" aria-hidden="true">
-        <svg class="cta-route-svg" viewBox="0 0 1000 36" preserveAspectRatio="none" fill="none">
-          <path id="ctaRoutePath" class="cta-route-path" d="M -20,24 Q 250,6 500,24 T 1020,20" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2" stroke-dasharray="6 6" />
-        </svg>
-        <div class="cta-truck-badge">
-          <i class="bi bi-truck" aria-hidden="true"></i>
-        </div>
-      </div>
-
-      <!-- 2-Column Content Grid (60/40) -->
-      <div class="row align-items-center g-3 g-lg-4 position-relative z-2">
-        
-        <!-- Left Column: Headline & Subtext with Packing Content -->
-        <div class="col-12 col-lg-7 text-center text-lg-start">
-          <h3 class="cta-band-title text-white fw-bold mb-2">
-            Need Help With Packing?
-          </h3>
-          <p class="cta-band-subtitle mb-0">
-            Contact <?= htmlspecialchars($company3) ?> for packing and unpacking quotation. Call Now: <a href="<?= $phonehtml ?>" class="text-white text-decoration-underline fw-bold"><?= $phone ?></a>.
+          <div class="table-responsive">
+            <table class="table table-hover align-middle border border-light-subtle rounded-3 overflow-hidden mb-3">
+              <thead class="table-light">
+                <tr class="text-navy small">
+                  <th scope="col" class="py-3 px-3">Service Scope</th>
+                  <th scope="col" class="py-3 px-3">Materials Included</th>
+                  <th scope="col" class="py-3 px-3">Crew Size</th>
+                  <th scope="col" class="py-3 px-3">Est. Price Range</th>
+                  <th scope="col" class="py-3 px-3">Packing Time</th>
+                </tr>
+              </thead>
+              <tbody class="small text-secondary">
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-box-seam text-danger me-1"></i> Standard 1 BHK Packing</td>
+                  <td class="px-3">3-Layer Bubble + Corrugated Boxes</td>
+                  <td class="px-3">3 Certified Packers</td>
+                  <td class="px-3 fw-bold text-success">₹3,000 – ₹5,500</td>
+                  <td class="px-3">2 – 3 Hours</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-boxes text-danger me-1"></i> Deluxe 2 BHK Packing</td>
+                  <td class="px-3">4-Layer Protective Cushioning</td>
+                  <td class="px-3">4 Certified Packers</td>
+                  <td class="px-3 fw-bold text-success">₹5,500 – ₹9,000</td>
+                  <td class="px-3">3 – 5 Hours</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-house-gear text-danger me-1"></i> Premium 3/4 BHK Villa Packing</td>
+                  <td class="px-3">5-Layer Bubble + Edge Guards</td>
+                  <td class="px-3">6 Expert Handlers</td>
+                  <td class="px-3 fw-bold text-success">₹9,500 – ₹16,500</td>
+                  <td class="px-3">5 – 7 Hours</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-cup text-danger me-1"></i> Fragile Crockery &amp; Glassware Only</td>
+                  <td class="px-3">Honeycomb Paper + Foam Bins</td>
+                  <td class="px-3">2 Delicate Handlers</td>
+                  <td class="px-3 fw-bold text-success">₹2,500 – ₹5,000</td>
+                  <td class="px-3">2 – 3 Hours</td>
+                </tr>
+                <tr>
+                  <td class="px-3 fw-bold text-navy"><i class="bi bi-gem text-danger me-1"></i> Luxury Art &amp; Wooden Crating</td>
+                  <td class="px-3">Handcrafted Plywood Crates</td>
+                  <td class="px-3">Master Carpenters</td>
+                  <td class="px-3 fw-bold text-success">₹4,500 – ₹10,000+</td>
+                  <td class="px-3">Pre-Booked Slot</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-muted small fst-italic mb-0">
+            * Note: All quotes include new, unused bubble rolls, virgin corrugated cartons, stretch film, sealing tapes, and labor. Written cost locked prior to packing commencement.
           </p>
         </div>
 
-        <!-- Right Column: Compact White Contact Card -->
-        <div class="col-12 col-lg-5">
-          <div class="cta-contact-card bg-white">
-            
-            <!-- Card Header: Phone icon, 24x7 Label & Navy Number in One Compact Row -->
-            <div class="cta-card-header d-flex align-items-center gap-2 mb-2 pb-1">
-              <div class="cta-card-phone-wrap position-relative flex-shrink-0" aria-hidden="true">
-                <span class="cta-card-pulse-ring"></span>
-                <span class="cta-card-phone-icon d-flex align-items-center justify-content-center">
-                  <i class="bi bi-telephone-fill"></i>
-                </span>
+        <!-- Card 3: 4-Step Moving Workflow in City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle mb-4">
+          <div class="text-center mx-auto mb-4 city-process-header">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold mb-1 d-inline-block">Systematic Workflow</span>
+            <h3 class="fw-bold text-navy fs-3 mb-2">Our Packing &amp; Moving Method in <?= $city_name ?></h3>
+            <p class="text-muted small mb-0">A 4-tier packaging framework guaranteeing zero damage and effortless room setup.</p>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">01</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">Inventory Assessment</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  Our move supervisor assesses the volume of fragile, heavy, and electronic items to supply exact box sizes and wrapping densities.
+                </p>
               </div>
-              <div>
-                <span class="cta-card-badge text-uppercase fw-bold text-success d-inline-block">Verified Move Desk</span>
-                <div class="cta-card-phone-num fw-bold text-dark lh-1 mt-0.5">
-                  <?php if (!empty($phone)): ?>
-                    <a href="<?= $phonehtml ?>" class="text-dark text-decoration-none"><?= $phone ?></a>
-                  <?php endif; ?>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">02</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">5-Layer Protective Wrap</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  Fragile electronics, crockery, and furniture are wrapped in multi-layer bubble cushioning, corrugated rolls, and heavy stretch film.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">03</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">Room-Wise Labeling</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  Every box is sealed with tamper-proof tape and marked with room numbers and detailed content lists for transparent verification.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="p-3.5 rounded-4 border border-light-subtle bg-light-subtle h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0 city-step-number">04</div>
+                  <h4 class="fw-bold text-navy fs-6 mb-0">Doorstep Unpacking &amp; Disposal</h4>
+                </div>
+                <p class="text-muted small mb-0">
+                  At the new home, our crew assists in unboxing, placing furniture in designated spots, and hauling away used packaging trash.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Localized FAQs for City -->
+        <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill small fw-bold">FAQ Guide</span>
+          </div>
+          <h3 class="fw-bold text-navy fs-3 mb-3">Frequently Asked Questions in <?= $city_name ?></h3>
+          
+          <div class="accordion d-flex flex-column gap-2.5" id="cityPackingFaqAccordion">
+            
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead1">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol1" aria-expanded="false" aria-controls="faqCol1">
+                  What types of packing materials do you use for household items in <?= $city_name ?>?
+                </button>
+              </h4>
+              <div id="faqCol1" class="accordion-collapse collapse" aria-labelledby="faqHead1" data-bs-parent="#cityPackingFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  We use brand-new export-grade materials: high-density air bubble films, multi-ply virgin corrugated cartons, foam corner guards, stretch cling film, honeycomb cushion paper, and BOPP adhesive tapes to guarantee total protection.
                 </div>
               </div>
             </div>
 
-            <!-- Card Bottom: Micro features & High-Contrast Red Book Button -->
-            <div class="d-flex align-items-center justify-content-between pt-2 border-top border-light-subtle">
-              <div class="cta-card-feature d-inline-flex align-items-center gap-1.5 text-secondary small">
-                <i class="bi bi-patch-check-fill text-success" aria-hidden="true"></i>
-                <span>Zero Hidden Fees</span>
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead2">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol2" aria-expanded="false" aria-controls="faqCol2">
+                  Do I need to buy cartons or tape separately, or is everything included?
+                </button>
+              </h4>
+              <div id="faqCol2" class="accordion-collapse collapse" aria-labelledby="faqHead2" data-bs-parent="#cityPackingFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  Everything is 100% included in our written quotation. Our team brings all required packing cartons, bubble rolls, and tapes. There are zero extra out-of-pocket expenses for packaging supplies.
+                </div>
               </div>
-              <button type="button" class="btn btn-sm btn-danger fw-bold rounded-pill px-3 py-1.5 shadow-sm" data-bs-toggle="modal" data-bs-target="#qteModal">
-                <span>Book Now</span>
-                <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
-              </button>
+            </div>
+
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead3">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol3" aria-expanded="false" aria-controls="faqCol3">
+                  How do you pack large Smart LED TVs and glass dining tabletops?
+                </button>
+              </h4>
+              <div id="faqCol3" class="accordion-collapse collapse" aria-labelledby="faqHead3" data-bs-parent="#cityPackingFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  Televisions and glass tops receive specialized 5-layer treatment: anti-static foam layer on the screen, bubble cushioning, thermocol corner protectors, heavy corrugated sheets, and customized wooden crate reinforcement.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item border border-light-subtle rounded-3 overflow-hidden">
+              <h4 class="accordion-header" id="faqHead4">
+                <button class="accordion-button fw-bold text-navy collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol4" aria-expanded="false" aria-controls="faqCol4">
+                  Will your crew unpack boxes and remove used packaging materials?
+                </button>
+              </h4>
+              <div id="faqCol4" class="accordion-collapse collapse" aria-labelledby="faqHead4" data-bs-parent="#cityPackingFaqAccordion">
+                <div class="accordion-body text-secondary small pt-0 pb-3">
+                  Yes, our doorstep service includes unpacking assistance and room-by-room positioning of major goods. Once finished, we haul away all scrap cartons, empty rolls, and plastic debris, leaving your new home neat and clutter-free.
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
 
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- RIGHT / STICKY SIDEBAR COLUMN (col-12 col-lg-4)          -->
+      <!-- ======================================================== -->
+      <div class="col-12 col-lg-4">
+        <aside class="position-sticky city-sidebar-sticky">
+
+          <!-- Widget 1: Other Services in City (Refined Proportions Matching Screenshot) -->
+          <div class="city-sidebar-card mb-4">
+            <div class="city-sidebar-title">
+              <i class="bi bi-grid-fill text-danger"></i>
+              <span>Other Services in <?= $city_name ?></span>
+            </div>
+            <div class="city-sidebar-list">
+              <a href="<?= site_url('home-shifting-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-house-door-fill text-danger pill-icon"></i>
+                  <span class="pill-text">Home Shifting in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('office-shifting-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-building text-primary pill-icon"></i>
+                  <span class="pill-text">Office Relocation in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('car-transport-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-car-front-fill text-success pill-icon"></i>
+                  <span class="pill-text">Car Transport in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('bike-transport-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-bicycle text-info pill-icon"></i>
+                  <span class="pill-text">Bike Transport in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+              <a href="<?= site_url('loading-unloading-in-' . $curr_ctlink) ?>" class="city-service-pill">
+                <span class="d-flex align-items-center gap-2">
+                  <i class="bi bi-truck text-danger pill-icon"></i>
+                  <span class="pill-text">Loading &amp; Unloading in <?= $city_name ?></span>
+                </span>
+                <i class="bi bi-chevron-right pill-arrow"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Widget 2: 24x7 Fast Assistance Call Card (Snug Height & Proportions) -->
+          <div class="p-3.5 p-md-4 rounded-4 bg-danger text-white shadow-sm mb-4 position-relative overflow-hidden">
+            <div class="position-relative z-1">
+              <span class="badge bg-white text-danger px-2.5 py-1 rounded-pill small fw-bold mb-2 d-inline-block">24x7 Move Desk</span>
+              <h4 class="fw-bold fs-5 mb-1.5 text-white">Need Quick Advice in <?= $city_name ?>?</h4>
+              <p class="text-white-50 small mb-3">Speak directly with our local coordinator for accurate move schedules and free written estimates.</p>
+              
+              <div class="d-flex flex-column gap-2">
+                <?php if (!empty($phone)): ?>
+                  <a href="<?= $phonehtml ?>" class="btn btn-white text-danger fw-bold rounded-pill py-2 shadow-sm d-flex align-items-center justify-content-center gap-2 text-decoration-none">
+                    <i class="bi bi-telephone-fill"></i>
+                    <span>Call Move Desk: <?= $phone ?></span>
+                  </a>
+                <?php endif; ?>
+
+                <?php if (!empty($whatsapphtml)): ?>
+                  <a href="<?= $whatsapphtml ?>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-pill py-2 d-flex align-items-center justify-content-center gap-2 text-decoration-none">
+                    <i class="bi bi-whatsapp"></i>
+                    <span>WhatsApp Consultation</span>
+                  </a>
+                <?php endif; ?>
+
+                <button type="button" class="btn btn-dark text-white rounded-pill py-2 fw-semibold d-flex align-items-center justify-content-center gap-2" data-bs-toggle="modal" data-bs-target="#qteModal">
+                  <i class="bi bi-calculator"></i>
+                  <span>Get Written Quotation</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 3: Trust & Assurance Guarantees -->
+          <div class="p-3.5 p-md-4 rounded-4 bg-white shadow-sm border border-light-subtle">
+            <p class="fw-bold text-navy fs-6 mb-3 pb-2 border-bottom border-light-subtle d-flex align-items-center gap-2">
+              <i class="bi bi-shield-fill-check text-success"></i>
+              <span>Why Choose Us in <?= $city_name ?></span>
+            </p>
+            <ul class="list-unstyled mb-0 d-flex flex-column gap-2.5 small text-secondary">
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-patch-check-fill text-danger fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">Written Price Guarantee</strong>
+                  <span>Transparent itemized quotation before the move. No hidden fees or last-minute surcharges.</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-file-earmark-check-fill text-success fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">IBA Approved Invoicing</strong>
+                  <span>Official bills compliant with government, public sector, and corporate claim standards (EL-8709).</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-2.5">
+                <i class="bi bi-clock-history text-primary fs-5 flex-shrink-0"></i>
+                <div>
+                  <strong class="text-navy d-block">Punctual Safe Delivery</strong>
+                  <span>Timely pickup and prompt placement across all residential societies in <?= $city_name ?>.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </aside>
       </div>
 
     </div>

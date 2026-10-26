@@ -30,22 +30,22 @@ $route["bike-transport-in-(:any)"] = "city_services/bike_transport/$1";
 $route["packing-moving-in-(:any)"] = "city_services/packing_moving/$1";
 $route["loading-unloading-in-(:any)"] = "city_services/loading_unloading/$1";
 
-// National Services Routes (Exclusively using city_services module)
-$route["our-services"] = "city_services/index";
-$route["services"] = "city_services/index";
-$route["home-relocation"] = "city_services/home_shifting";
-$route["office-relocation"] = "city_services/office_shifting";
-$route["bike-transportation"] = "city_services/bike_transport";
-$route["car-transportation"] = "city_services/car_transport";
-$route["packing-and-moving"] = "city_services/packing_moving";
-$route["loading-unloading"] = "city_services/loading_unloading";
+// National Services Routes (Using services module)
+$route["our-services"] = "services/index";
+$route["services"] = "services/index";
+$route["home-relocation"] = "services/home_shifting";
+$route["office-relocation"] = "services/office_shifting";
+$route["bike-transportation"] = "services/bike_transport";
+$route["car-transportation"] = "services/car_transport";
+$route["packing-and-moving"] = "services/packing_moving";
+$route["loading-unloading"] = "services/loading_unloading";
 
 // Legacy / Compatibility Routes
-$route["storage-services"] = "city_services/storage_services";
-$route["car-transportation-service"] = "city_services/car_transport";
-$route["bike-transportation-service"] = "city_services/bike_transport";
-$route["office-relocation-service"] = "city_services/office_shifting";
-$route["home-relocation-service"] = "city_services/home_shifting";
+$route["storage-services"] = "services/storage_services";
+$route["car-transportation-service"] = "services/car_transport";
+$route["bike-transportation-service"] = "services/bike_transport";
+$route["office-relocation-service"] = "services/office_shifting";
+$route["home-relocation-service"] = "services/home_shifting";
 $route["infrastructure"] = "about/infrastructure";
 $route["why-choose-us"] = "about/choose";
 
