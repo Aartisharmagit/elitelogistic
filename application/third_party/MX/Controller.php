@@ -70,15 +70,12 @@ class MX_Controller
         $this->comp['isoCode'] = 'ISO 9001:2015';
 
         $this->comp['facebook'] = "";
-        $this->comp['facebookhtml'] = "";
+        $this->comp['facebookhtml'] = "https://www.facebook.com/61594556184448/posts/122095872453485206/";
         $this->comp['youtube'] = "";
         $this->comp['youtubehtml'] = "";
         $this->comp['instagram'] = "";
-        $this->comp['instagramhtml'] = "";
+        $this->comp['instagramhtml'] = "https://www.instagram.com/elitelogisticsandpackers?vrfl=MXNrcmFnYzlwenc5MQ==";
         $this->comp['twitter'] = "";
-        $this->comp['twitterhtml'] = "";
-        $this->comp['linkedin'] = "";
-        $this->comp['linkedinhtml'] = "";
 
         $this->comp['address'] = "3-4-16, Housing Board Colony, Malaysian Twp, KPHB 5th Phase, Kukatpally, Hyderabad";
         $this->comp['address1'] = "3-4-16, Housing Board Colony, Malaysian Twp, KPHB 5th Phase";
