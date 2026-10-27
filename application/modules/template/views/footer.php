@@ -84,6 +84,12 @@
           <li>
             <a class="footer-link text-decoration-none" href="<?= site_url('blog') ?>" title="Moving Blog" aria-label="Moving Blog">Moving Blog</a>
           </li>
+          <li>
+            <a class="footer-link text-decoration-none d-inline-flex align-items-center gap-1" href="<?= site_url('track-shipment') ?>" title="Track Shipment" aria-label="Track Shipment">
+              <span>Track Shipment</span>
+              <span class="badge bg-danger text-white rounded-pill" style="font-size: 9px; padding: 2px 6px;">LIVE</span>
+            </a>
+          </li>
         </ul>
       </div>
 

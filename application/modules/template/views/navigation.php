@@ -185,6 +185,14 @@
                     <?php if ($this->uri->segment(1) == 'blog'): ?><i class="bi bi-chevron-right mega-row-chev" aria-hidden="true"></i><?php endif; ?>
                   </a>
                 </li>
+                <li class="mega-list-item">
+                  <a class="mega-row-link <?= ($this->uri->segment(1) == 'track-shipment' || $this->uri->segment(1) == 'track-shipment') ? 'is-active' : '' ?>" href="<?= site_url('track-shipment') ?>" title="Track Shipment">
+                    <i class="bi bi-geo-alt mega-row-icon text-danger" aria-hidden="true"></i>
+                    <span class="mega-row-label">Track Shipment</span>
+                    <span class="badge bg-danger text-white fw-bold ms-auto small px-2 py-0.5 rounded-pill" style="font-size: 10px; letter-spacing: 0.5px;">LIVE</span>
+                    <?php if ($this->uri->segment(1) == 'track-shipment' || $this->uri->segment(1) == 'track-shipment'): ?><i class="bi bi-chevron-right mega-row-chev" aria-hidden="true"></i><?php endif; ?>
+                  </a>
+                </li>
               </ul>
 
               <!-- Mini Card: Request a free home survey -->
@@ -636,6 +644,14 @@
                     <a class="mega-row-link <?= ($this->uri->segment(1) == 'blog') ? 'is-active' : '' ?>" href="<?= site_url('blog') ?>">
                       <i class="bi bi-journal-text mega-row-icon" aria-hidden="true"></i>
                       <span class="mega-row-label">Moving Guides & Blog</span>
+                      <i class="bi bi-chevron-right mega-row-chev ms-auto text-muted" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li class="mega-list-item">
+                    <a class="mega-row-link <?= ($this->uri->segment(1) == 'track-shipment' || $this->uri->segment(1) == 'track-shipment') ? 'is-active' : '' ?>" href="<?= site_url('track-shipment') ?>">
+                      <i class="bi bi-geo-alt mega-row-icon text-danger" aria-hidden="true"></i>
+                      <span class="mega-row-label">Track Shipment</span>
+                      <span class="badge bg-danger text-white fw-bold ms-auto small px-2 py-0.5 rounded-pill" style="font-size: 10px; letter-spacing: 0.5px;">LIVE</span>
                       <i class="bi bi-chevron-right mega-row-chev ms-auto text-muted" aria-hidden="true"></i>
                     </a>
                   </li>

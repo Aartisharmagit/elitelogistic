@@ -21,6 +21,9 @@ $route['blog'] = 'blog/view';
 $route['privacy-policy'] = 'about/privacy';
 $route['terms-and-conditions'] = 'about/terms';
 
+// Shipment Tracking Routes
+$route['track-shipment'] = 'tracking/index';
+
 
 // City Services Routes (City-specific)
 $route["home-shifting-in-(:any)"] = "city_services/home_shifting/$1";
