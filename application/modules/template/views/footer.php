@@ -186,6 +186,42 @@
 
     </div>
 
+    <?php
+    $footer_cities = [
+        ['name' => 'Mumbai', 'slug' => 'mumbai-packers-movers-maharashtra'],
+        ['name' => 'Hyderabad', 'slug' => 'hyderabad-packers-movers-telangana'],
+        ['name' => 'Bangalore', 'slug' => 'bangalore-packers-movers-karnataka'],
+        ['name' => 'Chennai', 'slug' => 'chennai-packers-movers-tamil-nadu'],
+        ['name' => 'Pune', 'slug' => 'pune-packers-movers-maharashtra'],
+        ['name' => 'Gachibowli', 'slug' => 'gachibowli-packers-movers-hyderabad'],
+        ['name' => 'Whitefield', 'slug' => 'whitefield-packers-movers-bangalore'],
+        ['name' => 'Manikonda', 'slug' => 'manikonda-packers-movers-chennai'],
+        ['name' => 'Nagpur', 'slug' => 'nagpur-packers-movers-maharashtra'],
+        ['name' => 'Hitec City', 'slug' => 'hitec-city-packers-movers-hyderabad'],
+        ['name' => 'Koramangala', 'slug' => 'koramangala-packers-movers-bangalore'],
+        ['name' => 'Anna Nagar', 'slug' => 'anna-nagar-packers-movers-chennai'],
+        ['name' => 'Thane', 'slug' => 'thane-packers-movers-maharashtra'],
+        ['name' => 'Madhapur', 'slug' => 'madhapur-packers-movers-hyderabad'],
+        ['name' => 'Indiranagar', 'slug' => 'indiranagar-packers-movers-bangalore'],
+        ['name' => 'Velachery', 'slug' => 'velachery-packers-movers-chennai'],
+        ['name' => 'Nashik', 'slug' => 'nashik-packers-movers-maharashtra'],
+        ['name' => 'Secunderabad', 'slug' => 'secunderabad-packers-movers-telangana'],
+    ];
+    ?>
+
+    <!-- CITIES NETWORK DIRECTORY (From Home Page) -->
+    <div class="footer-cities-directory mt-5 pt-4 border-top border-footer-subtle" aria-label="Cities Network Directory">
+      <div class="row g-2 g-md-3">
+        <?php foreach ($footer_cities as $fc): ?>
+          <div class="col-6 col-md-3">
+            <a class="footer-city-link text-decoration-none" href="<?= site_url($fc['slug']) ?>" title="Packers and Movers in <?= htmlspecialchars($fc['name']) ?>">
+              Packers &amp; Movers in <?= htmlspecialchars($fc['name']) ?>
+            </a>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+
     <!-- BOTTOM STRIP (Copyright & Legal Links) -->
     <div class="footer-bottom-strip mt-5 pt-4 border-top border-footer-subtle d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 text-center text-md-start small">
       <p class="footer-copyright-text mb-0">
