@@ -3,11 +3,11 @@
 $cities = array(
   array('nm' => 'Habsiguda', 'lat' => '17.3986', 'lon' => '78.5434', 'sc' => 'HB'),
 
-  // array('nm' => 'Ameerpet', 'lat' => '17.4353', 'lon' => '78.4484', 'sc' => 'HB'),
-  // array('nm' => 'Hyder Shah Kote', 'lat' => '17.39635000', 'lon' => '78.34985000', 'sc' => 'TG'),
+  array('nm' => 'Ameerpet', 'lat' => '17.4353', 'lon' => '78.4484', 'sc' => 'HB'),
+  array('nm' => 'Hyder Shah Kote', 'lat' => '17.39635000', 'lon' => '78.34985000', 'sc' => 'TG'),
 
-  // array('nm' => 'Begumpet', 'lat' => '17.4483', 'lon' => '78.4604', 'sc' => 'HB'),
-  // array('nm' => 'SR Nagar', 'lat' => '17.4436', 'lon' => '78.4492', 'sc' => 'HB'),
+  array('nm' => 'Begumpet', 'lat' => '17.4483', 'lon' => '78.4604', 'sc' => 'HB'),
+  array('nm' => 'SR Nagar', 'lat' => '17.4436', 'lon' => '78.4492', 'sc' => 'HB'),
   // array('nm' => 'Prakash Nagar', 'lat' => '17.4351', 'lon' => '78.4389', 'sc' => 'HB'),
   // array('nm' => 'Punjagutta', 'lat' => '17.4265', 'lon' => '78.4486', 'sc' => 'HB'),
   // array('nm' => 'Balkampet', 'lat' => '17.4462', 'lon' => '78.4471', 'sc' => 'HB'),
