@@ -50,7 +50,11 @@
       "@type": "Organization",
       "name": "<?= $company3 ?>",
       "url": "<?= site_url() ?>",
-      "logo": "<?= base_url() ?>assets/img/logo/logo.png"
+      "logo": "<?= base_url() ?>assets/img/logo/logo.png",
+      "sameAs": [
+      "<?= $facebookhtml ?>",
+      "<?= $instagramhtml ?>"
+    ]
     }
   </script>
   <script type="application/ld+json">
@@ -60,6 +64,10 @@
       "name": "<?= $company3 ?>",
       "url": "<?= site_url() ?>",
       "image": ["<?= base_url() ?>assets/img/logo/logo.png"],
+      "sameAs": [
+      "<?= $facebookhtml ?>",
+      "<?= $instagramhtml ?>"
+    ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "  

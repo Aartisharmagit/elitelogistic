@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = 'home/error';
 $route['search'] = 'home/search';
+$route['generate-sitemap'] = 'template/sitemap/write_file';
 
 // Company Routes
 $route['about-us'] = 'about/index';
