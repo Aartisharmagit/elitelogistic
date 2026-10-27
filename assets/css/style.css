@@ -8992,6 +8992,111 @@ body.modal-open {
   border-color: #cbd5e1;
 }
 
+.city-intro-box,
+.city-why-box {
+  width: 100%;
+}
+
+.city-intro-layout {
+  margin-bottom: 2.5rem;
+}
+
+.city-intro-image {
+  position: relative;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #fff5f5 0%, #f8fafc 100%);
+  box-shadow: 0 12px 28px rgba(11, 34, 77, 0.1);
+}
+
+.city-intro-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 14px;
+}
+
+.city-intro-image-badge {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: calc(100% - 44px);
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  background: rgba(11, 34, 77, 0.92);
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(11, 34, 77, 0.2);
+}
+
+.city-intro-image-badge strong {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.city-intro-image-badge span {
+  color: #fecaca;
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
+.city-why-box {
+  margin-top: 2rem;
+}
+
+.city-moving-needs {
+  margin-top: 2.5rem;
+  padding: 0;
+}
+
+.city-moving-needs h3 {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  padding-left: 1rem;
+  border-left: 4px solid #d31018;
+  color: #0b224d;
+  font-size: clamp(1.2rem, 1.7vw, 1.45rem);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.city-moving-needs p {
+  margin-bottom: 1.25rem;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.city-moving-needs p strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.city-moving-needs p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 991.98px) {
+  .city-moving-needs .col-lg-5 > div {
+    height: auto !important;
+  }
+
+  .city-moving-needs .col-lg-5 img {
+    height: auto !important;
+  }
+}
+
+.city-about-card .city-why-box h2,
+.city-about-card .city-why-box h3 {
+  margin-top: 0;
+}
+
 /* 2. Main H2 Title & Gradient Bar */
 .city-intro-box h2 {
   color: #0b224d;
@@ -9091,50 +9196,79 @@ body.modal-open {
   font-size: 18px;
 }
 
-/* 6. Why Choose Us Feature Items */
-.city-why-box p:not(:last-child) {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-left: 4px solid #ff7a16;
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 12px;
+/* Why Choose Us text layout */
+.why-choose-content {
+  max-width: 100%;
+}
+
+.city-about-card .why-choose-content h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-left: 14px;
+}
+
+.why-choose-intro {
+  max-width: 920px;
+  margin: 0 0 1.75rem;
   color: #334155;
-  font-size: 14.5px;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.why-choose-list {
+  max-width: 980px;
+  margin-left: 0.75rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid #fecaca;
+}
+
+.city-about-card .why-choose-list p,
+.city-about-card .why-choose-list p:not(:last-child),
+.city-about-card .why-choose-list p:last-child {
+  position: relative;
+  margin: 0 0 0.85rem;
+  padding-left: 0.75rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 0;
+  border-left: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #334155;
+  font-size: 0.95rem;
   line-height: 1.75;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: none;
+  transform: none;
 }
 
-.city-why-box p:not(:last-child):hover {
-  transform: translateX(5px);
-  background: #fffafa;
-  border-color: #fca5a5;
-  border-left-color: #d31018;
-  box-shadow: 0 8px 24px -4px rgba(211, 16, 24, 0.12);
+.why-choose-list p::before {
+  content: '';
+  position: absolute;
+  top: 0.7em;
+  left: -1.95rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #d31018;
+  box-shadow: 0 0 0 4px #fff5f5;
 }
 
-.city-why-box p:not(:last-child) strong {
+.why-choose-list .fw-bold {
   color: #0b224d;
-  font-weight: 700;
-  font-size: 15.5px;
-  display: block;
-  margin-bottom: 4px;
 }
 
-/* 7. Trust / Credential Banner */
-.city-why-box p:last-child {
-  background: linear-gradient(135deg, #f0fdf4 0%, #f8fafc 100%);
-  border: 1px solid #bbf7d0;
-  border-left: 5px solid #16a34a;
-  border-radius: 14px;
-  padding: 18px 22px;
-  margin-top: 18px;
-  margin-bottom: 2rem;
-  color: #14532d;
-  font-size: 14.5px;
+.city-about-card .why-choose-note {
+  max-width: 980px;
+  margin: 1.75rem 0 0;
+  padding: 1rem 1.25rem;
+  border: 0;
+  border-left: 4px solid #d31018;
+  border-radius: 0;
+  background: #fff5f5;
+  color: #334155;
+  font-size: 0.95rem;
   line-height: 1.75;
-  font-weight: 500;
+  box-shadow: none;
 }
 
 /* 8. Relocation Process Items */
@@ -9231,6 +9365,28 @@ body.modal-open {
 @media (max-width: 767.98px) {
   .city-about-card {
     padding: 1.5rem 1.15rem;
+  }
+
+  .city-why-box {
+    margin-top: 1rem;
+  }
+
+  .city-intro-layout {
+    margin-bottom: 2rem;
+  }
+
+  .city-intro-image {
+    padding: 8px;
+  }
+
+  .city-intro-image-badge {
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .why-choose-list {
+    margin-left: 0;
+    padding-left: 1.25rem;
   }
 
   .city-intro-box p:nth-of-type(2) {
@@ -10283,4 +10439,3 @@ body.modal-open {
 .mt-n3 {
   margin-top: -22px;
 }
-

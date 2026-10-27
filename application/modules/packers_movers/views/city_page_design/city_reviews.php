@@ -1,5 +1,4 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-
 <div class="city-content-card mb-4 p-4 rounded-4 bg-white shadow-sm border border-light-subtle">
   <div class="mb-3">
     <h3 class="city-section-title fw-bold text-navy mb-1 fs-4">
@@ -7,24 +6,15 @@
     </h3>
     <p class="text-muted small mb-0">Please replace these testimonials with your verified customer reviews.</p>
   </div>
-
-  <!-- ========================================================= -->
-  <!-- MOBILE ONLY: Swipeable Carousel (hidden on md+)           -->
-  <!-- ========================================================= -->
   <div class="d-block d-md-none">
     <div class="position-relative px-4">
       <div id="cityReviewsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true" data-bs-interval="5000">
-
-        <!-- Dot indicators -->
         <div class="carousel-indicators city-reviews-indicators">
           <button type="button" data-bs-target="#cityReviewsCarousel" data-bs-slide-to="0" class="city-review-dot active" aria-current="true" aria-label="Review 1"></button>
           <button type="button" data-bs-target="#cityReviewsCarousel" data-bs-slide-to="1" class="city-review-dot" aria-label="Review 2"></button>
           <button type="button" data-bs-target="#cityReviewsCarousel" data-bs-slide-to="2" class="city-review-dot" aria-label="Review 3"></button>
         </div>
-
         <div class="carousel-inner">
-
-          <!-- Slide 1: Amit Sharma -->
           <div class="carousel-item active">
             <div class="city-review-card p-3 rounded-3 bg-light border border-light-subtle d-flex flex-column justify-content-between">
               <div>
@@ -41,8 +31,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Slide 2: Priya Nair -->
           <div class="carousel-item">
             <div class="city-review-card p-3 rounded-3 bg-light border border-light-subtle d-flex flex-column justify-content-between">
               <div>
@@ -59,8 +47,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Slide 3: Rahul Verma -->
           <div class="carousel-item">
             <div class="city-review-card p-3 rounded-3 bg-light border border-light-subtle d-flex flex-column justify-content-between">
               <div>
@@ -77,31 +63,21 @@
               </div>
             </div>
           </div>
-
-        </div><!-- /.carousel-inner -->
-      </div><!-- /#cityReviewsCarousel -->
-
-      <!-- Prev / Next arrows — outside slides, centered vertically -->
+        </div>
+      </div>
       <button class="carousel-control-prev city-reviews-nav-btn city-reviews-prev" type="button" data-bs-target="#cityReviewsCarousel" data-bs-slide="prev"
         >
         <i class="bi bi-chevron-left"></i>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next city-reviews-nav-btn city-reviews-next" type="button" data-bs-target="#cityReviewsCarousel" data-bs-slide="next"
-        >
+      <button class="carousel-control-next city-reviews-nav-btn city-reviews-next" type="button" data-bs-target="#cityReviewsCarousel" data-bs-slide="next">
         <i class="bi bi-chevron-right"></i>
         <span class="visually-hidden">Next</span>
       </button>
-    </div><!-- /.position-relative -->
-  </div><!-- /.d-block.d-md-none -->
-
-  <!-- ========================================================= -->
-  <!-- DESKTOP/TABLET: Original 3-column grid (hidden on mobile) -->
-  <!-- ========================================================= -->
+    </div>
+  </div>
   <div class="d-none d-md-block">
     <div class="row g-3">
-
-      <!-- Review 1: Amit Sharma -->
       <div class="col-12 col-md-4">
         <div class="city-review-card p-3 rounded-3 bg-light-subtle border border-light-subtle h-100 d-flex flex-column justify-content-between">
           <div>
@@ -118,8 +94,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Review 2: Priya Nair -->
       <div class="col-12 col-md-4">
         <div class="city-review-card p-3 rounded-3 bg-light-subtle border border-light-subtle h-100 d-flex flex-column justify-content-between">
           <div>
@@ -136,8 +110,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Review 3: Rahul Verma -->
       <div class="col-12 col-md-4">
         <div class="city-review-card p-3 rounded-3 bg-light-subtle border border-light-subtle h-100 d-flex flex-column justify-content-between">
           <div>
@@ -155,7 +127,7 @@
         </div>
       </div>
 
-    </div><!-- /.row -->
-  </div><!-- /.d-none.d-md-block -->
+    </div>
+  </div>
 
 </div>

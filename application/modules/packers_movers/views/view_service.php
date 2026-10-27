@@ -26,9 +26,15 @@ if (file_exists($data_file)) {
         <?php include 'city_page_design/city_faq.php'; ?>
         <?php include 'city_page_design/city_map.php'; ?>
         <?php include 'city_page_design/city_service.php'; ?>
+        <?php if (!empty($htmlcontent5)): ?>
+          <div class="city-content-card mb-4 p-4 p-md-5 rounded-4 bg-white shadow-sm border border-light-subtle">
+            <?= $htmlcontent5 ?>
+          </div>
+        <?php endif; ?>
+
       </div>
 
-      
+
 
     </div>
   </div>

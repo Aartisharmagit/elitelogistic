@@ -11,7 +11,6 @@ if (!empty($cities) && is_array($cities)) {
         }
     }
 }
-
 if (!empty($lat) && !empty($lon)): ?>
 <div class="city-content-card mb-4 p-4 rounded-4 bg-white shadow-sm border border-light-subtle">
   <h3 class="fw-bold text-navy fs-5 mb-3">
