@@ -85,7 +85,7 @@ $display_subtitle = !empty($hero_subtitle) ? $hero_subtitle : $default_subtitle;
             </div>
             <div class="hero-check-pill d-inline-flex align-items-center">
               <i class="bi bi-check-circle-fill hero-pill-icon"></i>
-              <span class="hero-pill-text">Live GPS Tracking</span>
+              <span class="hero-pill-text"><a href='<?= site_url('track-shipment') ?>' class="text-decoration-none text-white">Live GPS Tracking</a></span>
             </div>
             <div class="hero-check-pill d-inline-flex align-items-center">
               <i class="bi bi-check-circle-fill hero-pill-icon"></i>
