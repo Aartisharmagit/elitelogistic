@@ -23,6 +23,7 @@ if (file_exists($data_file)) {
         <?php include 'city_page_design/city_about.php'; ?>
         <?php include 'city_page_design/city_content.php'; ?>
         <?php include 'city_page_design/city_reviews.php'; ?>
+        <?php include 'city_page_design/charge_table.php'; ?>
         <?php include 'city_page_design/city_faq.php'; ?>
         <?php include 'city_page_design/city_map.php'; ?>
         <?php include 'city_page_design/city_service.php'; ?>

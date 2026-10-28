@@ -60,7 +60,7 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "MovingCompany",
       "name": "<?= $company3 ?>",
       "url": "<?= site_url() ?>",
       "image": ["<?= base_url() ?>assets/img/logo/logo.png"],
@@ -70,8 +70,7 @@
     ],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "  
-        <?= $address1 ?>",
+        "streetAddress": "<?= $address1 ?>",
         "addressLocality": "<?= $address2 ?>",
         "postalCode": "<?= $postalCode ?>",
         "addressRegion": "<?= $addressRegion ?>",

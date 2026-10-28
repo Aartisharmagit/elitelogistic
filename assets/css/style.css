@@ -9897,65 +9897,7 @@ body.modal-open {
   border-top: 3px solid #d31018;
 }
 
-.city-reviews-indicators {
-  position: static;
-  margin: 0 0 12px 0;
-  justify-content: flex-start;
-  gap: 6px;
-}
 
-.city-review-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #aaa;
-  border: none;
-  opacity: 1;
-}
-
-.city-review-dot.active {
-  background: #dc3545;
-}
-
-.city-review-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  background-color: #ffffff;
-  min-height: 150px;
-}
-
-.city-review-avatar {
-  width: 32px;
-  height: 32px;
-  font-size: 12px;
-}
-
-.city-reviews-nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  background: rgba(0, 0, 0, 0.12);
-  border-radius: 50%;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-.city-reviews-prev {
-  left: 0;
-}
-
-.city-reviews-next {
-  right: 0;
-}
-
-.city-reviews-nav-btn i {
-  color: #333;
-  font-size: 13px;
-}
 
 /* Reviews Page Rating Bars & Quote */
 .rating-bar-row > span:first-child {
