@@ -45,45 +45,52 @@
         </div>
       </div>
 
-      <!-- Right Column: 3 Accordion Items using Native <details> -->
+      <!-- Right Column: 3 Accordion Items using Native <details> with HTML Microdata Schema -->
       <div class="col-lg-7">
-        <div class="faq-accordion-list d-flex flex-column gap-3">
+        <div class="faq-accordion-list d-flex flex-column gap-3" itemscope itemtype="https://schema.org/FAQPage">
+          
           <!-- FAQ 1 -->
-          <details class="shared-card faq-details-item overflow-hidden scroll-reveal stagger-1" open>
+          <details class="shared-card faq-details-item overflow-hidden scroll-reveal stagger-1" open itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <summary class="faq-summary d-flex align-items-center justify-content-between p-3 p-md-4 gap-3 fw-bold text-dark">
-              <span>Are you an IBA approved company?</span>
+              <span itemprop="name">Are you an IBA approved company?</span>
               <span class="faq-toggle-icon rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" aria-hidden="true">
                 <i class="bi bi-plus-lg"></i>
               </span>
             </summary>
-            <div class="faq-answer-content px-3 pb-3 px-md-4 pb-md-4 pt-1 text-muted small leading-relaxed border-top">
-              Yes. <?= $company3 ?> is an IBA approved logistics partner under reference number <?= $ibaCode ?>. Feel free to contact our team to know more about the approval and relevant billing documents.
+            <div class="faq-answer-content px-3 pb-3 px-md-4 pb-md-4 pt-1 text-muted small leading-relaxed border-top" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">
+                Yes. <?= $company3 ?> is an IBA approved logistics partner under reference number <?= $ibaCode ?>. Feel free to contact our team to know more about the approval and relevant billing documents.
+              </div>
             </div>
           </details>
 
           <!-- FAQ 2 -->
-          <details class="shared-card faq-details-item overflow-hidden scroll-reveal stagger-2">
+          <details class="shared-card faq-details-item overflow-hidden scroll-reveal stagger-2" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <summary class="faq-summary d-flex align-items-center justify-content-between p-3 p-md-4 gap-3 fw-bold text-dark">
-              <span>How can I get a fixed price moving quote?</span>
+              <span itemprop="name">How can I get a fixed price moving quote?</span>
               <span class="faq-toggle-icon rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" aria-hidden="true">
                 <i class="bi bi-plus-lg"></i>
               </span>
             </summary>
-            <div class="faq-answer-content px-3 pb-3 px-md-4 pb-md-4 pt-1 text-muted small leading-relaxed border-top">
-              Share your pickup and delivery locations along with the goods you wish to move and the moving date. We provide you with a written price lock quotation based on your requirements.
+            <div class="faq-answer-content px-3 pb-3 px-md-4 pb-md-4 pt-1 text-muted small leading-relaxed border-top" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">
+                Share your pickup and delivery locations along with the goods you wish to move and the moving date. We provide you with a written price lock quotation based on your requirements.
+              </div>
             </div>
           </details>
 
           <!-- FAQ 3 -->
-          <details class="shared-card faq-details-item overflow-hidden scroll-reveal stagger-3">
+          <details class="shared-card faq-details-item overflow-hidden scroll-reveal stagger-3" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <summary class="faq-summary d-flex align-items-center justify-content-between p-3 p-md-4 gap-3 fw-bold text-dark">
-              <span>Do you provide GPS tracking for shipments?</span>
+              <span itemprop="name">Do you provide GPS tracking for shipments?</span>
               <span class="faq-toggle-icon rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" aria-hidden="true">
                 <i class="bi bi-plus-lg"></i>
               </span>
             </summary>
-            <div class="faq-answer-content px-3 pb-3 px-md-4 pb-md-4 pt-1 text-muted small leading-relaxed border-top">
-              Yes, we provide GPS monitored container transit. Tracking availability depends on the goods and selected service, so please let us know the same while making your booking.
+            <div class="faq-answer-content px-3 pb-3 px-md-4 pb-md-4 pt-1 text-muted small leading-relaxed border-top" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">
+                Yes, we provide GPS monitored container transit. Tracking availability depends on the goods and selected service, so please let us know the same while making your booking.
+              </div>
             </div>
           </details>
         </div>
@@ -92,37 +99,3 @@
     </div>
   </div>
 </section>
-
-<!-- FAQPage JSON-LD Structured Data -->
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "Are you an IBA approved company?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. <?= $company3 ?> is an IBA approved logistics partner under reference number <?= $ibaCode ?>. Feel free to contact our team to know more about the approval and relevant billing documents."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How can I get a fixed price moving quote?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Share your pickup and delivery locations along with the goods you wish to move and the moving date. We provide you with a written price lock quotation based on your requirements."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Do you provide GPS tracking for shipments?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, we provide GPS monitored container transit. Tracking availability depends on the goods and selected service, so please let us know the same while making your booking."
-            }
-        }
-    ]
-}
-</script>

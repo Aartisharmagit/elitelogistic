@@ -24,29 +24,36 @@ $display_subtitle = !empty($hero_subtitle) ? $hero_subtitle : $default_subtitle;
         <div class="hero-content pe-lg-2">
 
           <?php if (!empty($hero_breadcrumbs) && is_array($hero_breadcrumbs)): ?>
-            <!-- Dynamic Breadcrumb Pill -->
+            <!-- Dynamic Breadcrumb Pill with HTML Microdata Schema -->
             <nav class="inner-bc-pill-wrap justify-content-start mb-3" aria-label="breadcrumb">
-              <ol class="inner-bc-pill list-unstyled m-0">
-                <li class="inner-bc-item">
-                  <a href="<?= site_url() ?>" class="inner-bc-link" title="Return to Home">
+              <ol class="inner-bc-pill list-unstyled m-0" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="inner-bc-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                  <a href="<?= site_url() ?>" class="inner-bc-link" itemprop="item" title="Return to Home">
                     <i class="bi bi-house-door-fill inner-bc-home-icon" aria-hidden="true"></i>
-                    <span class="inner-bc-link-text">Home</span>
+                    <span class="inner-bc-link-text" itemprop="name">Home</span>
                   </a>
+                  <meta itemprop="position" content="1">
                 </li>
-                <?php foreach ($hero_breadcrumbs as $index => $crumb): ?>
-                  <?php if ($index === 0 && strtolower($crumb['name']) === 'home') continue; ?>
+                <?php 
+                $bc_pos = 1;
+                foreach ($hero_breadcrumbs as $index => $crumb): 
+                  if ($index === 0 && strtolower($crumb['name']) === 'home') continue; 
+                  $bc_pos++;
+                ?>
                   <li class="inner-bc-sep" aria-hidden="true">
                     <i class="bi bi-chevron-right"></i>
                   </li>
                   <?php if (!empty($crumb['url'])): ?>
-                    <li class="inner-bc-item">
-                      <a href="<?= $crumb['url'] ?>" class="inner-bc-link">
-                        <span class="inner-bc-link-text"><?= htmlspecialchars($crumb['name']) ?></span>
+                    <li class="inner-bc-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                      <a href="<?= $crumb['url'] ?>" class="inner-bc-link" itemprop="item">
+                        <span class="inner-bc-link-text" itemprop="name"><?= htmlspecialchars($crumb['name']) ?></span>
                       </a>
+                      <meta itemprop="position" content="<?= $bc_pos ?>">
                     </li>
                   <?php else: ?>
-                    <li class="inner-bc-item active" aria-current="page">
-                      <span class="inner-bc-current"><?= htmlspecialchars($crumb['name']) ?></span>
+                    <li class="inner-bc-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                      <span class="inner-bc-current" itemprop="name"><?= htmlspecialchars($crumb['name']) ?></span>
+                      <meta itemprop="position" content="<?= $bc_pos ?>">
                     </li>
                   <?php endif; ?>
                 <?php endforeach; ?>
