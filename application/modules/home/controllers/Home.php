@@ -13,8 +13,9 @@ class Home extends MX_Controller
     }
     function index()
     {
-        $data['title'] = "Best Logistics Packers and Movers: Secure and Reliable Moving Services across India | " . $this->comp['company3'];
-        $data['description'] = "Looking for reliable logistics packers and movers for moving whether it's household, office shift or even moving your car to another city, relocating takes planning. The right packers and movers make all the difference. Our company Elite Logistics Packers and Movers help you move your items with proper care, affordable prices and reliable transportation.";
+
+        $data['title'] = "Best Packers and Movers in Hyderabad | Elite Logistics";
+        $data['description'] = "Reliable IBA-approved packers and movers in India. Elite Logistics offers safe home shifting, office relocation, & vehicle transport.";
 
         $data['hero_h1'] = 'Best Logistics Packers and Movers: <span class="hero-title-accent">Secure and Reliable Moving Services</span> <span class="hero-title-underline">across India</span>';
         $data['hero_subtitle'] = "";
@@ -25,9 +26,7 @@ class Home extends MX_Controller
     }
 
     public function oldurl_to_newurl()
-
     {
-
         // if (@$this->uri->segment(1) == "packers-movers-bihar-india") {
         //     redirect("bihar", 'location', 301);
         // }
