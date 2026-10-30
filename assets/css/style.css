@@ -9127,8 +9127,8 @@ body.modal-open {
 .city-about-card .city-section-title,
 .city-why-box h2,
 .city-why-box h3,
-.city-process-box h2,
-.city-process-box h3 {
+.city-process-section h2,
+.city-process-section h3 {
   color: #0b224d;
   font-size: clamp(1.2rem, 1.7vw, 1.45rem);
   font-weight: 800;
@@ -9272,67 +9272,39 @@ body.modal-open {
 }
 
 /* 8. Relocation Process Items */
-.city-process-box p:not(:last-child) {
+.process-step-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 12px;
-  color: #334155;
-  font-size: 14.5px;
-  line-height: 1.75;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-  transition: all 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.process-step-card:hover {
+  transform: translateY(-3px);
+  border-color: #fca5a5 !important;
+  box-shadow: 0 12px 28px -4px rgba(11, 34, 77, 0.08) !important;
+}
+
+.process-step-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.city-process-box p:not(:last-child):hover {
-  border-color: #93c5fd;
-  background: #fbfdff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px -4px rgba(11, 34, 77, 0.08);
-}
-
-.city-process-box p:not(:last-child) strong {
-  background: linear-gradient(135deg, #0b224d 0%, #1e3a8a 100%);
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: 20px;
-  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  margin-top: 2px;
+}
+
+.process-step-title {
+  color: #0b224d;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
 }
 
 /* 9. Plan Your Shift Callout Card */
-.city-process-box p:last-child {
+.city-shift-cta {
   background: linear-gradient(135deg, #0b224d 0%, #16366f 60%, #0d2757 100%);
-  border-radius: 16px;
-  padding: 24px 28px;
-  color: #ffffff;
-  font-size: 15px;
-  line-height: 1.8;
-  font-weight: 450;
-  box-shadow: 0 12px 32px -4px rgba(11, 34, 77, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  margin-top: 1rem;
-  margin-bottom: 0;
-}
-
-.city-process-box p:last-child a {
-  color: #ffedd5;
-  text-decoration: underline;
-  font-weight: 700;
-  transition: color 0.2s ease;
-}
-
-.city-process-box p:last-child a:hover {
-  color: #ffffff;
+  box-shadow: 0 12px 32px -4px rgba(11, 34, 77, 0.2);
 }
 
 /* Sidebar Widgets */
@@ -9397,10 +9369,7 @@ body.modal-open {
     display: none;
   }
 
-  .city-process-box p:not(:last-child) {
-    flex-direction: column;
-    gap: 8px;
-  }
+
 }
 
 /* 11. City Dedicated Services Grid */
