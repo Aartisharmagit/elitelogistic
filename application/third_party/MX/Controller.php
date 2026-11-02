@@ -96,8 +96,8 @@ class MX_Controller
         $this->comp['sku'] = "PM28957";
         $this->comp['mpn'] = "SPM28957";
         // Review
-        $this->comp['ratingValue'] = "4.9";
-        $this->comp['ratingCount'] = "39850";
+        $this->comp['ratingValue'] = "4.8";
+        $this->comp['ratingCount'] = "398";
         $this->comp['datePublished'] = "15 May, 2026";
         $this->comp['reviewBody'] = "Best Packing And Moving Company in India.";
         $this->comp['reviewperson'] = "Arshad Ali";
