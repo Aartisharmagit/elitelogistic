@@ -27,8 +27,16 @@ class Home extends MX_Controller
 
     public function oldurl_to_newurl()
     {
-        // if (@$this->uri->segment(1) == "packers-movers-bihar-india") {
-        //     redirect("bihar", 'location', 301);
-        // }
+        $url = $this->uri->segment(1);
+
+        if ($url === "packers-and-movers-in-hafeezpet") {
+            redirect("hafeezpet-packers-movers-hyderabad", 'location', 301);
+        } else if ($url === "complete-home-shifting-checklist-before-moving") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-in-kerala") {
+            redirect("kerala", 'location', 301);
+        } else if($url === "packers-and-movers-in-bihar") {
+            redirect("bihar", 'location', 301);
+        }
     }
 }
