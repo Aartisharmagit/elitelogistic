@@ -27,7 +27,7 @@ class Home extends MX_Controller
 
     public function oldurl_to_newurl()
     {
-        $url = $this->uri->segment(1);
+        $url = trim($this->uri->uri_string(), '/');
 
         if ($url === "packers-and-movers-in-hafeezpet") {
             redirect("hafeezpet-packers-movers-hyderabad", 'location', 301);
@@ -36,7 +36,47 @@ class Home extends MX_Controller
         } else if($url === "packers-and-movers-in-kerala") {
             redirect("kerala", 'location', 301);
         } else if($url === "packers-and-movers-in-bihar") {
-            redirect("bihar", 'location', 301);
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-in-delhi") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-in-ramanthapur") {
+            redirect("ramanthapur-packers-movers-hyderabad", 'location', 301);
+        } else if($url === "packers-and-movers-in-kukatpally") {
+            redirect("kukatpally-packers-movers-hyderabad", 'location', 301);
+        } else if($url === "packers-and-movers-in-manipur") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-in-uttarakhand") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-in-nagaland") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-in-madhapur") {
+            redirect("madhapur-packers-movers-hyderabad", 'location', 301);
+        } else if($url === "packers-and-movers-in-chandanagar") {
+            redirect("chandanagar-packers-movers-hyderabad", 'location', 301);
+        } else if($url === "packers-and-movers-in-bowenpally") {
+            redirect("bowenpally-packers-movers-hyderabad", 'location', 301);
+        } else if($url === "packers-and-movers-in-manikonda") {
+            redirect("manikonda-packers-movers-hyderabad", 'location', 301);
+        } else if($url === "packers-and-movers-in-rajasthan") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-in-chhattisgarh") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-in-haryana") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-in-himachal-pradesh") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-in-madhya-pradesh") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-hyderabad-to-bangalore") {
+            redirect("bangalore-packers-movers-karnataka", 'location', 301);
+        } else if($url === "complete-home-shifting-checklist-before-moving") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "packers-and-movers-hyderabad-to-chennai") {
+            redirect("chennai-packers-movers-tamil-nadu", 'location', 301);
+        } else if($url === "packers-and-movers-in-tamil-nadu") {
+            redirect(site_url(), 'location', 301);
+        } else if($url === "local-and-long-distance-moving-in-hyderabad") {
+            redirect(site_url(), 'location', 301);
         }
     }
 }
