@@ -206,7 +206,7 @@ else if (strtolower($city) == "nacharam") {
 
 <p>Looking for the best packers and movers in $city for your relocation? Tell us your requirements and ask for a written quotation. Contact Us: <a href='$phonehtml'>$phone</a>.</p>
 <h3>Household, Office and Vehicle Relocation</h3>
-<p>A household move in <strong>>Nacharam</strong> involve apartment permissions, lift timings and limited parking near the entrance. We ask about these details before confirming the vehicle. Furniture, refrigerators, televisions, kitchenware and fragile items need different packing arrangements. Our five-layer bubble packing helps provide added protection to suitable belongings during handling and transportation.</p>
+<p>A household move in <strong>Nacharam</strong> involve apartment permissions, lift timings and limited parking near the entrance. We ask about these details before confirming the vehicle. Furniture, refrigerators, televisions, kitchenware and fragile items need different packing arrangements. Our five-layer bubble packing helps provide added protection to suitable belongings during handling and transportation.</p>
 <p>Office relocation requires a little more coordination. Businesses around Nacharam Industrial Development Area may need to move computers, workstations, files, machinery or other equipment. We recommend labelling cartons by department and keeping essential work equipment separately identified. We also provide car and bike transportation for customers relocating to another city.</p>
 </div>
   ";
