@@ -163,7 +163,7 @@ $htmlcontent5 = '';
 <p><span class='fw-bold'>Gachibowli to Bengaluru</span>: Protect electronics and furniture and confirm transit arrangements.</p>
 <p><span class='fw-bold'>Gachibowli to Mumbai</span>: Request a written estimate covering packing, transport and additional charges.</p>
 
-<h3>LoLocal Moving Scenarios</h3>
+<h3>Local Moving Scenarios</h3>
 <p><span class='fw-bold'>Apartment move near DLF</span>: A household with a fixed lift slot would benefit from advance society permission and a confirmed route around IIIT Junction diversions.</p>
 <p><span class='fw-bold'>Office relocation near the IT corridor</span>: Packing computers by workstation and checking road restrictions before dispatch can help teams coordinate setup and reduce downtime.</p>
   ";
@@ -172,6 +172,81 @@ $htmlcontent5 = '';
 <h2 class='fw-bold text-danger'>Book Packers and Movers in Gachibowli</h2>
 
 <p>Call <a href='$phonehtml'>$phone</a>, available 24x7, to discuss your move and request a written quotation. Share your inventory, pickup and delivery addresses, and preferred date so the team can plan around your requirements.</p>
+  ";
+
+}
+else if (strtolower($city) == "nacharam") {
+    $htmlcontent = "
+<h2>Elite Logistics and Packers for <span class='text-danger'> Household and Office Shifting </span></h2>
+
+<p><a href='hhttps://en.wikipedia.org/wiki/Nacharam?utm_source=chatgpt.com'>Nacharam</a>, is a neighbourhood in Hyderabad, Telangana, falling under <b>Uppal Mandal in Medchal-Malkajgiri</b> district. It is part of the <b>Greater Hyderabad Municipal Corporation</b> and is known for its residential colonies and industrial area.</p>
+<p>The locality has road and public transport connections through Habsiguda, Moula Ali and nearby parts of eastern Hyderabad.</p>
+<p>If you are shifting within HMT Nagar, moving towards Snehapuri Colony, relocating near IICT, or planning a nearby move to <em>Mallapur, Habsiguda, Tarnaka or Uppal</em>, we plan the move after checking the building entrance and vehicle access. For longer journeys, we can arrange relocation towards <em>Warangal, Vijayawada, Bengaluru, Chennai, Mumbai, Pune</em> or Delhi. We also check traffic conditions before dispatch, particularly around Nacharam Main Road and Habsiguda junction.</p>
+
+<p>Call <a href='$phonehtml'>$phone</a>, available 24x7, to discuss your move.</p>
+  ";
+
+  $htmlcontent1 = "
+<div class='why-choose-content'>
+<h2> Why Choose Our Moving Support For Your Nacharam Shift?</h2>
+<div class='why-choose-list'>
+<p><span class='fw-bold'>40+ years of experience</span>: Our company brings long-standing experience in relocation and logistics.</p>
+<p><span class='fw-bold'>IBA-approved documentation</span>: Our approval reference is EL-8709.</p>
+<p><span class='fw-bold'>ISO 9001:2015 certified</span>: We follow a documented quality management system.</p>
+<p><span class='fw-bold'>4.8/5 customer rating</span>: Our reviews page currently displays this rating from 39,850+ reviews.</p>
+<p><span class='fw-bold'>5-layer bubble packing</span>: We use layered protection for suitable household belongings.</p>
+<p><span class='fw-bold'>Written price-lock quotation</span>: We provide written estimates based on the agreed moving requirements.</p>
+<p><span class='fw-bold'>GPS-monitored transit</span>: Shipment tracking is available for applicable services.</p>
+<p><span class='fw-bold'>Zero-transit-damage assurance</span>: This is an advertised company assurance, subject to its terms, conditions and exclusions.</p>
+<p><span class='fw-bold'>24x7 assistance</span>: Customers can contact our support team at any time.</p>
+</div>
+<p>Before booking, ask for the written quotation and check the packing scope, insurance details and conditions of the damage assurance.</p>
+
+<h3>Plan Your Shift Today</h3>
+
+<p>Looking for the best packers and movers in $city for your relocation? Tell us your requirements and ask for a written quotation. Contact Us: <a href='$phonehtml'>$phone</a>.</p>
+<h3>Household, Office and Vehicle Relocation</h3>
+<p>A household move in <strong>>Nacharam</strong> involve apartment permissions, lift timings and limited parking near the entrance. We ask about these details before confirming the vehicle. Furniture, refrigerators, televisions, kitchenware and fragile items need different packing arrangements. Our five-layer bubble packing helps provide added protection to suitable belongings during handling and transportation.</p>
+<p>Office relocation requires a little more coordination. Businesses around Nacharam Industrial Development Area may need to move computers, workstations, files, machinery or other equipment. We recommend labelling cartons by department and keeping essential work equipment separately identified. We also provide car and bike transportation for customers relocating to another city.</p>
+</div>
+  ";
+
+  $htmlcontent2 = "
+<h3>Our Relocation Process</h3>
+
+<p><strong>Step 1</strong> We start the process by gathering information like date of moving, pickup and delivery location, inventory, floor access and special handling requirements. Based on this information, we prepare a written quotation.</p>
+
+<p><strong>Step 2</strong> Our team visits on the scheduled date along with the required packing material. The furniture is protected, extra cushioning is provided to the fragile items and packing boxes are arranged in an orderly manner to ease the process of unloading.</p>
+
+<p><strong>Step 3</strong> Loading of the items is done carefully into the right vehicle. The transport team travels via the planned route.</p>
+
+<p><strong>Step 4</strong> Our staff delivers the consignment at the designated place, where the items are unloaded by our staff.</p>
+
+
+  ";
+
+  $htmlcontent3 = "
+<h3 class='fw-bold text-navy fs-3 mb-3 border-start border-danger border-3 ps-3'>Nacharam Local Experience: IICT Road Expansion and Habsiguda Traffic</h3>
+
+<p>Road access around Nacharam is changing. On 1 June 2026, a local report stated that steps had begun to address a bottleneck on the main road between Habsiguda and Nacharam, near the IICT campus and its quarters. IICT had indicated willingness to provide land on both sides for road expansion, while a larger widening proposal was also discussed. This was a development towards expansion, not confirmation that the entire stretch had already been widened.</p>
+<p>More recently, on 24 October 2026, Malkajgiri Municipal Corporation officials reviewed traffic congestion at Habsiguda and Uppal X Roads. They asked officials to prepare a decongestion plan that would examine road widening and possible diversions through internal colony roads. The review also covered approach roads for the proposed Uppal flyover. These measures were under consideration, so customers should check the actual route before moving day.</p>
+
+<p>For a pickup near IICT or a delivery towards Habsiguda, we confirm the approach road and allow extra time if the main junction is busy. A little advance coordination can prevent the moving truck from waiting unnecessarily.</p>
+
+
+  ";
+
+  $htmlcontent4 = "
+
+<h3>Customer Moving Experiences</h3>
+<p>Our published Hyderabad customer feedback includes Sneha Reddy's account of shifting her family to a bigger home. Her household included several appliances and fragile items. She mentioned that packing arrangements were discussed in advance, which helped her prepare for the move. This is relevant to families in Nacharam who have a large household inventory and need separate packing for delicate belongings.</p>
+<p>Another published account is from Vikramaditya Rao, who describes an office relocation from Hyderabad to Chennai. The review mentions server racks and high-resolution monitors packed in custom anti-static wooden crates. The office was reportedly operational again by Monday morning. For businesses in Nacharam Industrial Development Area, this highlights the need to plan equipment packing, transport and setup around working schedules.</p>
+  ";
+
+  $htmlcontent5 = "
+<h2 class='fw-bold text-danger'>Plan Your Nacharam Move with Us</h2>
+
+<p>Share your pickup and delivery addresses, moving date and inventory with us. We will discuss the packing requirements, vehicle arrangements and expected delivery schedule before confirming the booking. Call <a href='$phonehtml'>$phone</a>, or email info@elitelogistics.in for a written quotation. We are available 24x7 to discuss household, office and vehicle relocation.</p>
   ";
 
 } else if (strtolower($state) == "hyderabad") {
