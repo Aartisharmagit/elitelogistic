@@ -287,7 +287,7 @@
                     <div class="stat-strip-label">Indian Cities Covered</div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="stat-strip-num">4.9 ★</div>
+                    <div class="stat-strip-num">4.8 ★</div>
                     <div class="stat-strip-label">Star Customer Rating</div>
                 </div>
                 <div class="col-6 col-md-3">

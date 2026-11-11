@@ -138,7 +138,7 @@ $customerReviews = [
                             <i class="bi bi-star-fill"></i>
                         </div>
                         <p class="text-secondary fw-semibold mb-3">
-                            Based on <strong><?= $happyClients ?> Verified Reviews</strong> across India
+                            Based on <strong><?= $ratingCount ?> Verified Reviews</strong> across India
                         </p>
                         
                         <!-- Write Review Button -->
