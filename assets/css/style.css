@@ -9837,6 +9837,68 @@ body.modal-open {
   line-height: 1.55;
 }
 
+/* Blog details sidebar */
+.blog-sidebar-sticky {
+  top: calc(var(--navbar-h) + 1rem);
+  z-index: 10;
+}
+
+.recent-posts-list .blog-post-link-item {
+  width: 100%;
+  min-width: 0;
+  align-items: flex-start !important;
+}
+
+.recent-posts-list .blog-post-link-item > div:first-child {
+  flex: 0 0 76px;
+  width: 76px;
+  max-width: 76px;
+  overflow: hidden;
+}
+
+.recent-posts-list .blog-post-link-item > div:last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.recent-posts-list .blog-recent-post-img {
+  display: block;
+  width: 76px !important;
+  max-width: 76px !important;
+  height: 76px !important;
+  object-fit: cover;
+}
+
+.recent-posts-list .blog-post-link-item .blog-post-title {
+  font-size: 15px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 991.98px) {
+  .blog-sidebar-sticky {
+    position: static !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .recent-posts-list .blog-post-link-item {
+    gap: 12px !important;
+  }
+
+  .recent-posts-list .blog-post-link-item > div:first-child {
+    flex-basis: 68px;
+    width: 68px;
+    max-width: 68px;
+  }
+
+  .recent-posts-list .blog-recent-post-img {
+    width: 68px !important;
+    max-width: 68px !important;
+    height: 68px !important;
+  }
+}
+
 /* Gallery page */
 .gal-placeholder-icon {
   font-size: 40px;
@@ -10349,4 +10411,35 @@ body.modal-open {
 
 .mt-n3 {
   margin-top: -22px;
+}
+
+/* Keep recent-post thumbnails compact even when generic image styles are loaded later. */
+.recent-posts-list > .blog-post-link-item > div:first-child {
+  flex: 0 0 76px !important;
+  width: 76px !important;
+  max-width: 76px !important;
+}
+
+.recent-posts-list > .blog-post-link-item > div:first-child > .blog-recent-post-img {
+  display: block !important;
+  width: 76px !important;
+  max-width: 76px !important;
+  height: 76px !important;
+  min-height: 76px !important;
+  object-fit: cover !important;
+}
+
+@media (max-width: 575.98px) {
+  .recent-posts-list > .blog-post-link-item > div:first-child {
+    flex-basis: 68px !important;
+    width: 68px !important;
+    max-width: 68px !important;
+  }
+
+  .recent-posts-list > .blog-post-link-item > div:first-child > .blog-recent-post-img {
+    width: 68px !important;
+    max-width: 68px !important;
+    height: 68px !important;
+    min-height: 68px !important;
+  }
 }
