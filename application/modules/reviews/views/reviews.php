@@ -172,7 +172,7 @@ $customerReviews = [
                         <div class="rating-bar-track">
                             <div class="rating-bar-fill fill-1"></div>
                         </div>
-                        <span><1%</span>
+                        <span>1%</span>
                     </div>
 
                     <div class="rating-bar-row">
@@ -180,7 +180,7 @@ $customerReviews = [
                         <div class="rating-bar-track">
                             <div class="rating-bar-fill fill-0"></div>
                         </div>
-                        <span><1%</span>
+                        <span>1%</span>
                     </div>
 
                     <div class="rating-bar-row">
@@ -188,7 +188,7 @@ $customerReviews = [
                         <div class="rating-bar-track">
                             <div class="rating-bar-fill fill-0"></div>
                         </div>
-                        <span><1%</span>
+                        <span>1%</span>
                     </div>
                 </div>
 
