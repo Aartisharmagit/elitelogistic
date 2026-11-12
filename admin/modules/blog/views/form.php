@@ -235,12 +235,14 @@
 					<div class="admin-section-title">Publish Details</div>
 				</div>
 				<div class="col-sm-6 form-group">
-					<label>Date</label>
-					<input name="date" id="DOB1" class="form-control" ng-model="x.date" required>
+					<label>Date (YYYY-MM-DD)</label>
+					<input name="date" id="DOB1" class="form-control" ng-model="x.date" placeholder="e.g. <?=date('Y-m-d')?>">
+					<p class="help-block" style="font-size: 12px; margin-top: 5px;">Defaults to today's date if left empty.</p>
 				</div>
 				<div class="col-sm-6 form-group">
-					<label>Time</label>
-					<input name="time" class="form-control" ng-model="x.time" required>
+					<label>Read Time / Post Time</label>
+					<input name="time" class="form-control" ng-model="x.time" placeholder="e.g. 4 min read or 10:30 AM">
+					<p class="help-block" style="font-size: 12px; margin-top: 5px;">Auto-calculated from blog length or enter custom time.</p>
 				</div>
 			</div>
 
@@ -258,14 +260,17 @@
 				</div>
 				<div class="col-sm-12 form-group" ng-if="x.url_type!='1'">
 					<label>Select Image</label>
-					<input type="file" name="image" class="form-control" style="padding: 9px 15px;">
-					<input ng-model="x.image" name="old_image" hidden>
+					<input type="file" name="image" id="image" class="form-control" style="padding: 9px 15px;">
+					<input ng-model="x.image" name="old_image" value="{{x.image}}" hidden>
 					<p class="help-block" style="font-size: 12px; margin-top: 5px;">Select any picture to view on your page.</p>
 				</div>
 				<div class="col-sm-12 form-group" ng-show="x.image">
 					<label>Current Image</label>
-					<div>
-						<img src="<?=base_url("assets/uploads/blog/thumb")?>/{{x.image}}" class="img-responsive" style="height: 150px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					<div style="display: flex; align-items: center; gap: 15px;">
+						<img src="<?=base_url("assets/uploads/blog/thumb")?>/{{x.image}}" class="img-responsive" style="height: 120px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+						<button type="button" class="btn btn-danger btn-sm" ng-click="remove_current_image()">
+							<i class="fa fa-trash"></i> Remove Image
+						</button>
 					</div>
 				</div>
 			</div>

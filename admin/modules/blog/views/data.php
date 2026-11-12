@@ -28,6 +28,7 @@
 						
 						<td class="img-responsive text-center">
 						    <img ng-if="y.image" ng-src="<?=base_url()?>assets/uploads/blog/thumb/{{y.image}}" style="height: 50px; border-radius: 4px;">
+						    <span ng-if="!y.image" class="text-muted small">No Image</span>
 						</td>
 						
 						<td class="text-center">

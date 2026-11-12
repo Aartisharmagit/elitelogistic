@@ -1,68 +1,16 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); 
 
-// Curated default moving guides & blogs
-$defaultArticles = [
-    [
-        'id' => 1,
-        'title' => 'The Ultimate 30-Day Moving Checklist for Home Relocation in India',
-        'slug' => 'ultimate-30-day-moving-checklist-india',
-        'cat' => 'Checklists',
-        'desc' => 'A step-by-step master countdown covering address updates, utility transfers, room-by-room packing schedules, and essential moving day kits.',
-        'date' => '2026-10-02',
-        'read_time' => '6 min read',
-        'img' => 'assets/img/packers-movers-hero.webp'
-    ],
-    [
-        'id' => 2,
-        'title' => 'How to Protect Fragile Glassware and LED TVs During Long-Distance Transit',
-        'slug' => 'how-to-pack-fragile-glassware-and-led-tvs',
-        'cat' => 'Packing Tips',
-        'desc' => 'Discover the 5-layer wrapping technique using virgin bubble film, foam corner protectors, and customized wooden crates for sensitive items.',
-        'date' => '2026-09-28',
-        'read_time' => '4 min read',
-        'img' => ''
-    ],
-    [
-        'id' => 3,
-        'title' => 'Packers and Movers Charges Breakdown: Estimating Interstate Shifting Costs',
-        'slug' => 'packers-and-movers-charges-breakdown-costs',
-        'cat' => 'Costs',
-        'desc' => 'Understand how BHK size, distance, toll taxes, and insurance impact moving costs, and how our Written Price Lock prevents hidden fees.',
-        'date' => '2026-09-20',
-        'read_time' => '5 min read',
-        'img' => ''
-    ],
-    [
-        'id' => 4,
-        'title' => 'IBA Approved Relocation Bills: Guide for PSU Bank & Govt Employee Claims',
-        'slug' => 'iba-approved-relocation-bills-bank-employee-guide',
-        'cat' => 'Guides',
-        'desc' => 'Everything you need to know about official IBA Code EL-8709 consignment notes, GST billing formats, and 100% reimbursement claim procedures.',
-        'date' => '2026-09-15',
-        'read_time' => '4 min read',
-        'img' => ''
-    ],
-    [
-        'id' => 5,
-        'title' => 'Safe Vehicle Transportation: Tips for Enclosed Car and Motorcycle Transit',
-        'slug' => 'safe-car-and-bike-transportation-tips-india',
-        'cat' => 'Guides',
-        'desc' => 'Key guidelines for hydraulic carrier transport, pre-dispatch condition photography, fluid drainage, and zero-scratch delivery protocols.',
-        'date' => '2026-09-10',
-        'read_time' => '5 min read',
-        'img' => ''
-    ],
-    [
-        'id' => 6,
-        'title' => 'Top 7 Things to Do on Moving Day: A Stress-Free Execution Guide',
-        'slug' => 'top-7-things-to-do-on-moving-day',
-        'cat' => 'Checklists',
-        'desc' => 'From verifying inventory sheets and container seals to guiding crew placement at your new apartment, master your final moving day.',
-        'date' => '2026-09-04',
-        'read_time' => '3 min read',
-        'img' => ''
-    ]
-];
+if (!function_exists('format_blog_date')) {
+    function format_blog_date($dateStr) {
+        if (empty($dateStr)) return date('M d, Y');
+        $clean = str_replace('/', '-', trim($dateStr));
+        $ts = strtotime($clean);
+        if ($ts !== false && $ts > 0) {
+            return date('M d, Y', $ts);
+        }
+        return $dateStr;
+    }
+}
 
 // Combine dynamic blogs from database
 $postList = [];
@@ -86,7 +34,7 @@ if (!empty($blogs)) {
             }
         }
         
-        $postDate = !empty($b->date) ? $b->date : (!empty($b->timestamp) ? date('Y-m-d', strtotime($b->timestamp)) : (!empty($b->created_at) ? $b->created_at : date('Y-m-d')));
+        $rawDate = !empty($b->date) ? $b->date : (!empty($b->timestamp) ? date('Y-m-d', strtotime($b->timestamp)) : (!empty($b->created_at) ? $b->created_at : date('Y-m-d')));
         $readTime = !empty($b->time) ? $b->time : '4 min read';
         $cat = !empty($b->tags) ? trim(explode(',', $b->tags)[0]) : 'Guides';
 
@@ -96,17 +44,15 @@ if (!empty($blogs)) {
             'slug' => $custom_slug,
             'cat' => !empty($cat) ? $cat : 'Guides',
             'desc' => substr(strip_tags($b->description), 0, 140) . '...',
-            'date' => $postDate,
+            'date' => format_blog_date($rawDate),
             'read_time' => $readTime,
             'img' => $imgPath
         ];
     }
-} else {
-    $postList = $defaultArticles;
 }
 
-$featured = $postList[0];
-$gridPosts = array_slice($postList, 1);
+$featured = !empty($postList) ? $postList[0] : null;
+$gridPosts = !empty($postList) ? array_slice($postList, 1) : [];
 ?>
 
 <!-- Breadcrumbs Banner -->
@@ -122,121 +68,125 @@ $gridPosts = array_slice($postList, 1);
 <section class="inner-section-white" id="blog-content-section" aria-label="Moving Guides and Blog Articles">
     <div class="container">
         
-        <!-- Featured Guide Section Header (H2 #1) -->
-        <div class="inner-section-header mb-4">
-            <div class="inner-section-tag">
-                <span class="inner-section-bar"></span>
-                <span>Featured Guide</span>
+        <?php if (empty($featured)): ?>
+            <!-- Empty state when no blogs are in DB -->
+            <div class="text-center py-5 my-5">
+                <i class="bi bi-journal-text fs-1 text-muted"></i>
+                <h2 class="inner-section-title fs-3 mt-3">No Articles Published Yet</h2>
+                <p class="text-secondary">Please check back soon for the latest relocation tips, guides, and company news.</p>
             </div>
-            <h2 class="inner-section-title fs-2 m-0">Featured Relocation Advice &amp; Moving Insights</h2>
-        </div>
+        <?php else: ?>
 
-        <!-- 1. Featured Top Article Card -->
-        <div class="blog-featured-card position-relative overflow-hidden mb-5">
-            <div class="row g-0 align-items-center">
-                <div class="col-12 col-lg-6 position-relative">
-                    <span class="blog-cat-badge"><?= $featured['cat'] ?></span>
-                    <?php if (!empty($featured['img']) && file_exists(FCPATH . $featured['img'])): ?>
-                        <img src="<?= base_url($featured['img']) ?>" alt="<?= htmlspecialchars($featured['title']) ?>" class="blog-featured-img" loading="lazy">
-                    <?php else: ?>
-                        <div class="gal-placeholder blog-featured-placeholder">
-                            <i class="bi bi-journal-text blog-placeholder-icon"></i>
-                            <span class="badge bg-warning text-dark px-3 py-1 rounded-pill fw-bold">Featured Guide</span>
-                        </div>
-                    <?php endif; ?>
-                </div>
-                <div class="col-12 col-lg-6 p-4 p-lg-5">
-                    <div class="d-flex align-items-center gap-3 text-muted small mb-2">
-                        <span><i class="bi bi-calendar3 me-1"></i><?= date('M d, Y', strtotime($featured['date'])) ?></span>
-                        <span>&bull;</span>
-                        <span><i class="bi bi-clock me-1"></i><?= $featured['read_time'] ?></span>
-                        <span>&bull;</span>
-                        <span class="text-success fw-bold"><i class="bi bi-patch-check-fill me-1"></i>Verified Guide</span>
-                    </div>
-                    <p class="fw-bold fs-3 text-dark mb-3">
-                        <a href="<?= site_url('blog/' . $featured['slug']) ?>" class="text-dark text-decoration-none hover-primary">
-                            <?= htmlspecialchars($featured['title']) ?>
-                        </a>
-                    </p>
-                    <p class="blog-featured-desc text-secondary mb-4">
-                        <?= htmlspecialchars($featured['desc']) ?>
-                    </p>
-                    <a href="<?= site_url('blog/' . $featured['slug']) ?>" class="btn-inner-primary">
-                        <span>Read Full Guide</span>
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section Header for Recent Guides (H2 #2) -->
-        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
-            <div>
+            <!-- Featured Guide Section Header (H2 #1) -->
+            <div class="inner-section-header mb-4">
                 <div class="inner-section-tag">
                     <span class="inner-section-bar"></span>
-                    <span>Knowledge Hub</span>
+                    <span>Featured Guide</span>
                 </div>
-                <h2 class="inner-section-title fs-2 m-0">Latest Moving Guides &amp; Checklists</h2>
+                <h2 class="inner-section-title fs-2 m-0">Featured Relocation Advice &amp; Moving Insights</h2>
             </div>
-            
-            <!-- Category Filter Pills -->
-            <div class="d-flex flex-wrap gap-2">
-                <span class="gal-filter-label active">All</span>
-                <span class="gal-filter-label">Packing Tips</span>
-                <span class="gal-filter-label">Checklists</span>
-                <span class="gal-filter-label">Costs</span>
-                <span class="gal-filter-label">Guides</span>
-            </div>
-        </div>
 
-        <!-- 3-Column Posts Grid -->
-        <div class="row g-4 mb-5">
-            <?php foreach ($gridPosts as $post): ?>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="blog-post-card">
-                        <div class="blog-post-thumb">
-                            <span class="blog-cat-badge"><?= $post['cat'] ?></span>
-                            <?php if (!empty($post['img']) && file_exists(FCPATH . $post['img'])): ?>
-                                <img src="<?= base_url($post['img']) ?>" alt="<?= htmlspecialchars($post['title']) ?>" loading="lazy">
-                            <?php else: ?>
-                                <div class="gal-placeholder">
-                                    <i class="bi bi-box-seam blog-grid-placeholder-icon"></i>
-                                    <span class="badge bg-white text-dark small px-3 py-1 rounded-pill fw-bold blog-grid-cat-pill"><?= $post['cat'] ?></span>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-
-                        <div class="p-4 d-flex flex-column flex-grow-1">
-                            <div class="d-flex align-items-center gap-2 text-muted small mb-2">
-                                <span><i class="bi bi-calendar3 me-1"></i><?= date('M d, Y', strtotime($post['date'])) ?></span>
-                                <span>&bull;</span>
-                                <span><i class="bi bi-clock me-1"></i><?= $post['read_time'] ?></span>
+            <!-- 1. Featured Top Article Card -->
+            <div class="blog-featured-card position-relative overflow-hidden mb-5">
+                <div class="row g-0 align-items-center">
+                    <div class="col-12 col-lg-6 position-relative">
+                        <span class="blog-cat-badge"><?= htmlspecialchars($featured['cat']) ?></span>
+                        <?php if (!empty($featured['img']) && file_exists(FCPATH . $featured['img'])): ?>
+                            <img src="<?= base_url($featured['img']) ?>" alt="<?= htmlspecialchars($featured['title']) ?>" class="blog-featured-img" loading="lazy">
+                        <?php else: ?>
+                            <div class="gal-placeholder blog-featured-placeholder">
+                                <i class="bi bi-journal-text blog-placeholder-icon"></i>
+                                <span class="badge bg-warning text-dark px-3 py-1 rounded-pill fw-bold">Featured Guide</span>
                             </div>
-
-                            <p class="blog-post-title fw-bold fs-5 mb-2">
-                                <a href="<?= site_url('blog/' . $post['slug']) ?>" class="text-decoration-none text-dark">
-                                    <?= htmlspecialchars($post['title']) ?>
-                                </a>
-                            </p>
-
-                            <p class="blog-post-desc text-secondary small mb-4 flex-grow-1">
-                                <?= htmlspecialchars($post['desc']) ?>
-                            </p>
-
-                            <div class="pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
-                                <a href="<?= site_url('blog/' . $post['slug']) ?>" class="blog-post-link">
-                                    <span>Read Article</span>
-                                    <i class="bi bi-arrow-right"></i>
-                                </a>
-                                <span class="badge bg-light text-secondary border small px-2 py-1 rounded-pill">
-                                    <i class="bi bi-eye me-1"></i>Moving Expert
-                                </span>
-                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col-12 col-lg-6 p-4 p-lg-5">
+                        <div class="d-flex align-items-center gap-3 text-muted small mb-2">
+                            <span><i class="bi bi-calendar3 me-1"></i><?= $featured['date'] ?></span>
+                            <span>&bull;</span>
+                            <span><i class="bi bi-clock me-1"></i><?= htmlspecialchars($featured['read_time']) ?></span>
+                            <span>&bull;</span>
+                            <span class="text-success fw-bold"><i class="bi bi-patch-check-fill me-1"></i>Verified Guide</span>
                         </div>
+                        <p class="fw-bold fs-3 text-dark mb-3">
+                            <a href="<?= site_url('blog/' . $featured['slug']) ?>" class="text-dark text-decoration-none hover-primary">
+                                <?= htmlspecialchars($featured['title']) ?>
+                            </a>
+                        </p>
+                        <p class="blog-featured-desc text-secondary mb-4">
+                            <?= htmlspecialchars($featured['desc']) ?>
+                        </p>
+                        <a href="<?= site_url('blog/' . $featured['slug']) ?>" class="btn-inner-primary">
+                            <span>Read Full Guide</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-            <?php endforeach; ?>
-        </div>
+            </div>
+
+            <?php if (!empty($gridPosts)): ?>
+                <!-- Section Header for Recent Guides (H2 #2) -->
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+                    <div>
+                        <div class="inner-section-tag">
+                            <span class="inner-section-bar"></span>
+                            <span>Knowledge Hub</span>
+                        </div>
+                        <h2 class="inner-section-title fs-2 m-0">Latest Moving Guides &amp; Checklists</h2>
+                    </div>
+                </div>
+
+                <!-- Posts Grid -->
+                <div class="row g-4 mb-5">
+                    <?php foreach ($gridPosts as $post): ?>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="blog-post-card">
+                                <div class="blog-post-thumb">
+                                    <span class="blog-cat-badge"><?= htmlspecialchars($post['cat']) ?></span>
+                                    <?php if (!empty($post['img']) && file_exists(FCPATH . $post['img'])): ?>
+                                        <img src="<?= base_url($post['img']) ?>" alt="<?= htmlspecialchars($post['title']) ?>" loading="lazy">
+                                    <?php else: ?>
+                                        <div class="gal-placeholder">
+                                            <i class="bi bi-box-seam blog-grid-placeholder-icon"></i>
+                                            <span class="badge bg-white text-dark small px-3 py-1 rounded-pill fw-bold blog-grid-cat-pill"><?= htmlspecialchars($post['cat']) ?></span>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="p-4 d-flex flex-column flex-grow-1">
+                                    <div class="d-flex align-items-center gap-2 text-muted small mb-2">
+                                        <span><i class="bi bi-calendar3 me-1"></i><?= $post['date'] ?></span>
+                                        <span>&bull;</span>
+                                        <span><i class="bi bi-clock me-1"></i><?= htmlspecialchars($post['read_time']) ?></span>
+                                    </div>
+
+                                    <p class="blog-post-title fw-bold fs-5 mb-2">
+                                        <a href="<?= site_url('blog/' . $post['slug']) ?>" class="text-decoration-none text-dark">
+                                            <?= htmlspecialchars($post['title']) ?>
+                                        </a>
+                                    </p>
+
+                                    <p class="blog-post-desc text-secondary small mb-4 flex-grow-1">
+                                        <?= htmlspecialchars($post['desc']) ?>
+                                    </p>
+
+                                    <div class="pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
+                                        <a href="<?= site_url('blog/' . $post['slug']) ?>" class="blog-post-link">
+                                            <span>Read Article</span>
+                                            <i class="bi bi-arrow-right"></i>
+                                        </a>
+                                        <span class="badge bg-light text-secondary border small px-2 py-1 rounded-pill">
+                                            <i class="bi bi-eye me-1"></i>Moving Expert
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+        <?php endif; ?>
 
         <!-- Bottom Popular Guides & Quick Moving Quote Widget -->
         <div class="row g-4 mt-2">
@@ -245,37 +195,30 @@ $gridPosts = array_slice($postList, 1);
                 <div class="inner-card p-4 h-100">
                     <p class="fw-bold fs-5 text-dark mb-3 d-flex align-items-center gap-2">
                         <i class="bi bi-fire text-warning"></i>
-                        <span>Most Read Relocation Articles</span>
+                        <span>Recent Relocation Articles</span>
                     </p>
-                    <ul class="list-unstyled m-0 d-flex flex-column gap-3">
-                        <li class="d-flex align-items-center justify-content-between gap-3 pb-2 border-bottom">
-                            <div>
-                                <a href="<?= site_url('blog/ultimate-30-day-moving-checklist-india') ?>" class="text-dark fw-bold text-decoration-none hover-primary">
-                                    10 Things to Check Before Hiring Intercity Packers & Movers
-                                </a>
-                                <div class="text-muted small">Updated for 2026 Relocations</div>
-                            </div>
-                            <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-1">Checklist</span>
-                        </li>
-                        <li class="d-flex align-items-center justify-content-between gap-3 pb-2 border-bottom">
-                            <div>
-                                <a href="<?= site_url('blog/packers-and-movers-charges-breakdown-costs') ?>" class="text-dark fw-bold text-decoration-none hover-primary">
-                                    GST Rates & Transit Insurance Claims Explained for Shifting
-                                </a>
-                                <div class="text-muted small">Official IBA EL-8709 Guidelines</div>
-                            </div>
-                            <span class="badge bg-success-subtle text-success rounded-pill px-3 py-1">Pricing</span>
-                        </li>
-                        <li class="d-flex align-items-center justify-content-between gap-3">
-                            <div>
-                                <a href="<?= site_url('blog/how-to-pack-fragile-glassware-and-led-tvs') ?>" class="text-dark fw-bold text-decoration-none hover-primary">
-                                    Room-by-Room Packing Guide for Fragile Household Items
-                                </a>
-                                <div class="text-muted small">5-Layer Protective Standard</div>
-                            </div>
-                            <span class="badge bg-warning-subtle text-warning-emphasis rounded-pill px-3 py-1">Packing</span>
-                        </li>
-                    </ul>
+                    <?php if (!empty($recent_posts)): ?>
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-3">
+                            <?php foreach (array_slice($recent_posts, 0, 4) as $pItem): 
+                                $pObj = (object)$pItem;
+                                $pSlug = !empty($pObj->slug) ? $pObj->slug : rtrim(str_replace("--", "-", urlencode(str_replace(" ", "-", str_replace(",", " ", $pObj->title)))), "-");
+                                $pCat = !empty($pObj->tags) ? trim(explode(',', $pObj->tags)[0]) : 'Guides';
+                                $pRawDate = !empty($pObj->date) ? $pObj->date : (!empty($pObj->timestamp) ? date('Y-m-d', strtotime($pObj->timestamp)) : date('Y-m-d'));
+                            ?>
+                                <li class="d-flex align-items-center justify-content-between gap-3 pb-2 border-bottom">
+                                    <div>
+                                        <a href="<?= site_url('blog/' . $pSlug) ?>" class="text-dark fw-bold text-decoration-none hover-primary">
+                                            <?= htmlspecialchars($pObj->title) ?>
+                                        </a>
+                                        <div class="text-muted small"><?= format_blog_date($pRawDate) ?></div>
+                                    </div>
+                                    <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-1"><?= htmlspecialchars($pCat) ?></span>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php else: ?>
+                        <p class="text-muted small m-0">No other articles published yet.</p>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -306,15 +249,6 @@ $gridPosts = array_slice($postList, 1);
         <?php if (!empty($this->pagination->create_links())): ?>
             <div class="d-flex justify-content-center mt-5 inner-pagination">
                 <?= $this->pagination->create_links(); ?>
-            </div>
-        <?php else: ?>
-            <div class="d-flex justify-content-center mt-5 inner-pagination">
-                <ul class="pagination">
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
-                </ul>
             </div>
         <?php endif; ?>
 
