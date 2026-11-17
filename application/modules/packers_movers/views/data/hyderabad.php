@@ -2,10 +2,8 @@
 //SELECT name as nm,latitude as lat,longitude as lon,state_code as sc FROM `cities` WHERE state_code='HB'
 $cities = array(
   array('nm' => 'Habsiguda', 'lat' => '17.3986', 'lon' => '78.5434', 'sc' => 'HB'),
-
   array('nm' => 'Ameerpet', 'lat' => '17.4353', 'lon' => '78.4484', 'sc' => 'HB'),
   array('nm' => 'Hyder Shah Kote', 'lat' => '17.39635000', 'lon' => '78.34985000', 'sc' => 'TG'),
-
   array('nm' => 'Begumpet', 'lat' => '17.4483', 'lon' => '78.4604', 'sc' => 'HB'),
   array('nm' => 'SR Nagar', 'lat' => '17.4436', 'lon' => '78.4492', 'sc' => 'HB'),
   array('nm' => 'Ramanthapur', 'lat' => '17.3986', 'lon' => '78.5434', 'sc' => 'HB'),
@@ -25,15 +23,14 @@ $cities = array(
   array('nm' => 'Nanakramguda', 'lat' => '17.4067', 'lon' => '78.3716', 'sc' => 'HB'),
   array('nm' => 'Nagole', 'lat' => '17.3689', 'lon' => '78.5751', 'sc' => 'HB'),
   array('nm' => 'L B Nagar', 'lat' => '17.3647', 'lon' => '78.5563', 'sc' => 'HB'),
-
   array('nm' => 'Prakash Nagar', 'lat' => '17.4351', 'lon' => '78.4389', 'sc' => 'HB'),
   array('nm' => 'Punjagutta', 'lat' => '17.4265', 'lon' => '78.4486', 'sc' => 'HB'),
   array('nm' => 'Balkampet', 'lat' => '17.4462', 'lon' => '78.4471', 'sc' => 'HB'),
-  // array('nm' => 'Khairtabad', 'lat' => '17.4063', 'lon' => '78.4529', 'sc' => 'HB'),
-  // array('nm' => 'Somajiguda', 'lat' => '17.4281', 'lon' => '78.4510', 'sc' => 'HB'),
-  // array('nm' => 'Raj Bhavan Road', 'lat' => '17.4261', 'lon' => '78.4525', 'sc' => 'HB'),
-  // array('nm' => 'Lakdikapool', 'lat' => '17.3982', 'lon' => '78.4672', 'sc' => 'HB'),
-  // array('nm' => 'Saifabad', 'lat' => '17.4103', 'lon' => '78.4632', 'sc' => 'HB'),
+  array('nm' => 'Khairtabad', 'lat' => '17.4063', 'lon' => '78.4529', 'sc' => 'HB'),
+  array('nm' => 'Somajiguda', 'lat' => '17.4281', 'lon' => '78.4510', 'sc' => 'HB'),
+  array('nm' => 'Raj Bhavan Road', 'lat' => '17.4261', 'lon' => '78.4525', 'sc' => 'HB'),
+  array('nm' => 'Lakdikapool', 'lat' => '17.3982', 'lon' => '78.4672', 'sc' => 'HB'),
+  array('nm' => 'Saifabad', 'lat' => '17.4103', 'lon' => '78.4632', 'sc' => 'HB'),
   // array('nm' => 'A C Guards', 'lat' => '17.4017', 'lon' => '78.4539', 'sc' => 'HB'),
   // array('nm' => 'Masab Tank', 'lat' => '17.4073', 'lon' => '78.4448', 'sc' => 'HB'),
   // array('nm' => 'Chintal Basti', 'lat' => '17.4132', 'lon' => '78.4391', 'sc' => 'HB'),
