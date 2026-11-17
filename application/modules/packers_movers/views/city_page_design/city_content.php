@@ -174,12 +174,11 @@ $htmlcontent5 = '';
 <p>Call <a href='$phonehtml'>$phone</a>, available 24x7, to discuss your move and request a written quotation. Share your inventory, pickup and delivery addresses, and preferred date so the team can plan around your requirements.</p>
   ";
 
-}
-else if (strtolower($city) == "nacharam") {
+} else if (strtolower($city) == "nacharam") {
     $htmlcontent = "
 <h2>Elite Logistics and Packers for <span class='text-danger'> Household and Office Shifting </span></h2>
 
-<p><a href='hhttps://en.wikipedia.org/wiki/Nacharam?utm_source=chatgpt.com'>Nacharam</a>, is a neighbourhood in Hyderabad, Telangana, falling under <b>Uppal Mandal in Medchal-Malkajgiri</b> district. It is part of the <b>Greater Hyderabad Municipal Corporation</b> and is known for its residential colonies and industrial area.</p>
+<p><a href='https://en.wikipedia.org/wiki/Nacharam?utm_source=chatgpt.com'>Nacharam</a>, is a neighbourhood in Hyderabad, Telangana, falling under <b>Uppal Mandal in Medchal-Malkajgiri</b> district. It is part of the <b>Greater Hyderabad Municipal Corporation</b> and is known for its residential colonies and industrial area.</p>
 <p>The locality has road and public transport connections through Habsiguda, Moula Ali and nearby parts of eastern Hyderabad.</p>
 <p>If you are shifting within HMT Nagar, moving towards Snehapuri Colony, relocating near IICT, or planning a nearby move to <em>Mallapur, Habsiguda, Tarnaka or Uppal</em>, we plan the move after checking the building entrance and vehicle access. For longer journeys, we can arrange relocation towards <em>Warangal, Vijayawada, Bengaluru, Chennai, Mumbai, Pune</em> or Delhi. We also check traffic conditions before dispatch, particularly around Nacharam Main Road and Habsiguda junction.</p>
 
@@ -247,6 +246,79 @@ else if (strtolower($city) == "nacharam") {
 <h2 class='fw-bold text-danger'>Plan Your Nacharam Move with Us</h2>
 
 <p>Share your pickup and delivery addresses, moving date and inventory with us. We will discuss the packing requirements, vehicle arrangements and expected delivery schedule before confirming the booking. Call <a href='$phonehtml'>$phone</a>, or email info@elitelogistics.in for a written quotation. We are available 24x7 to discuss household, office and vehicle relocation.</p>
+  ";
+
+} else if (strtolower($city) == "borabanda") {
+    $htmlcontent = "
+<h2>Moving Services for Residences,<span class='text-danger'> Offices and Vehicles in Borabanda</span></h2>
+
+<p><a href='https://en.wikipedia.org/wiki/Borabanda'>Borabanda</a>, is a residential area in Hyderabad, Telangana. It is part of the Greater Hyderabad Municipal Corporation. It is surrounded by <em>Erragadda, Kukatpally, Jubilee Hills and Madhapur</em>. There is a MMTS train station and TSRTC buses in the area.</p>
+<p>When moving within the area of Borabanda, you should consider the road width, parking space and road conditions. When moving within Moti Nagar, to Kalyan Nagar, near Rana Pratap Nagar or near <a href='erragadda-packers-movers-telangana'>Erragadda</a>, <a href='yousufguda-packers-movers-hyderabad'>Yousufguda</a>, <a href='kukatpally-packers-movers-hyderabad'>Kukatpally</a> and <a href='madhapur-packers-movers-hyderabad'>Madhapur</a> we will plan your vehicle and loading around these specific locations. We can also move further distances to <a href='warangal-packers-movers-telangana'>Warangal</a>, Vijayawada, Bengaluru, Chennai, Mumbai, Pune and Delhi. We will ensure the route is accessible and the delivery can be made. As we move to IT and business areas in Hyderabad we will ensure this is possible./p>
+<p>We at <strong>Elite Logistics and Packers</strong> can help you move your home, office, car and bike. We can pack, load and move your home. We offer our services to over 250+ cities. Contact us on <a href='$phonehtml'>96668 97070.</a></p>
+
+  ";
+
+  $htmlcontent1 = "
+<div class='why-choose-content'>
+<h2>Why Choose Us For Your Borabanda Move?</h2>
+<div class='why-choose-list'>
+<p><span class='fw-bold'>40+ Years+ of Experience</span>: For 40+ years we have been providing moving services.</p>
+<p><span class='fw-bold'>65,000+ Moves Completed</span>: Over 65,000+ family moves have been completed.</p>
+<p><span class='fw-bold'>4.8 Star Rating</span>: A 4.8 Star rating and 398+ review count.</p>
+<p><span class='fw-bold'>250+ Cities Coverage</span>:  We can help with your domestic moves.</p>
+<p><span class='fw-bold'>Vehicles</span>: We offer 14ft, 17ft and 20ft enclosed trucks plus mini cargo vehicles.</p>
+<p><span class='fw-bold'>Written price-lock quotation</span>: We provide written estimates based on the agreed moving requirements.</p>
+<p><span class='fw-bold'>Packing</span>: We can help you pack your items using protective materials. We can also use wooden crates for suitable items. We can also offer GPS vehicles and transit insurance.</p>
+</div>
+
+<h3>Plan Your Shift Today</h3>
+
+<p>Looking for the best packers and movers in $city for your relocation? Tell us your requirements and ask for a written quotation. Contact Us: <a href='$phonehtml'>$phone</a>.</p>
+<h3>Packing and Moving Locally</h3>
+<p>If you are moving a small home in Tulasi Nagar you may need a different arrangement to a larger apartment in Moti Nagar. We will talk through what you have, which floor, lift access and society times. We will pack your items such as furniture, appliances and fragile kitchen items. We can use bubble wrap, corrugated sheets, foam and stretch film. We can also use wooden crates for sensitive items.</p>
+<p>If you are moving your office we can plan this separately. If you are moving to Madhapur or HITEC City you may have computers, workstations and files. We recommend knowing what vital equipment you have so you can unload and set them up.
+</p>
+</div>
+  ";
+
+  $htmlcontent2 = "
+<h3>Our Relocation Process</h3>
+
+<p><strong>Step 1</strong> We start the process by gathering information like date of moving, pickup and delivery location, inventory, floor access and special handling requirements. Based on this information, we prepare a written quotation.</p>
+
+<p><strong>Step 2</strong> Our team visits on the scheduled date along with the required packing material. The furniture is protected, extra cushioning is provided to the fragile items and packing boxes are arranged in an orderly manner to ease the process of unloading.</p>
+
+<p><strong>Step 3</strong> Loading of the items is done carefully into the right vehicle. The transport team travels via the planned route.</p>
+
+<p><strong>Step 4</strong> Our staff delivers the consignment at the designated place, where the items are unloaded by our staff.</p>
+
+
+  ";
+
+  $htmlcontent3 = "
+<h3 class='fw-bold text-navy fs-3 mb-3 border-start border-danger border-3 ps-3'> Latest Local Updates & Road Conditions in Borabanda</h3>
+
+<p>There are concerns about the road conditions in the area. A report was published on 11 February 2026 stating there are potholes, bumpy roads and narrow roads between Janapriya Apartments, Hemavathi Nagar and Don Bosco School. There are regular traffic jams near the junction of Moti Nagar and Karmika Nagar and the bus stop. This can cause issues when moving larger items.</p>
+<p>There have also been issues with the roads in the area due to civic issues. In October 2025 Peddamma Nagar, Sairam Nagar, Raj Nagar and Ambedkar Nagar reported the roads were in poor condition and muddy due to underground sewage pipes being replaced. GHMC officials have stated they are repairing the roads. As this is from 2025 it doesn’t mean they are still in a poor condition now, however this shows you should check the exact road you will be collecting from.</p>
+
+<p>There has also been a look into improving the connections. On 1 October 2026 Cyberabad Municipal Corporation officials looked into improving connections across the Lingampally-Borabanda MMTS railway line. This could include using an underpass, flyovers and widening some of the over bridges.</p>
+<p>If you are moving near the bus stop or in Moti Nagar we will talk through the entrance to the building, parking space and how far away the loading vehicle will be. If the road is too narrow for a large truck we may use a smaller vehicle.</p>
+
+
+  ";
+
+  $htmlcontent4 = "
+
+<h3>Our Customer Testimonials</h3>
+<p>Rahul Mehta has left a testimonial stating he had a 2BHK move. He mentions the items were well packed, delivered quickly and there were no damages. This is helpful to remind you when moving your family from Borabanda to ensure your furniture, appliances and fragile items are safe.</p>
+<p>Amit Verma has left a testimonial stating he had an office move over the weekend. He mentions his workstations and files had been set up before the next working hours. This is helpful if you are moving your business from Borabanda to Madhapur or another office area.</p>
+  ";
+
+  $htmlcontent5 = "
+<h2 class='fw-bold text-danger'>Plan Your Move With Us</h2>
+
+<p>Tell us your collection and delivery address, what you have to move and when you would like to move. We can then give you a quote. We will talk through what size of vehicle, packing materials, transit insurance and delivery times you would like. Contact us on <a href='$phonehtml'>$phone</a>, to plan your home, office or vehicle move with Elite Logistics and Packers.</p>
+
   ";
 
 } else if (strtolower($state) == "hyderabad") {
